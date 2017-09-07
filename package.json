@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node_modules/.bin/webpack-dev-server"
+    "webdev": "node_modules/.bin/webpack-dev-server",
+    "webpack": "./node_modules/.bin/webpack --w",
+    "start": "nodemon ./server/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +27,7 @@
     "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "material-ui": "^1.0.0-beta.8",
     "react": "^15.6.1",
