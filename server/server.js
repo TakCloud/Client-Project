@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParse = require('body-parser');
+const mailParser = require('./controllers/mailParser.js')
+// const message = require('../../../msg.txt')
+// const MailParser = require('mailparser').simpleParser()
 
 app.use(bodyParse());
 app.use(express.static('client'));
@@ -14,6 +17,10 @@ app.get('/build', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/bundle.js'));
 });
 
+app.post('/alex', mailParser)
+app.get('/alex', (req,res) => {
+  res.send('hello')
+})
 
 // app.use('/assets', express.static('client'));
 
