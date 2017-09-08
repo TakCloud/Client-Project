@@ -1,23 +1,28 @@
+//Generally a good practice to import webpack
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: './client/index.js',
+  context: path.resolve(__dirname, 'client'),
+  entry: {
+    app: ['./index.js'],
+  },
   output: {
-    path: path.join(__dirname, '/client'),
-    publicPath: '/client',
+    path: path.resolve(__dirname, 'build'),
+    publicPath: '/client/',
     filename: 'bundle.js',
   },
+  resolve: {
+    extensions: ['.js', '.json', '.jsx', 'jsonp'],
+  },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /jsx?/,
-        exclude: /node_modules/,
+        test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         query: {
-          presets: [
-            'es2015', 'react',
-          ],
-          plugins: ['transform-class-properties'],
+          presets: ['es2015', 'react','stage-0'],
+          plugins: [ "transform-class-properties" ]
         },
       },
       {
@@ -25,6 +30,14 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['eslint-loader'],
       },
+      // {
+      //   test: /\.scss$/,
+      //   use: [
+      //     { loader: "style-loader" }, 
+      //     { loader: "css-loader" }, 
+      //     { loader: "sass-loader" }
+      //   ],
+      // },
     ],
   },
 };
