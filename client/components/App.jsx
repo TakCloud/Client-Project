@@ -1,11 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import message from './firstMessage';
 
 class App extends React.Component {
   state = {
-    email: 'https://mail.google.com/mail/u/0/?ui=2&ik=86e224004a&jsver=EfWGX3tyASk.en.&view=om&th=15e53d361fd8eec2',
-  }
+    email: message,
+  };
   poster = () => {
+    console.log('this is this.state.email,', this.state.email)
     axios.post('/alex', this.state.email)
       .then(() => {
         // console.log('this is response', response);
