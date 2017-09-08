@@ -7,7 +7,6 @@ const mailParser = require('./controllers/mailParser.js');
 // const MailParser = require('mailparser').simpleParser()
 
 app.use(express.static('build'));
-app.use(express.static('client'));
 
 //allow CORs
 app.use((request, response, next) => {
@@ -36,6 +35,9 @@ app.get('http://localhost:8080/alex', (req,res) => {
 });
 // app.use('/assets', express.static('client'));
 
+app.listen(8080, () => {
+  console.log('now listening on 8080!');
+});
 app.listen(3000, () => {
   console.log('now listening on 3000!');
 });
