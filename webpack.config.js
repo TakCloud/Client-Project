@@ -13,7 +13,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.json', '.jsx'],
+    extensions: ['.js', '.json', '.jsx', 'jsonp'],
   },
   module: {
     rules: [
@@ -21,7 +21,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react'],
+          presets: ['es2015', 'react','stage-0'],
           plugins: [ "transform-class-properties" ]
         },
       },
@@ -38,33 +38,6 @@ module.exports = {
       //     { loader: "sass-loader" }
       //   ],
       // },
-      // {
-      //   test: /\.(gif|png|jpe?g|svg)$/i,
-      //   loaders: [
-      //     {
-      //       loader: 'file-loader',
-      //       // options: {
-      //       //   name: 'assets/[name].[ext]'
-      //       // }
-      //     },
-      //      {		         
-      //       loader: 'image-webpack-loader',		
-      //       options: {		
-      //         query: {		
-      //           mozjpeg: {		
-      //             progressive: true,		
-      //           },		
-      //           gifsicle: {		
-      //             interlaced: true,		
-      //           },		
-      //           optipng: {		
-      //             optimizationLevel: 7,		
-      //           },		
-      //         }		
-      //       },		
-      //     }
-      //   ]
-      // }
     ],
   },
 };
