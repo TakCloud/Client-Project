@@ -35,12 +35,12 @@ app.get("/login", (req,res) => {
 app.post("/signup",
   loginSignupController.createUser,
   (req,res, next) => {
-    console.log(req.body ,"request body from sign up")
+    console.log(req.body ,"request body from post request tosign up")
     res.redirect('/')
 });
 app.post("/login", 
   (req,res,next) => {
-    console.log(req.body ,"request body from sign up")
+    console.log(req.body ,"request body from post request to login")
     res.redirect('/login')
 });
 

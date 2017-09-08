@@ -1,31 +1,55 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import App from './App';
 
 class Login extends Component {
   state = {
     users: [],
-    pass: [],
+    passes: [],
+    userSign: '',
+    passSign: '',
+    userLog: '',
+    passLog: '',
     validated: false,
     signup: false,
   }
-  validator = () => {
-    this.setState({ validated: true, signup: false });
-    console.log(this.state.validated, 'this is validated');
+  handlerChangeUserSign = (e) => {
+    this.setState({ userSign: e.target.value });
+  };
+  handlerChangePassSign = (e) => {
+    this.setState({ passSign: e.target.value });
+  };
+  handlerChangeUserLog = (e) => {
+    this.setState({ userLog: e.target.value });
+  };
+  handlerChangePassLog = (e) => {
+    this.setState({ passLog: e.target.value });
+  };
+  validator = (e) => {
+    e.preventDefault();
+    const data = { user: this.state.userLog, pass: this.state.passLog };
+    axios.post('/login', data).then(() => {
+      this.setState({ validated: true });
+    });
+  };
+  signed = () => {
+    this.setState({ signup: false, userSign: '', passSign: '' });
+    const data = { user: this.state.userSign, pass: this.state.passSign };
+    axios.post('/signup', data);
   };
   signupPage = () => {
     this.setState({ signup: true });
-    console.log(this.state.signup, 'this is signup');
   };
   render() {
     if (this.state.signup) {
       return (
         <div>
-          <form id="signup" action="/signup" method="POST">
-            <input id="user" name="user" placeholder="user" type="text" />
+          <form id="signup">
+            <input id="user" name="user" placeholder="user" type="text" onChange={this.handlerChangeUserSign} />
             <br />
-            <input id="pass" name="pass" placeholder="pass" type="text" />
+            <input id="pass" name="pass" placeholder="pass" type="text" onChange={this.handlerChangePassSign} />
             <br />
-            <button id="submit" type="submit">Sign Up!!</button>
+            <button id="submit" type="submit" onClick={this.signed}>Sign Up!!</button>
           </form>
         </div>
       );
@@ -37,10 +61,10 @@ class Login extends Component {
     }
     return (
       <div>
-        <form id="login" action="/login" method="POST">
-          <input id="user" name="user" placeholder="user" type="text" />
+        <form id="login">
+          <input id="user" name="user" placeholder="user" type="text" onChange={this.handlerChangeUserLog} />
           <br />
-          <input id="pass" name="pass" placeholder="pass" type="text" />
+          <input id="pass" name="pass" placeholder="pass" type="text" onChange={this.handlerChangePassLog} />
           <br />
           <button id="submit" type="submit" onClick={this.validator}>Log In</button>
         </form>

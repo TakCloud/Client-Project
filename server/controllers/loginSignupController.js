@@ -16,7 +16,7 @@ loginSignupController.createUser = (req, res, next) => {
     pass: req.body.pass
   }
   loginSignupController.temporaryDB.push(obj)
-  console.log(loginSignupController.temporaryDB)
+  console.log(loginSignupController.temporaryDB, 'this is addition to temp usersdb')
   next()
 };
 
