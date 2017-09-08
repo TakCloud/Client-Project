@@ -7,13 +7,11 @@ class App extends React.Component {
     email: message,
   };
   poster = () => {
-    console.log('this is this.state.email,', this.state.email)
     axios.post('/alex', this.state.email)
       .then(() => {
-        // console.log('this is response', response);
         window.location = '/alex ';
       });
-  }
+  };
 
   render() {
     return (
