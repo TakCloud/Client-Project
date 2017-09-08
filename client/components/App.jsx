@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import message from './firstMessage';
+import message from './../messages/firstMessage';
 
 class App extends React.Component {
   state = {
