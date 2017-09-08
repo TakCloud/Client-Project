@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get("/", (req,res) => {
-  res.sendFile(path.join(__dirname, '../client/login.html'));
+  res.sendFile(path.join(__dirname, '../index.html'));
 });
 app.get("/signup", (req,res) => {
   res.sendFile(path.join(__dirname, '../client/signup.html'));
@@ -42,14 +42,7 @@ app.post("/login",
   (req,res,next) => {
     console.log(req.body ,"request body from sign up")
     res.redirect('/login')
-    
 });
-
-
-
-
-
-
 
 app.get("/assets/style.css", (req,res) => {
   res.sendFile(path.join(__dirname, '../client/assets/style.css'));
