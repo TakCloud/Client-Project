@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mailParser = require('./controllers/mailParser');
 const loginSignupController = require('./controllers/loginSignupController');
 const cookieController = require('./controllers/cookieController')
-const sessionController = require('./controllers/sessionController')
+const memberController = require('./controllers/memberController')
 // const message = require('../../../msg.txt')
 // const MailParser = require('mailparser').simpleParser()
 
@@ -28,20 +28,22 @@ app.get("/", (req,res) => {
 app.get("/signup", (req,res) => {
   res.sendFile(path.join(__dirname, '../client/signup.html'));
 });
-app.get("/login", (req,res) => {
-  res.sendFile(path.join(__dirname, '../index.html'));
-});
-// app.get("/users", loginSignupController.getAllUsers);
+app.get("/login",
+  (req,res) => {
+    res.sendFile(path.join(__dirname, '../index.html'));
+  }
+);
 app.post("/signup",
-  loginSignupController.createUser,
+  memberController.createUser,
   (req,res, next) => {
     console.log(req.body ,"request body from post request tosign up")
     res.redirect('/')
 });
-app.post("/login", 
+app.post("/login",
+  cookieController.setSSIDCookie,
   (req,res,next) => {
-    console.log(req.body ,"request body from post request to login")
-    res.redirect('/login')
+    console.log(req.body ,"request body from post request to login");
+    res.redirect('/login');
 });
 
 app.get("/assets/style.css", (req,res) => {
@@ -58,7 +60,4 @@ app.get('/alex', (req,res) => {
 
 app.listen(8080, () => {
   console.log('now listening on 8080!');
-});
-app.listen(3000, () => {
-  console.log('now listening on 3000!');
 });

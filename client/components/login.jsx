@@ -27,14 +27,26 @@ class Login extends Component {
   };
   validator = (e) => {
     e.preventDefault();
-    const data = { user: this.state.userLog, pass: this.state.passLog };
+    const data = {
+      cookieSetter: {
+        user: this.state.userLog,
+        pass: this.state.passLog,
+        _id: '23423423432',
+      },
+    };
     axios.post('/login', data).then(() => {
       this.setState({ validated: true });
     });
   };
   signed = () => {
     this.setState({ signup: false, userSign: '', passSign: '' });
-    const data = { user: this.state.userSign, pass: this.state.passSign };
+    const data = {
+      modifications: {
+        user: this.state.userSign,
+        pass: this.state.passSign,
+        _id: '',
+      },
+    };
     axios.post('/signup', data);
   };
   signupPage = () => {

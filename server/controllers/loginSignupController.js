@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const path = require('path')
+const messageController = require('./messageController')
 
 const loginSignupController = {
   temporaryDB: []

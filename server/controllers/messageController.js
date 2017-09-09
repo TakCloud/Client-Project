@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const vars = require('./utils/templates/webpackVars.js');
 
 module.exports = {
   emailModifier(req, res, next) {
@@ -18,8 +17,8 @@ module.exports = {
       if (options.text) currentEmail.text = options.text;
       if (options.html) currentEmail.html = options.html;
       if (options.attachments) currentEmail.attachments = options.attachments;
-      const pkgJson = JSON.stringify(currentEmail, null, 1);
-      fs.writeFile(path.join(__dirname, './../store/polymerUI/package.json'), pkgJson, (error) => {
+      const modifiedCurrentEmail = JSON.stringify(currentEmail, null, 1);
+      fs.writeFile(path.join(__dirname, '../../client/messages/firstMessage.json'), modifiedCurrentEmail, (error) => {
         if (error) throw error;
         next();
       });
