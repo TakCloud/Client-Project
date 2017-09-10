@@ -3,9 +3,9 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const mailParser = require('./controllers/mailParser');
-const loginSignupController = require('./controllers/loginSignupController');
 const cookieController = require('./controllers/cookieController')
 const memberController = require('./controllers/memberController')
+const messageController = require('./controllers/messageController')
 // const message = require('../../../msg.txt')
 // const MailParser = require('mailparser').simpleParser()
 
@@ -52,7 +52,8 @@ app.get("/assets/style.css", (req,res) => {
 app.get('/build/bundle.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/bundle.js'));
 });
-app.post('/alex', mailParser);
+app.post('/alex', messageController.emailModifier);
+// app.post('/alex', mailParser);
 app.get('/alex', (req,res) => {
   //i need middleware here to access an array of the DB's contents
   res.send('hello');

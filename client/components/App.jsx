@@ -1,13 +1,16 @@
 import React from 'react';
 import axios from 'axios';
-import message from './../messages/firstMessage';
+import message from '../../client/messages/firstMessage.json';
+// import message from './../messages/firstMessage.json';
 
 class App extends React.Component {
-  state = {
-    email: message,
-  };
+  // state = {
+  //   message: '',
+  // }
   poster = () => {
-    axios.post('/alex', this.state.email)
+    // this currentEmail is currently coming from firstMessage.json
+    // but it needs to come from and OAuth id or email buffer
+    axios.post('/alex', message)
       .then(() => {
         window.location = '/alex ';
       });
@@ -17,6 +20,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Hello</h1>
+        {/* <input type="email" /> */}
         <input type="submit" value="Submit" onClick={this.poster} />
       </div>
     );

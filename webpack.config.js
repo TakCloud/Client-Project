@@ -13,7 +13,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.json', '.jsx', 'jsonp'],
+    extensions: ['.js', '.json', '.jsx'],
   },
   module: {
     rules: [
@@ -30,6 +30,10 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['eslint-loader'],
       },
+      {
+        test: /\.json$/,
+        loader: "json-loader",
+      },
       // {
       //   test: /\.scss$/,
       //   use: [
@@ -39,5 +43,8 @@ module.exports = {
       //   ],
       // },
     ],
+  },
+  node: {
+    fs: 'empty',
   },
 };
