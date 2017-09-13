@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",  
+  "parser": "babel-eslint",
   "extends": "airbnb",
   "root": true,
   "env": {
@@ -12,19 +12,17 @@
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true,
-      "experimentalObjectRestSpread": true
+      "experimentalObjectRestSpread": true,
     }
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "jsx-a11y/href-no-hash": "off"
   },
   "globals": {
     "__dirname": true
   },
   "plugins": [
     "react",
-    "jsx-a11y",
     "import"
   ]
 }

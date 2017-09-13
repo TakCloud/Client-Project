@@ -24,6 +24,7 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.3.0",
     "mailparser": "^2.0.5",
+    "nodemon": "^1.12.0",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
   },
@@ -35,10 +36,12 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "material-ui": "^1.0.0-beta.8",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2"
   }
 }

@@ -1,5 +1,3 @@
-//Generally a good practice to import webpack
-const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -13,16 +11,16 @@ module.exports = {
     filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.json', '.jsx', 'jsonp'],
+    extensions: ['.js', '.json', '.jsx'],
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /jsx?/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react','stage-0'],
-          plugins: [ "transform-class-properties" ]
+          presets: ['es2015', 'react'],
+          plugins: ['transform-class-properties'],
         },
       },
       {
@@ -30,14 +28,17 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['eslint-loader'],
       },
-      // {
-      //   test: /\.scss$/,
-      //   use: [
-      //     { loader: "style-loader" }, 
-      //     { loader: "css-loader" }, 
-      //     { loader: "sass-loader" }
-      //   ],
-      // },
+      {
+        test: /\.scss$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ],
+      },
     ],
+  },
+  node: {
+    fs: 'empty',
   },
 };
