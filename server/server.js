@@ -3,9 +3,16 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const mailParser = require('./controllers/mailParser');
-const loginSignupController = require('./controllers/loginSignupController');
-const cookieController = require('./controllers/cookieController')
-const sessionController = require('./controllers/sessionController')
+const fs = require('fs');
+const readline = require('readline');
+const google = require('googleapis');
+const googleAuth = require('google-auth-library');
+const cookieController = require('./controllers/cookieController');
+const memberController = require('./controllers/memberController');
+const messageController = require('./controllers/messageControllerRequired');
+const OauthToken = require('./client_secret.json')
+const authUrlProvider = require('./controllers/authUrlProvider')
+const tokenFiler = require('./controllers/tokenFiler')
 // const message = require('../../../msg.txt')
 // const MailParser = require('mailparser').simpleParser()
 
@@ -28,37 +35,97 @@ app.get("/", (req,res) => {
 app.get("/signup", (req,res) => {
   res.sendFile(path.join(__dirname, '../client/signup.html'));
 });
-app.get("/login", (req,res) => {
-  res.sendFile(path.join(__dirname, '../index.html'));
-});
-// app.get("/users", loginSignupController.getAllUsers);
 app.post("/signup",
-  loginSignupController.createUser,
+  memberController.createUser,
   (req,res, next) => {
-    console.log(req.body ,"request body from post request tosign up")
+    console.log(req.body ,"request body from post request tosign up");
     res.redirect('/')
 });
-app.post("/login", 
+app.get("/login", 
+  (req,res) => {
+    res.sendFile(path.join(__dirname, '../index.html'));
+  }
+);
+let oathInfo;
+app.post("/login",
+  authUrlProvider,
   (req,res,next) => {
-    console.log(req.body ,"request body from post request to login")
-    res.redirect('/login')
-});
+    console.log(res.locals, ' second middleware was hit res.locals.auth');
+    oathInfo = res.locals;
+    res.send(res.locals);
+  }
+  //this middleware will allow us to manipulate the access_token.json file so that it can add multiple access_tokens
+  //as of now the jsonfile can only hold one token at a time
 
+  // (req,res,next) => {
+  //   console.log('third middleWare was hit')
+  //   console.log(res.locals)
+  //   if(res.locals.token) {
+  //     console.log(res.locals.token, 'this is res.locals token')
+  //     const token = JSON.parse(res.locals.token)["access_token"]
+  //     console.log(token , ' this is the server side res.locals');
+  //     fs.readFile(path.join(__dirname, './access_token.json'), 'utf8', (err, data) => {
+  //       if (err) throw err;
+  //       if(!data.token) {
+  //         data = {token}
+  //         const pkgJson = JSON.stringify(data);
+  //         fs.writeFile(path.join(__dirname, './access_token.json'), pkgJson, (error) => {
+  //           if (error) throw error;
+  //           res.send(pkgJson)
+  //         });
+  //       } else {
+  //         console.log(data,' this is data')
+  //         const pkg = JSON.parse(data);
+  //         pkg.tokens = token
+  //         console.log(pkg, ' this is pkg')
+  //         const pkgJson = JSON.stringify(pkg);
+  //         fs.writeFile(path.join(__dirname, './access_token.json'), pkgJson, (error) => {
+  //           if (error) throw error;
+  //           res.send(pkgJson)
+  //         });
+  //       }
+  //     });
+  //   } else {res.send("hello")}
+  // }
+  // res.redirect('/login');
+);
 app.get("/assets/style.css", (req,res) => {
   res.sendFile(path.join(__dirname, '../client/assets/style.css'));
 });
 app.get('/build/bundle.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/bundle.js'));
 });
-app.post('/alex', mailParser);
+app.post('/alex',
+  messageController.emailModifier,
+  mailParser
+  );
+// app.post('/alex', mailParser);
 app.get('/alex', (req,res) => {
   //i need middleware here to access an array of the DB's contents
   res.send('hello');
 });
+app.get('/oauth/', 
+  (req,res,next) => {
+    res.locals.code = req.query.code;
+    res.locals.oauth2Client = oathInfo.oauth2Client;
+    console.log(res.locals.code, ' this is the code to feed the tokenFiler');
+    console.log(oathInfo.oauth2Client, 'this is oathInfo Function');
+    next();
+  },
+  tokenFiler,
+  (req,res,next) => {
+  res.sendFile(path.join(__dirname, '../index.html'));
+});
+
+//an example of how express.Router() could make this above process easier
+
+// const oauthRouter = express.Router();
+// oauthRouter.get('/oauth', (req,res) => {
+//   console.log(req.params, ' this is req.params')
+//   res.sendFile(path.join(__dirname, '../index.html'));
+// });
+// app.use('/oauth', oauthRouter);
 
 app.listen(8080, () => {
   console.log('now listening on 8080!');
-});
-app.listen(3000, () => {
-  console.log('now listening on 3000!');
 });
