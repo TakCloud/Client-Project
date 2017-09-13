@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Login from './components/login';
+import App from './components/App';
 
 
 render(
-  <Login />,
+  <App />,
   document.getElementById('content'),
 );
 
