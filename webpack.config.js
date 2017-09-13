@@ -18,11 +18,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /jsx?/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react','stage-0'],
-          plugins: [ "transform-class-properties" ]
+          presets: ['es2015', 'react'],
+          plugins: ['transform-class-properties']
         },
       },
       {
@@ -32,16 +32,16 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        loader: "json-loader",
+        loader: 'json-loader',
       },
-      // {
-      //   test: /\.scss$/,
-      //   use: [
-      //     { loader: "style-loader" }, 
-      //     { loader: "css-loader" }, 
-      //     { loader: "sass-loader" }
-      //   ],
-      // },
+      {
+        test: /\.scss$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ],
+      },
     ],
   },
   node: {

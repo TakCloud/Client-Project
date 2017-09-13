@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import message from '../../client/messages/firstMessage.json';
+import message from '../messages/messageTest';
 // import message from './../messages/firstMessage.json';
 
 class App extends React.Component {
@@ -19,7 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hello</h1>
+        <h1>WAITING...</h1>
         {/* <input type="email" /> */}
         <input type="submit" value="Submit" onClick={this.poster} />
       </div>

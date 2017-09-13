@@ -34,8 +34,9 @@ class Login extends Component {
         _id: '23423423432',
       },
     };
-    axios.post('/login', data).then(() => {
-      this.setState({ validated: true });
+    axios.post('/login', data).then((res) => {
+      window.location = res.data.authUrl;
+      // this.setState({ validated: true }); // this would also render the view that we need
     });
   };
   signed = () => {

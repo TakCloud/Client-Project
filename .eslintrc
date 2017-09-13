@@ -13,18 +13,17 @@
     "ecmaFeatures": {
       "jsx": true,
       "experimentalObjectRestSpread": true
+      //"modules": true,
     }
   },
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "jsx-a11y/href-no-hash": "off"
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   },
   "globals": {
     "__dirname": true
   },
   "plugins": [
     "react",
-    "jsx-a11y",
     "import"
   ]
 }
