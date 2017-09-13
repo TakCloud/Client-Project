@@ -1,0 +1,10 @@
+{
+  "from": "noreply@github.com",
+  "to": "alexhong742@gmail.com",
+  "cc": "none",
+  "bcc": "none",
+  "subject": "firstMessage attempt",
+  "text": "this rocks",
+  "html": "<p> this rocks </p>",
+  "attachments": "none"
+}
