@@ -35,6 +35,8 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
+    "google-auth-library": "^0.11.0",
+    "googleapis": "^21.3.0",
     "material-ui": "^1.0.0-beta.8",
     "pg": "^7.3.0",
     "prop-types": "^15.5.10",
