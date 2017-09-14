@@ -33,8 +33,6 @@ app.post('/login',
   authUrlProvider,
   (req, res) => {
     console.log(res.locals, ' res.locals.auth to be sent to frontend');
-    //  response is sending the authURL to the frontend so that
-    //  the front end can call window.location on the authURL
     res.send(res.locals);
   },
 );

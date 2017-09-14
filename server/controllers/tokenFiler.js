@@ -25,7 +25,7 @@ module.exports = (req, res, next) => {
   oauth2Client.getToken(res.locals.code, (err, token) => {
     if (err) {
       console.log('Error while trying to retrieve access token', err);
-      oauth2Client.isSignedIn()
+      oauth2Client.isSignedIn();
       return;
     }
     //  Left in oauth2Client.credentials for quicker queries for
