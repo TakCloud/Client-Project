@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
     try {
       fs.mkdirSync(TOKEN_DIR);
     } catch (err) {
-      if (err.code !== 'EEXIST') {
+      if (err.code !== 'EXIST') {
         throw err;
       }
     }
@@ -25,7 +25,6 @@ module.exports = (req, res, next) => {
   oauth2Client.getToken(res.locals.code, (err, token) => {
     if (err) {
       console.log('Error while trying to retrieve access token', err);
-      oauth2Client.isSignedIn()
       return;
     }
     //  Left in oauth2Client.credentials for quicker queries for
