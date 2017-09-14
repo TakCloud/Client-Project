@@ -1,5 +1,5 @@
 const fs = require('fs');
-const oauth2Client = require('./oauthCreator');
+const oauth2Client = require('./oauthCreator').oauth2Client;
 
 module.exports = (req, res, next) => {
   // res.locals which can now be used to set the appCode and oauth2Client function in tokenFiler.js
