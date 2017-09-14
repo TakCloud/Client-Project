@@ -1,4 +1,3 @@
-const oauth2Client = require('./oauthCreator').oauth2Client;
 const url = require('./oauthCreator').url;
 
 module.exports = (req, res, next) => {
