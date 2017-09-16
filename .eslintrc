@@ -17,6 +17,8 @@
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-unused-vars": 0,
+    "no-undefined": 0,
   },
   "globals": {
     "__dirname": true
