@@ -20,7 +20,7 @@ module.exports = {
         loader: 'babel-loader',
         query: {
           presets: ['es2015', 'react'],
-          plugins: ['transform-class-properties'],
+          plugins: ['transform-class-properties', 'transform-es3-property-literals', 'transform-es3-member-expression-literals'],
         },
       },
       {
