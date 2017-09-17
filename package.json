@@ -23,7 +23,6 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.3.0",
-    "mailparser": "^2.0.5",
     "nodemon": "^1.12.0",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
@@ -38,6 +37,7 @@
     "google-auth-library": "^0.11.0",
     "googleapis": "^21.3.0",
     "material-ui": "^1.0.0-beta.8",
+    "nodemailer": "^4.1.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

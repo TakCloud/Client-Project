@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 const authUrlProvider = require('./controllers/authUrlProvider');
 const tokenFiler = require('./controllers/tokenFiler');
+const messageSender = require('./controllers/messageSender');
 
 const app = express();
 app.use(express.static('./../build'));
@@ -24,29 +25,10 @@ app.get('/', (req, res) => {
 app.get('/build/bundle.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/bundle.js'));
 });
-app.get('/login',
-  (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
-  },
-);
-app.post('/login',
-  authUrlProvider,
-  (req, res) => {
-    console.log(res.locals, ' res.locals.auth to be sent to frontend');
-    res.send(res.locals);
-  },
-);
-app.get('/oauth',
-  (req, res, next) => {
-    res.locals.code = req.query.code;
-    next();
-  },
-  tokenFiler,
-  (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
-  },
-);
+app.post('/oauthlogin', authUrlProvider);
+app.get('/oauth', tokenFiler);
+app.post('/sendmail', messageSender);
 
 app.listen(8080, () => {
-  console.log('now listening on 8080!');
+  console.log('now listening on 8080! \n');
 });
