@@ -35,7 +35,7 @@ module.exports = (req, res) => {
         console.log(`Token stored locally at Credentials Folder: ${TOKEN_PATH}`);
         fs.readFile(path.join(__dirname, '../access_token.json'), 'utf8', (err, data) => {
           if (err) throw err;
-          const pkg = JSON.parse(data);
+          const pkg = data;
           console.log(token, 'this is the token');
           console.log(pkg, 'this is the package');
           const pkgJson = JSON.stringify(pkg, null, 1);
@@ -50,7 +50,7 @@ module.exports = (req, res) => {
   };
   transporter.verify((err, success) => {
     if (err) {
-      console.log('transporter is connected but needs to use refreshToken to issue new Token', JSON.parse(accessToken));
+      console.log('Error:   Token cannot be used to authenticate!', JSON.parse(JSON.stringify(accessToken)), 'accessToken');
       oauth2Client.getToken(req.query.code, (errr, token) => {
         if (errr) {
           console.log('Error while trying to retrieve access token w/current CODE: ', errr);

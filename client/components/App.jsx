@@ -22,8 +22,8 @@ class App extends Component {
         <div>
           <Route exact path="/" component={LoginForm} />
           <Route path="/signup" component={SignupForm} />
-          <button id="submit" type="submit" onClick={this.validator}>LOGIN</button>
-          <button id="sendmail" type="sendmail" onClick={this.emailSender}>SEND MAIL</button>
+          <button id="submit" type="submit" onClick={this.validator}>LOGIN WITH OAUTH</button>
+          <button id="sendmail" type="submit" onClick={this.emailSender}>SEND CAMPAIGN</button>
           <p>{"Don't have an account?"}</p><Link to="/signup" component={SignupForm}>Sign up</Link>
         </div>
       </Router>

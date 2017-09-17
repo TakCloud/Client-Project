@@ -28,6 +28,9 @@ app.get('/build/bundle.js', (req, res) => {
 app.post('/oauthlogin', authUrlProvider);
 app.get('/oauth', tokenFiler);
 app.post('/sendmail', messageSender);
+app.get('/signup', () => {
+  console.log('hi');
+});
 
 app.listen(8080, () => {
   console.log('now listening on 8080! \n');
