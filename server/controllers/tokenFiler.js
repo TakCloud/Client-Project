@@ -3,7 +3,7 @@ const oauth2Client = require('./oauthCreator').oauth2Client;
 const path = require('path');
 const refresh = require('../access_token').refresh_token;
 const transporter = require('./transporter');
-const accessToken = require('../access_token');
+const accessToken = require('../access_token.json');
 
 module.exports = (req, res) => {
   // use this tokenDir/tokenPath, the uncommented tokenDir/Path are for practice
@@ -32,14 +32,25 @@ module.exports = (req, res) => {
     }
     if (token) {
       fs.writeFile(TOKEN_PATH, JSON.stringify(token), () => {
-        console.log(`Token stored locally at: ${TOKEN_PATH}`);
-        res.sendFile(path.join(__dirname, '../../index.html'));
+        console.log(`Token stored locally at Credentials Folder: ${TOKEN_PATH}`);
+        fs.readFile(path.join(__dirname, '../access_token.json'), 'utf8', (err, data) => {
+          if (err) throw err;
+          const pkg = JSON.parse(data);
+          console.log(token, 'this is the token');
+          console.log(pkg, 'this is the package');
+          const pkgJson = JSON.stringify(pkg, null, 1);
+          fs.writeFile(path.join(__dirname, '../access_token.json'), pkgJson, (error) => {
+            if (error) throw error;
+            console.log('AccessToken updated in database');
+            res.sendFile(path.join(__dirname, '../../index.html'));
+          });
+        });
       });
     } else res.sendFile(path.join(__dirname, '../../index.html'));
   };
   transporter.verify((err, success) => {
     if (err) {
-      console.log('transporter is connected but needs to use refreshToken to issue new Token');
+      console.log('transporter is connected but needs to use refreshToken to issue new Token', JSON.parse(accessToken));
       oauth2Client.getToken(req.query.code, (errr, token) => {
         if (errr) {
           console.log('Error while trying to retrieve access token w/current CODE: ', errr);
