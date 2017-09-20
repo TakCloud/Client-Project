@@ -80,35 +80,3 @@ module.exports = (req, res) => {
     }
   });
 };
-
-
-//   if (!transporter.verify()) {
-//     // if transporter isIdle then the access token that user used is still vali
-//     console.log('transporter is connected but needs to use refreshToken to issue new Token');
-//     oauth2Client.getToken(req.query.code, (errr, token) => {
-//       if (errr) {
-//         console.log('Error while trying to retrieve access token w/current access: ', errr);
-//         oauth2Client.getToken(refresh, (err, newToken) => {
-//           if (err) console.log('Error2 while trying to retrieve access token w/
-// refresh_token: ', err);
-//           oauth2Client.credentials = newToken;
-//           storeToken(newToken);
-//           console.log(`Token accessed w/refresh_token stored on oaut2Client.credentials:
-//  ${JSON.stringify(newToken)}`);
-//         });
-//       }
-//       if (token) { //  change back!! we only want to store if !token.refresh_token 
-//         oauth2Client.credentials = token;
-//         storeToken(token);//  try throwing a try/catch inside of this callback instead of outside
-//         console.log(`Token accessed w/access_token stored on oaut2Client.credentials:
-//  ${JSON.stringify(token)}`);
-//       } else {
-//         res.sendFile(path.join(__dirname, '../../index.html'));
-//       }
-//     });
-//   } else {
-//     console.log('transporter still connected with current accessToken',
-//  accessToken.access_token, '\n');
-//     res.sendFile(path.join(__dirname, '../../index.html'));
-//   }
-// };
