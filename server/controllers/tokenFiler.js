@@ -1,5 +1,5 @@
 const fs = require('fs');
-const oauth2Client = require('./oauthCreator').oauth2Client;
+const oauth2Client = require('./oauthCreator');
 const path = require('path');
 const refresh = require('../access_token').refresh_token;
 const transporter = require('./transporter');

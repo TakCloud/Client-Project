@@ -14,16 +14,22 @@ const sender = (req, res) => {
     envelope: {//  envelop shows what the recipient will see while the above is sender view
       from: 'alexhong432@gmail.com', // used as MAIL FROM: address for SMTP SENDER
       to: 'babjaklbjalbjka', // used as RCPT TO: arry of address' for SMTP     THIS IS THE SEND ENVOLOP TO NOT SEND MESAGE TO
+      dsn: {
+        id: 'some random message specific id',
+        return: 'headers', //  or 'full'
+        notify: ['failure', 'delay', 'success'],
+        recipient: 'alexhong432@gmail.com',
+      },
     },
     subject: msgHeader,
     html: `<b>${msgToSend}!</b>`,
     text: msgToSend,
-    dsn: {
-      id: 'some random message specific id',
-      return: 'headers', //  or 'full'
-      notify: ['failure', 'delay', 'success'],
-      recipient: 'alexhong432@gmail.com',
-    },
+    // dsn: {
+    //   id: 'some random message specific id',
+    //   return: 'headers', //  or 'full'
+    //   notify: ['failure', 'delay', 'success'],
+    //   recipient: 'alexhong432@gmail.com',
+    // },
   };
   transporter.verify((error) => {
     if (error) {
@@ -34,13 +40,12 @@ const sender = (req, res) => {
       res.redirect('/oauth');
       console.log(error);
     } else {
-      // console.log('options', transporter.options);
-      console.log('defaults', transporter.defaults);
+      // console.log('options', transporter.options); re
       // actual method for sending mail => build email and send via this method
       for (let i = 0; i < msgEndPoints.length; i += 1) {
         theMessage.to = msgEndPoints[i];
         theMessage.envelope.to = msgEndPoints[i];
-        console.log('this is the modified message: ', theMessage);
+        // console.log('this is the modified message: ', theMessage);
         transporter.sendMail(theMessage, (err, info) => {
           transporter.on('idle', () => {
             console.log(' transporter is idle');
@@ -50,7 +55,7 @@ const sender = (req, res) => {
           // then we need a way to send the parsed data to SQL
           // we can only get status for success, bounce, and hard bounce
           // we need status for opened!
-          console.log(`MessageSent: ${msgHeader}, ${msgToSend}\n DSN INFO:`, info);
+          console.log(`MessageSent: ${msgHeader}, ${msgToSend}\n DSN INFO:`, { accepted: info.accepted, rejected: info.rejected, response: info.response });
           info.message.pipe(process.stdout);
         });
       }

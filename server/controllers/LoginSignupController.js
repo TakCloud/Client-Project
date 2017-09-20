@@ -10,7 +10,7 @@ module.exports = (req, res) => {
   bcrypt.compare(req.body.password, '$2a$10$rSp9sZs/IunThh/SeFCMB.nXqmuj.hM5ZRC02BXtFdGJh88oW3hMi', (err, resp) => {
     if (err) throw err;
     else {
-      console.log('bcrypt was hit', resp);
+      console.log('bcrypt has made a match: ', resp);
       return !resp ? res.redirect('/signup') : res.send(resp);
     }
   });

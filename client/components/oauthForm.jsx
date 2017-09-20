@@ -8,8 +8,8 @@ class TempSettingsPage extends Component {
   validator = (e) => {
     e.preventDefault();
     axios.post('/oauthlogin').then((res) => {
-      console.log('res after oauth was hit', res.data.authUrl);
-      window.location = res.data.authUrl;
+      console.log('res after oauth was hit', res.data);
+      window.location = res.data;
     });
   };
   render() {
