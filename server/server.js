@@ -3,8 +3,10 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const dbcontroller = require('./dbcontrollers/dbcontroller.js');
 const tokenFiler = require('./controllers/tokenFiler');
+const messageSender = require('./controllers/messageSender');
+const LoginSignupController = require('./controllers/LoginSignupController');
 
-const oauthUrl = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fmail.google.com%2F&response_type=code&client_id=597535892558-d9oqu99oosrel4fkcuabjv2kf6qpmf2j.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Foauth';
+const oauthUrl = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fmail.google.com%2F&response_type=code&client_id=597535892558-d9oqu99oosrel4fkcuabjv2kf6qpmf2j.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fsummary';
 
 const app = express();
 app.use(express.static('./../build'));
@@ -25,30 +27,22 @@ app.get('/', (req, res) => {
 app.get('/build/bundle.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/bundle.js'));
 });
-app.get('/login',
-  (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
-  },
-);
-app.post('/login',
-  (req, res) => {
-    console.log(res.locals, ' res.locals.auth to be sent to frontend');
-    //  response is sending the authURL to the frontend so that
-    //  the front end can call window.location on the authURL
-    res.json(oauthUrl);
-  },
-);
-app.get('/oauth',
-  (req, res, next) => {
-    res.locals.code = req.query.code;
-    next();
-  },
-  tokenFiler,
-  (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
-  },
-);
 
+app.post('/oauthlogin', (req, res) => {
+  res.send(oauthUrl);
+});
+
+app.get('/summary', tokenFiler);
+app.post('/sendmail', messageSender);
+app.post('/login', LoginSignupController);
+// we may be able to handle the /login and /signup logic through react Router
+// leave these routes until react router is implemented
+app.post('/signup', (req, res) => {
+  console.log(res, ' this is res on signup');
+  res.end();
+});
+
+// begin routes for db interactions
 app.post('/createorg',
   dbcontroller.insert,
   (req, res) => {
@@ -86,5 +80,5 @@ app.post('/createcampaign',
   });
 
 app.listen(8080, () => {
-  console.log('now listening on 8080!');
+  console.log('now listening on 8080! \n');
 });
