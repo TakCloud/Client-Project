@@ -6,6 +6,7 @@ const UserOrganizations = sequelize.define('user_organizations', {
     type: Sequelize.INTEGER,
     unique: true,
     primaryKey: true,
+    autoIncrement: true,
     allowNull: false,
   },
   organization_name: {

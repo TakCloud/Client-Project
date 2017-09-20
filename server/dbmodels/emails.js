@@ -1,11 +1,12 @@
 const Sequelize = require('sequelize');
 const sequelize = require('./../dbcontrollers/sequelize_instance.js');
 
-const SentEmails = sequelize.define('sent_emails', {
-  sent_email_id: {
+const Emails = sequelize.define('emails', {
+  email_id: {
     type: Sequelize.INTEGER,
     unique: true,
     primaryKey: true,
+    autoIncrement: true,
     allowNull: false,
   },
   lead_group_id: {
@@ -15,6 +16,18 @@ const SentEmails = sequelize.define('sent_emails', {
       model: 'lead_groups',
       key: 'lead_group_id',
     },
+  },
+  campaign_id: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    references: {
+      model: 'campaigns',
+      key: 'campaign_id',
+    },
+  },
+  step_number: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
   },
   lead_email: {
     type: Sequelize.STRING,
@@ -32,7 +45,7 @@ const SentEmails = sequelize.define('sent_emails', {
       key: 'send_as_email',
     },
   },
-  gmail_message_id: { type: Sequelize.INTEGER },
+  gmail_message_id: { type: Sequelize.STRING },
   subject: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -49,10 +62,14 @@ const SentEmails = sequelize.define('sent_emails', {
       key: 'template_id',
     },
   },
-  status: { type: Sequelize.STRING },
+  status: {
+    type: Sequelize.STRING,
+    defaultValue: 'pending',
+  },
   status_last_updated: {
     type: Sequelize.DATE,
     allowNull: false,
+    defaultValue: Date.now(),
   },
   sent_by_user_id: {
     type: Sequelize.INTEGER,
@@ -62,15 +79,12 @@ const SentEmails = sequelize.define('sent_emails', {
       key: 'user_id',
     },
   },
-  sent_time: {
-    type: Sequelize.DATE,
-    allowNull: false,
-  },
+  sent_time: { type: Sequelize.DATE },
 }, {
   freezeTableName: true,
-  tableName: 'sent_emails',
+  tableName: 'emails',
   timestamps: false,
 });
 
 
-module.exports = () => SentEmails;
+module.exports = () => Emails;

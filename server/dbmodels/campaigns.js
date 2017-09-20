@@ -6,6 +6,7 @@ const Campaigns = sequelize.define('campagins', {
     type: Sequelize.INTEGER,
     unique: true,
     primaryKey: true,
+    autoIncrement: true,
     allowNull: false,
   },
   campaign_name: {
@@ -17,9 +18,24 @@ const Campaigns = sequelize.define('campagins', {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  lead_groups: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  current_step: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    defaultValue: 1,
+  },
+  start_date: {
+    type: Sequelize.DATE,
+    allowNull: false,
+    defaultValue: Date.now(),
+  },
   created_at: {
     type: Sequelize.DATE,
     allowNull: false,
+    defaultValue: Date.now(),
   },
   created_at_user_id: {
     type: Sequelize.INTEGER,
@@ -32,6 +48,7 @@ const Campaigns = sequelize.define('campagins', {
   last_updated: {
     type: Sequelize.DATE,
     allowNull: false,
+    defaultValue: Date.now(),
   },
   last_updated_user_id: {
     type: Sequelize.INTEGER,
