@@ -6,6 +6,7 @@ const Leads = sequelize.define('leads', {
     type: Sequelize.INTEGER,
     unique: true,
     primaryKey: true,
+    autoIncrement: true,
     allowNull: false,
   },
   lead_first_name: {
@@ -23,6 +24,7 @@ const Leads = sequelize.define('leads', {
   },
   lead_group_id: {
     type: Sequelize.INTEGER,
+    allowNull: false,
     references: {
       model: 'lead_groups',
       key: 'lead_group_id',
@@ -37,6 +39,7 @@ const Leads = sequelize.define('leads', {
   created_at: {
     type: Sequelize.DATE,
     allowNull: false,
+    defaultValue: Date.now(),
   },
   created_at_user_id: {
     type: Sequelize.INTEGER,
@@ -49,6 +52,7 @@ const Leads = sequelize.define('leads', {
   last_updated: {
     type: Sequelize.DATE,
     allowNull: false,
+    defaultValue: Date.now(),
   },
   last_updated_user_id: {
     type: Sequelize.INTEGER,

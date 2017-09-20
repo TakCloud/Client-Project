@@ -6,6 +6,7 @@ const Users = sequelize.define('users', {
     type: Sequelize.INTEGER,
     unique: true,
     primaryKey: true,
+    autoIncrement: true,
     allowNull: false,
   },
   user_organization_id: {
@@ -42,10 +43,6 @@ const Users = sequelize.define('users', {
     allowNull: false,
   },
   role: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  company_name: {
     type: Sequelize.STRING,
     allowNull: false,
   },

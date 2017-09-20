@@ -14,6 +14,10 @@ const transporter = nodemailer.createTransport({
   auth: {
     type: 'OAuth2',
     // user: needs to be programmatically set
+<<<<<<< HEAD
+=======
+    // discuss putting input field for clients USEGMAIL accout.
+>>>>>>> 208125f91cdb0f84b7546d97c5f903180f65a4db
     user: 'test.zero0001@gmail.com',
     accessToken,
     // accessToken: needs to be query to sql for most updated accesstoken
