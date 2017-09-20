@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const dbcontroller = require('./dbcontrollers/dbcontroller.js');
 const tokenFiler = require('./controllers/tokenFiler');
 const messageSender = require('./controllers/messageSender');
 const LoginSignupController = require('./controllers/LoginSignupController');
@@ -26,9 +27,11 @@ app.get('/', (req, res) => {
 app.get('/build/bundle.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/bundle.js'));
 });
+
 app.post('/oauthlogin', (req, res) => {
   res.send(oauthUrl);
 });
+
 app.get('/summary', tokenFiler);
 app.post('/sendmail', messageSender);
 app.post('/login', LoginSignupController);
@@ -38,6 +41,43 @@ app.post('/signup', (req, res) => {
   console.log(res, ' this is res on signup');
   res.end();
 });
+
+// begin routes for db interactions
+app.post('/createorg',
+  dbcontroller.insert,
+  (req, res) => {
+    res.json(res.locals.databaseEntry);
+  });
+
+app.post('/createuser',
+  dbcontroller.insert,
+  (req, res) => {
+    res.json(res.locals.databaseEntry);
+  });
+
+app.post('/createleadgroup',
+  dbcontroller.insert,
+  (req, res) => {
+    res.json(res.locals.databaseEntry);
+  });
+
+app.post('/createleads',
+  dbcontroller.bulkInsert,
+  (req, res) => {
+    res.json('Success!');
+  });
+
+app.post('/createtemplate',
+  dbcontroller.insert,
+  (req, res) => {
+    res.json(res.locals.databaseEntry);
+  });
+
+app.post('/createcampaign',
+  dbcontroller.generateCampaign,
+  (req, res) => {
+    res.json(res.locals);
+  });
 
 app.listen(8080, () => {
   console.log('now listening on 8080! \n');

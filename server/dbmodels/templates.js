@@ -6,6 +6,7 @@ const Templates = sequelize.define('templates', {
     type: Sequelize.INTEGER,
     unique: true,
     primaryKey: true,
+    autoIncrement: true,
     allowNull: false,
   },
   template_name: {
@@ -24,6 +25,7 @@ const Templates = sequelize.define('templates', {
   created_at: {
     type: Sequelize.DATE,
     allowNull: false,
+    defaultValue: Date.now(),
   },
   created_at_user_id: {
     type: Sequelize.INTEGER,
@@ -36,6 +38,7 @@ const Templates = sequelize.define('templates', {
   last_updated: {
     type: Sequelize.DATE,
     allowNull: false,
+    defaultValue: Date.now(),
   },
   last_updated_user_id: {
     type: Sequelize.INTEGER,

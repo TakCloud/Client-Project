@@ -6,19 +6,17 @@ const LeadGroups = sequelize.define('lead_groups', {
     type: Sequelize.INTEGER,
     unique: true,
     primaryKey: true,
+    autoIncrement: true,
     allowNull: false,
   },
   lead_group_name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  primary_ciontact_emal: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
   created_at: {
     type: Sequelize.DATE,
     allowNull: false,
+    defaultValue: Date.now(),
   },
   created_at_user_id: {
     type: Sequelize.INTEGER,
@@ -31,6 +29,7 @@ const LeadGroups = sequelize.define('lead_groups', {
   last_updated: {
     type: Sequelize.DATE,
     allowNull: false,
+    defaultValue: Date.now(),
   },
   last_updated_user_id: {
     type: Sequelize.INTEGER,

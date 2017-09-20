@@ -6,11 +6,11 @@ const CampaignSteps = sequelize.define('campaign_steps', {
     type: Sequelize.INTEGER,
     unique: true,
     primaryKey: true,
+    autoIncrement: true,
     allowNull: false,
   },
   campaign_id: {
     type: Sequelize.INTEGER,
-    unique: true,
     allowNull: false,
     references: {
       model: 'campaigns',
@@ -28,9 +28,14 @@ const CampaignSteps = sequelize.define('campaign_steps', {
       key: 'template_id',
     },
   },
+  time_interval: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
   created_at: {
     type: Sequelize.DATE,
     allowNull: false,
+    defaultValue: Date.now(),
   },
   created_at_user_id: {
     type: Sequelize.INTEGER,
@@ -43,6 +48,7 @@ const CampaignSteps = sequelize.define('campaign_steps', {
   last_updated: {
     type: Sequelize.DATE,
     allowNull: false,
+    defaultValue: Date.now(),
   },
   last_updated_user_id: {
     type: Sequelize.INTEGER,
