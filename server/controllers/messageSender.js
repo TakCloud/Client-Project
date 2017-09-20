@@ -1,20 +1,30 @@
 const path = require('path');
 const transporter = require('./transporter');
+// const transportServer = require('./transporterServer');
+
+const msgHeader = 'Supreme Leader!';
+const msgToSend = 'mail sent??';
+const msgEndPoints = ['test.receiver0001@gmail.com', 'alexhong432@gmail.com', 'test.receiver0002@gmail.com', 'test.receiver0003@gmail.com'];
 // const oauth2Client = require('./oauthCreator');
 // oauth2Client.credentials = 'the most recently stored token';
 //  the above method can be used if sql queries get expensive to grab accessToken
 
-// create transporter for sending mail => this specifies the protocal/credentials used to send mail
-
 const sender = (req, res) => {
-  // transporter.on('idle', () => {
-  //   // send next message from the pending queue
-  //   const messages = SQL query for array of messages in campaign steps
-  //   while (transporter.isIdle() && messages.length) {
-  //     set timeout to 48 hours
-  //     transporter.sendMail(messages.shift());
-  //   }
-  // });
+  const theMessage = { // look up 'more Advanced fields in nodemailer.com/messages
+    envelope: {//  envelop shows what the recipient will see while the above is sender view
+      from: 'alexhong432@gmail.com', // used as MAIL FROM: address for SMTP SENDER
+      to: 'babjaklbjalbjka', // used as RCPT TO: arry of address' for SMTP     THIS IS THE SEND ENVOLOP TO NOT SEND MESAGE TO
+    },
+    subject: msgHeader,
+    html: `<b>${msgToSend}!</b>`,
+    text: msgToSend,
+    dsn: {
+      id: 'some random message specific id',
+      return: 'headers', //  or 'full'
+      notify: ['failure', 'delay', 'success'],
+      recipient: 'alexhong432@gmail.com',
+    },
+  };
   transporter.verify((error) => {
     if (error) {
       // if the token is no longer valid, we want to route them back to
@@ -24,35 +34,27 @@ const sender = (req, res) => {
       res.redirect('/oauth');
       console.log(error);
     } else {
-      const header = 'Supreme Leader!';
-      const msgToSend = 'You Are Cool';
+      // console.log('options', transporter.options);
+      console.log('defaults', transporter.defaults);
       // actual method for sending mail => build email and send via this method
-      transporter.sendMail({// look up 'more Advanced fields in nodemailer.com/messages
-        // from: 'alexhong432@gmail.com', //  sender - An email address that will appear on the 
-        //                Sender: field (always prefer from if you’re not sure which one to use)
-        // to: 'alexhong432@gmail.com', // look up 'more Advanced fields in nodemailer.com/messages
-        envelope: {//  envelop shows what the recipient will see while the above is what sender sees
-          from: 'alexhong432@gmail.com', // used as MAIL FROM: address for SMTP SENDER
-          to: 'test.receiver0001@gmail.com', // used as RCPT TO: arry of address' for SMTP     THIS IS THE SEND ENVOLOP TO NOT SEND MESAGE TO
-        },
-        subject: header,
-        html: `<b>${msgToSend}!</b>`,
-        text: msgToSend,
-        dsn: {
-          id: 'some random message specific id',
-          return: 'headers', //  or 'full'
-          notify: ['failure', 'delay', 'success'],
-          recipient: 'alexhong432@gmail.com',
-        },
-      }, (err, info) => {
-        console.log(info, 'this is info');
-        //  we need logic to parse specific analytics from this promised info object
-        // then we need a way to send the parsed data to SQL
-        // we can only get status for success, bounce, and hard bounce
-        // we need status for opened!
-        info.message.pipe(process.stdout);
-      });
-      console.log(`MessageSent: ${header}, ${msgToSend}\n`);
+      for (let i = 0; i < msgEndPoints.length; i += 1) {
+        theMessage.to = msgEndPoints[i];
+        theMessage.envelope.to = msgEndPoints[i];
+        console.log('this is the modified message: ', theMessage);
+        transporter.sendMail(theMessage, (err, info) => {
+          transporter.on('idle', () => {
+            console.log(' transporter is idle');
+          });
+          console.log(transporter.isIdle(), ' transporter is idle');
+          //  we need logic to parse specific analytics from this promised info object
+          // then we need a way to send the parsed data to SQL
+          // we can only get status for success, bounce, and hard bounce
+          // we need status for opened!
+          console.log(`MessageSent: ${msgHeader}, ${msgToSend}\n DSN INFO:`, info);
+          info.message.pipe(process.stdout);
+        });
+      }
+      console.log(' you are still connected: ', transporter.isIdle());
       res.sendFile(path.join(__dirname, '../../index.html'));
     }
   });

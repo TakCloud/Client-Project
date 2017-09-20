@@ -35,13 +35,17 @@ module.exports = (req, res) => {
         console.log(`Token stored locally at Credentials Folder: ${TOKEN_PATH}`);
         fs.readFile(path.join(__dirname, '../access_token.json'), 'utf8', (err, data) => {
           if (err) throw err;
-          const pkg = data;
-          console.log(token, 'this is the token');
-          console.log(pkg, 'this is the package');
-          const pkgJson = JSON.stringify(pkg, null, 1);
-          fs.writeFile(path.join(__dirname, '../access_token.json'), pkgJson, (error) => {
+          let pkg = JSON.parse(data);
+          if (token.refresh_token) {
+            pkg = token;
+          } else {
+            pkg.access_token = token.access_token;
+          }
+          console.log(pkg, 'this is the after');
+          const pkgJSON = JSON.stringify(pkg, null, 1);
+          fs.writeFile(path.join(__dirname, '../access_token.json'), pkgJSON, (error) => {
             if (error) throw error;
-            console.log('AccessToken updated in database');
+            console.log('AccessToken updated in database: ', pkgJSON);
             res.sendFile(path.join(__dirname, '../../index.html'));
           });
         });
@@ -50,7 +54,7 @@ module.exports = (req, res) => {
   };
   transporter.verify((err, success) => {
     if (err) {
-      console.log('Error:   Token cannot be used to authenticate!', JSON.parse(JSON.stringify(accessToken)), 'accessToken');
+      console.log('Error:   Token cannot be used to authenticate!', JSON.parse(JSON.stringify(accessToken)));
       oauth2Client.getToken(req.query.code, (errr, token) => {
         if (errr) {
           console.log('Error while trying to retrieve access token w/current CODE: ', errr);
@@ -64,7 +68,7 @@ module.exports = (req, res) => {
         if (token) { //  change back!! we only want to store if !token.refresh_token 
           oauth2Client.credentials = token;
           storeToken(token);//  try throwing a try/catch inside of this callback instead of outside
-          console.log(`Token accessed w/access_token stored on oaut2Client.credentials: ${JSON.stringify(token)}`);
+          console.log(`Token accessed w/new req.query.code, stored on oaut2Client.credentials: ${JSON.stringify(token)}`);
         } else {
           res.sendFile(path.join(__dirname, '../../index.html'));
         }

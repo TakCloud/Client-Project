@@ -33,15 +33,16 @@
     "axios": "^0.16.2",
     "babel-eslint": "^7.2.3",
     "babel-preset-stage-0": "^6.24.1",
+    "bcrypt": "^1.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "google-auth-library": "^0.11.0",
     "googleapis": "^21.3.0",
-    "pg": "^7.3.0",
-    "pg-hstore": "^2.3.2",
     "material-ui": "^0.19.1",
     "nodemailer": "^4.1.0",
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -49,8 +50,8 @@
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
+    "react-swipeable-views": "^0.12.8",
     "redux": "^3.7.2",
-    "sequelize": "^4.8.3",
-    "react-swipeable-views": "^0.12.8"
+    "sequelize": "^4.8.3"
   }
 }

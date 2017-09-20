@@ -3,12 +3,6 @@ import axios from 'axios';
 
 
 class TempSettingsPage extends Component {
-  validator = (e) => {
-    e.preventDefault();
-    axios.post('/oauthlogin').then((res) => {
-      window.location = res.data.authUrl;
-    });
-  };
   emailSender = (e) => {
     e.preventDefault();
     axios.post('/sendmail');
@@ -16,7 +10,6 @@ class TempSettingsPage extends Component {
   render() {
     return (
       <div>
-        <button id="submit" type="submit" onClick={this.validator}>LOGIN WITH OAUTH</button>
         <button id="sendmail" type="submit" onClick={this.emailSender}>SEND CAMPAIGN</button>
       </div>
     );

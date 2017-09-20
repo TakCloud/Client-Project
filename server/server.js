@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const authUrlProvider = require('./controllers/authUrlProvider');
 const tokenFiler = require('./controllers/tokenFiler');
 const messageSender = require('./controllers/messageSender');
+const LoginSignupController = require('./controllers/LoginSignupController');
 
 const app = express();
 app.use(express.static('./../build'));
@@ -26,10 +27,12 @@ app.get('/build/bundle.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/bundle.js'));
 });
 app.post('/oauthlogin', authUrlProvider);
-app.get('/oauth', tokenFiler);
+app.get('/summary', tokenFiler);
 app.post('/sendmail', messageSender);
-app.get('/signup', () => {
-  console.log('hi');
+app.post('/login', LoginSignupController);
+app.post('/signup', (req, res) => {
+  console.log(res, ' this is res on signup');
+  res.end();
 });
 
 app.listen(8080, () => {

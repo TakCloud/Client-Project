@@ -1,33 +1,31 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import axios from 'axios';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
+import Summary from './Summary';
+import oauthForm from './oauthForm';
+import SettingsTemp from './SettingsTemp';
 
-class App extends Component {
-  validator = (e) => {
-    e.preventDefault();
-    axios.post('/oauthlogin').then((res) => {
-      window.location = res.data.authUrl;
-    });
-  };
-  emailSender = (e) => {
-    e.preventDefault();
-    axios.post('/sendmail');
-  };
+class App extends React.Component {
+  state = {};
+  //  this logic needs to be fore 
+  // temporary setting
   render() {
     return (
       <Router>
-        <div>
-          <Route exact path="/" component={LoginForm} />
-          <Route path="/signup" component={SignupForm} />
-          <button id="submit" type="submit" onClick={this.validator}>LOGIN WITH OAUTH</button>
-          <button id="sendmail" type="submit" onClick={this.emailSender}>SEND CAMPAIGN</button>
-          <p>{"Don't have an account?"}</p><Link to="/signup" component={SignupForm}>Sign up</Link>
-        </div>
+        <Switch>
+          <div>
+            <Route exact path="/" component={LoginForm} />
+            <Route path="/signup" component={SignupForm} />
+            <Route path="/summary" component={Summary} />
+            <Route exact path="/oauth" component={oauthForm} />
+            <Route path="/settings" component={SettingsTemp} />
+            <br />
+          </div>
+        </Switch>
       </Router>
     );
   }
 }
-export default App;
+module.exports = App;
