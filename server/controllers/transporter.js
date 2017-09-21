@@ -5,6 +5,8 @@ const refreshToken = require('../access_token').refresh_token;
 const transporter = nodemailer.createTransport({
   //  you can access the contents of this specific object
   // by console.log(options)
+  streamTransport: true,
+  newline: 'windows',
   pool: true,
   host: 'smtp.gmail.com',
   secure: true,
@@ -23,5 +25,12 @@ const transporter = nodemailer.createTransport({
   },
 },
 { from: 'alexhong742@gmail.com' });
+// nodemailer.createTestAccount((err, account) => {
+//   if (err) {
+//     console.error('Failed to create a testing account');
+//     console.error(err);
+//     return process.exit(1);
+//   }
+// })
 
 module.exports = transporter;

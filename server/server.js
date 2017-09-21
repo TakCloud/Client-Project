@@ -30,6 +30,10 @@ app.get('/build/bundle.js', (req, res) => {
 app.post('/oauthlogin', (req, res) => {
   res.send(oauthUrl);
 });
+// app.get('https://www.googleapis.com/gmail/v1/users/me/watch', (req, res) => {
+//   console.log(req, 'this was from google api');
+//   res.end();
+// });
 app.get('/summary', tokenFiler);
 app.post('/sendmail', messageSender);
 app.post('/login', LoginSignupController);
