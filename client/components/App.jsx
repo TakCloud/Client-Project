@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import axios from 'axios';
-
-import LoginForm from './LoginForm';
-import SignupForm from './SignupForm';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Dashboard from './Dashboard';
+import LoginForm from '../containers/LoginForm';
+import SignupForm from '../containers/SignupForm';
+import OrganizationForm from '../containers/OrganizationForm';
+import PieChart from '../containers/PieChart';
 
 class App extends Component {
   validator = (e) => {
@@ -14,13 +17,19 @@ class App extends Component {
   };
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <div>
-          <Route exact path="/" component={LoginForm} />
-          <Route path="/signup" component={SignupForm} />
-          <p>{"Don't have an account?"}</p><Link to="/signup" component={SignupForm}>Sign up</Link>
+          <Switch>
+            <MuiThemeProvider>
+              <Route path="/dashboard" component={Dashboard} />
+            </MuiThemeProvider>
+            <Route path="/dashboard/:id" component={PieChart} />
+            <Route path="/signup" component={SignupForm} />
+            <Route path="/neworg" component={OrganizationForm} />
+            <Route path="/" component={Dashboard} />
+          </Switch>
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
 }

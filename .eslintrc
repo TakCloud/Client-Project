@@ -17,8 +17,11 @@
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/require-default-props": 0,
+    "react/prefer-stateless-function": 0,
     "no-unused-vars": 0,
     "no-undefined": 0,
+    "no-shadow": 0,
   },
   "globals": {
     "__dirname": true
