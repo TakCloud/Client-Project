@@ -17,11 +17,14 @@
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+<<<<<<< HEAD
     "react/require-default-props": 0,
     "react/prefer-stateless-function": 0,
     "no-unused-vars": 0,
     "no-undefined": 0,
     "no-shadow": 0,
+=======
+>>>>>>> 208125f91cdb0f84b7546d97c5f903180f65a4db
   },
   "globals": {
     "__dirname": true

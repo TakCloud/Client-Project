@@ -11,14 +11,19 @@ import PieChart from '../containers/PieChart';
 class App extends Component {
   validator = (e) => {
     e.preventDefault();
-    axios.post('/login').then((res) => {
+    axios.post('/oauthlogin').then((res) => {
       window.location = res.data.authUrl;
     });
+  };
+  emailSender = (e) => {
+    e.preventDefault();
+    axios.post('/sendmail');
   };
   render() {
     return (
       <BrowserRouter>
         <div>
+<<<<<<< HEAD
           <Switch>
             <MuiThemeProvider>
               <Route path="/dashboard" component={Dashboard} />
@@ -28,6 +33,13 @@ class App extends Component {
             <Route path="/neworg" component={OrganizationForm} />
             <Route path="/" component={Dashboard} />
           </Switch>
+=======
+          <Route exact path="/" component={LoginForm} />
+          <Route path="/signup" component={SignupForm} />
+          <button id="submit" type="submit" onClick={this.validator}>LOGIN</button>
+          <button id="sendmail" type="sendmail" onClick={this.emailSender}>SEND MAIL</button>
+          <p>{"Don't have an account?"}</p><Link to="/signup" component={SignupForm}>Sign up</Link>
+>>>>>>> 208125f91cdb0f84b7546d97c5f903180f65a4db
         </div>
       </BrowserRouter>
     );
