@@ -1,8 +1,9 @@
 const path = require('path');
+const messageDBController = require('./messageDBController');
 // const simpleParser = require('mailparser').simpleParser;
 const transporter = require('./transporter');
 // const nodemailer = require('nodemailer');
-const gmailOauthClient = require('./gmailOauthClient').messages;
+// const inbox = require('./inboxReader');
 // const oauth2Client = require('./oauthCreator');
 
 const msgHeader = 'Supreme Leader!';
@@ -58,15 +59,11 @@ const sender = (req, res) => {
             // console.log(secondOauth2Client, 'this is the secondOauth2Client');
             // console.log(oauth2Client, 'this is original oauth2Client');
             console.log(transporter.isIdle(), ' transporter is idle and message was sent');
-            // console.log(gmailOauthClient);
-            // simpleParser(info.messageId, (fail, mail) => {
-            //   // the argument above needs to be a stream or a buffer
-            //   console.log(mail, 'this is the mail');
-            // });
             console.log(`MessageSent: ${msgHeader}, ${msgToSend}\n DSN INFO:`, info);
             info.message.pipe(process.stdout);
           });
         }
+        console.log(messageDBController, 'htfiouahewfilew');
         console.log(' you are still connected: ', transporter.isIdle());
         res.sendFile(path.join(__dirname, '../../index.html'));
       }
