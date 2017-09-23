@@ -27,7 +27,7 @@ const sender = (req, res) => {
     },
     subject: msgHeader,
     // html: `<b>${msgToSend}!</b>`,
-    html: '<b><img src="http://localhost:8080/summary/imageTracker?alexiskooooooool"/></b>',
+    html: '<b><img src="https://cheatcodes5.herokuapp.com/summary/imageTracker?alexiskooooooool"/></b>',
     text: msgToSend,
     // dsn: {
     //   id: 'some random message specific id',
