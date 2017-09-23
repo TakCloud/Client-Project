@@ -16,3 +16,7 @@ module.exports = (req, res) => {
   });
   return null;
 };
+
+/*
+  refactor to grab password from database instead
+*/
