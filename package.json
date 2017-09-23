@@ -25,7 +25,6 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.3.0",
-    "nodemon": "^1.12.1",
     "webpack": "^3.5.6",
     "webpack-dev-server": "^2.8.2"
   },
@@ -41,6 +40,7 @@
     "mailparser": "^2.0.5",
     "material-ui": "^0.19.1",
     "nodemailer": "^4.1.0",
+    "nodemon": "^1.12.1",
     "pg": "^7.3.0",
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.5.10",
