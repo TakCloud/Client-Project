@@ -34,7 +34,10 @@ app.get('/summary/imageTracker?', (req, res) => {
   console.log('Ping*IMAGE TRACKER WAS HIT!!!!*ponG \n', req.body);
   res.sendFile(path.join(__dirname, '../4-tree-png-image-download-picture.png'));
 });
-app.post('/oauthlogin', (req, res) => res.send(oauthUrl));
+app.post('/oauthlogin', (req, res) => {
+  console.log('This is the req.query ', req.query);
+  res.send(oauthUrl);
+});
 app.get('/googlec45609043392fa00', (req, res) => res.sendFile(path.join(__dirname, '../../googlec45609043392fa00.html')));
 app.get('/summary', tokenFiler);
 app.post('/sendmail', messageSender);
