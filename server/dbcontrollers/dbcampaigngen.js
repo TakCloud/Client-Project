@@ -9,19 +9,22 @@ const generateCampaign = (req, res, next) => {
           lead_group_id: req.body.lead_group,
           campaign_id: res.locals.campaign.campaign_id,
           step_number: step.step_number,
-          lead_email: lead.lead_email,
-          from_email: res.locals.user.user_email,
+          lead_id: lead.lead_id,
+          from_user_id: req.body.user_id,
           subject: step.template.subject,
           body: step.template.body,
           template_id: 1, // just testing
-          sent_by_user_id: res.locals.user.user_id,
+          sent_by_user_id: req.body.user_id,
+          send_at: Date.now(), // replace with step.time_interval
         })
+          .then(() => {
+            next();
+          })
           .catch((err) => {
             res.status(400).json(`Something went wrong when inserting emails: ${err}`);
           });
       });
     });
-    next();
   };
   // inserts campaign steps into campaign_steps table
   const insertSteps = () => {
@@ -31,13 +34,16 @@ const generateCampaign = (req, res, next) => {
         step_number: step.step_number,
         template_id: 1, // just testing
         time_interval: step.time_interval,
-        created_at_user_id: res.locals.user.user_id,
-        last_updated_user_id: res.locals.user.user_id,
-      }).catch((err) => {
-        res.status(400).json(`Something went wrong when inserting steps: ${err}`);
-      });
+        created_at_user_id: req.body.user_id,
+        last_updated_user_id: req.body.user_id,
+      })
+        .then(() => {
+          insertEmails();
+        })
+        .catch((err) => {
+          res.status(400).json(`Something went wrong when inserting steps: ${err}`);
+        });
     });
-    insertEmails();
   };
   // inserts campaign into campaigns table
   const insertCampaign = () => {
@@ -51,6 +57,9 @@ const generateCampaign = (req, res, next) => {
       .then((entry) => {
         res.locals.campaign = entry;
         insertSteps();
+      })
+      .catch((err) => {
+        res.status(400).json(`Something went wrong when inserting campaign: ${err}`);
       });
   };
   // grab all referenced data from DB before attempting inserts
