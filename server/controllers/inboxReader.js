@@ -19,7 +19,7 @@ gmail.users.threads.list({ userId: 'cheatcodes001@gmail.com', includeSpamTrash: 
   if (response) {
     response.threads.forEach((THREAD) => {
       threads.push(THREAD);
-      console.log(`THREAD HEADER, ${THREAD.snippet}: \n`, THREAD.id);
+      // console.log(`THREAD HEADER, ${THREAD.snippet}: \n threadID: ${THREAD.id}`);
     });
     // console.log('MY THREADSLENGTH: ', threads.length);
     
@@ -34,13 +34,13 @@ gmail.users.history.list({ userId: 'cheatcodes001@gmail.com', startHistoryId: '1
       // if (msgHistory.labelsRemoved) { history.push(msgHistory.labelsRemoved[0]); }
       if (msgHistory) { history.push(msgHistory.messagesAdded); }
       if (msgHistory.labelsAdded) {
-        console.log(`labelsAdded to threadID  ${msgHistory.messages[0].threadId}`, msgHistory.labelsAdded[0].message.labelIds);
+        // console.log(`labelsAdded to threadID  ${msgHistory.messages[0].threadId}`, msgHistory.labelsAdded[0].message.labelIds);
       }
       if (msgHistory.messagesAdded) {
-        console.log(`messagesAdded to threadId  ${msgHistory.messages[0].threadId}`, `${msgHistory.messagesAdded[0].message.labelIds} `);
+        // console.log(`messagesAdded to threadId  ${msgHistory.messages[0].threadId}`, `${msgHistory.messagesAdded[0].message.labelIds} `);
       }
       if (msgHistory.messages) {
-        console.log(`historyid: ${msgHistory.id}`, `threadid: ${msgHistory.messages[0].threadId}`, `messageId: ${msgHistory.messages[0].id}`);
+        // console.log(`historyid: ${msgHistory.id}`, `threadid: ${msgHistory.messages[0].threadId}`, `messageId: ${msgHistory.messages[0].id}`);
       }
       // if (msgHistor)
       // '15ea64b2ff1469ee', HARD BOUNCED THREADID, '17853' HISTORYID, MessageId { id: '15ea64b32da854fe', id: '15ea64b2ff1469ee' }
@@ -54,4 +54,4 @@ gmail.users.history.list({ userId: 'cheatcodes001@gmail.com', startHistoryId: '1
   }
 });
 
-module.exports = { messages, threads };
+module.exports = { messages, threads, history };

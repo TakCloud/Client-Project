@@ -27,13 +27,14 @@ app.get('/', (req, res) => {
 app.get('/build/bundle.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/bundle.js'));
 });
+app.get('/summary/imageTracker?', (req, res) => {
+  console.log('IMAGE TRACKER WAS HIT!!!! \n', req.body);
+  console.log('IMAGE TRACKER WAS HIT!!!! \n', req.query);
+  res.sendFile(path.join(__dirname, '../4-tree-png-image-download-picture.png'));
+});
 app.post('/oauthlogin', (req, res) => {
   res.send(oauthUrl);
 });
-// app.get('https://www.googleapis.com/gmail/v1/users/me/watch', (req, res) => {
-//   console.log(req, 'this was from google api');
-//   res.end();
-// });
 app.get('/summary', tokenFiler);
 app.post('/sendmail', messageSender);
 app.post('/login', LoginSignupController);

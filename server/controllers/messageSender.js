@@ -26,7 +26,8 @@ const sender = (req, res) => {
       },
     },
     subject: msgHeader,
-    html: `<b>${msgToSend}!</b>`,
+    // html: `<b>${msgToSend}!</b>`,
+    html: '<b><img src="http://localhost:8080/summary/imageTracker?alexiskooooooool"/></b>',
     text: msgToSend,
     // dsn: {
     //   id: 'some random message specific id',
@@ -59,11 +60,11 @@ const sender = (req, res) => {
             // console.log(secondOauth2Client, 'this is the secondOauth2Client');
             // console.log(oauth2Client, 'this is original oauth2Client');
             console.log(transporter.isIdle(), ' transporter is idle and message was sent');
-            console.log(`MessageSent: ${msgHeader}, ${msgToSend}\n DSN INFO:`, info);
+            // console.log(`MessageSent: ${msgHeader}, ${msgToSend}\n DSN INFO:`, info);
             info.message.pipe(process.stdout);
           });
         }
-        console.log(messageDBController, 'htfiouahewfilew');
+        console.log(messageDBController, 'will print out inbox history');
         console.log(' you are still connected: ', transporter.isIdle());
         res.sendFile(path.join(__dirname, '../../index.html'));
       }
