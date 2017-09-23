@@ -3,7 +3,7 @@ const clientSecret = require('../client_secret.json').web;
 const accessToken = require('../access_token.json');
 
 // const oauth2Client = require('./oauthCreator');
-
+console.log(clientSecret.client_id);
 const OAuth2 = google.auth.OAuth2;
 const gmailOauthClient =
 new OAuth2(clientSecret.client_id, clientSecret.client_secret, clientSecret.redirect_uris);
