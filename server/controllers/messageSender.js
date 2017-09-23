@@ -1,5 +1,5 @@
 const path = require('path');
-const messageDBController = require('./messageDBController');
+const messageDBController = require('./inboxProcessor');
 const transporter = require('./transporter');
 // const nodemailer = require('nodemailer');
 // const inbox = require('./inboxReader');

@@ -22,7 +22,6 @@ gmail.users.threads.list({ userId: 'cheatcodes001@gmail.com', includeSpamTrash: 
       // console.log(`THREAD HEADER, ${THREAD.snippet}: \n threadID: ${THREAD.id}`);
     });
     // console.log('MY THREADSLENGTH: ', threads.length);
-    
     // if response.threads[i].snippet.match(/[Address was not found]+/gi)
     // {remove from campaign}
   }
@@ -31,17 +30,29 @@ gmail.users.history.list({ userId: 'cheatcodes001@gmail.com', startHistoryId: '1
   if (err) console.log(err);
   if (data) {
     data.history.forEach((msgHistory) => {
-      // console.log(msgHistory);
       // if (msgHistory.labelsRemoved) { history.push(msgHistory.labelsRemoved[0]); }
       if (msgHistory) { history.push(msgHistory.messagesAdded); }
+      if (msgHistory.labelsRemoved) {
+        // console.log(`labelsRemoved from threadID  ${msgHistory.messages[0].threadId}`,
+        //  msgHistory.labelsRemoved[0].message.labelIds);
+        // history.push(msgHistory.labelsRemoved[0].message.labelIds)
+      }
       if (msgHistory.labelsAdded) {
-        // console.log(`labelsAdded to threadID  ${msgHistory.messages[0].threadId}`, msgHistory.labelsAdded[0].message.labelIds);
+        // console.log(`labelsAdded to threadID  ${msgHistory.messages[0].threadId}`,
+        //  msgHistory.labelsAdded[0].message.labelIds);
+        // history.push(msgHistory.labelsRemoved[0].message.labelIds)
+
       }
       if (msgHistory.messagesAdded) {
-        // console.log(`messagesAdded to threadId  ${msgHistory.messages[0].threadId}`, `${msgHistory.messagesAdded[0].message.labelIds} `);
+        // console.log(`messagesAdded to threadId  ${msgHistory.messages[0].threadId}`,
+        //  `${msgHistory.messagesAdded[0].message.labelIds} `);
+        // history.push(msgHistory.labelsRemoved[0].message.labelIds)
+
       }
       if (msgHistory.messages) {
         // console.log(`historyid: ${msgHistory.id}`, `threadid: ${msgHistory.messages[0].threadId}`, `messageId: ${msgHistory.messages[0].id}`);
+        // history.push(msgHistory.labelsRemoved[0].message.labelIds)
+
       }
       // console.log('MY MESSAGES: ', messages);
     });
