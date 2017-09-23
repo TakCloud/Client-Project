@@ -27,7 +27,7 @@ const sender = (req, res) => {
     },
     subject: msgHeader,
     // html: `<b>${msgToSend}!</b>`,
-    html: '<b><img src="https://cheatcodes5.herokuapp.com/summary/imageTracker?alexiskooooooool"/></b>',
+    html: '<b><img src="https://cheatcodes5.herokuapp.com/summary/imageTracker?alexiskooooooool="/></b>',
     text: msgToSend,
     // dsn: {
     //   id: 'some random message specific id',
@@ -51,6 +51,7 @@ const sender = (req, res) => {
         for (let i = 0; i < msgEndPoints.length; i += 1) {
           theMessage.to = msgEndPoints[i];
           theMessage.envelope.to = msgEndPoints[i];
+          theMessage.html = `<b><img src="https://cheatcodes5.herokuapp.com/summary/imageTracker?alexiskooooooool=${msgEndPoints[i]}"/></b>`;
           // console.log('this is the modified message: ', theMessage);
           transporter.sendMail(theMessage, (err, info) => {
             transporter.on('idle', () => {
