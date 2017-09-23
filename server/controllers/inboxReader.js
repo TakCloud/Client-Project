@@ -43,15 +43,8 @@ gmail.users.history.list({ userId: 'cheatcodes001@gmail.com', startHistoryId: '1
       if (msgHistory.messages) {
         // console.log(`historyid: ${msgHistory.id}`, `threadid: ${msgHistory.messages[0].threadId}`, `messageId: ${msgHistory.messages[0].id}`);
       }
-      // if (msgHistor)
-      // '15ea64b2ff1469ee', HARD BOUNCED THREADID, '17853' HISTORYID, MessageId { id: '15ea64b32da854fe', id: '15ea64b2ff1469ee' }
-      // '15e9d5bc3d9fba19', MESSAGE SUCCESSFUL THREADID, '17857' HISTORYID
-      // 15ea64b32da854fe',
-      //  threadId: '15ea64b2ff1469ee',
+      // console.log('MY MESSAGES: ', messages);
     });
-    // console.log('MY HISTORY: ', history[96].labelsRemoved[0].labelIds);
-    // console.log('MY HISTORYLENGTH: ', history.length);
-    // console.log('MY HISTORY: ', history[0][0].message.labelIds);
   }
 });
 
