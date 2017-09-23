@@ -31,6 +31,7 @@ gmail.users.history.list({ userId: 'cheatcodes001@gmail.com', startHistoryId: '1
   if (err) console.log(err);
   if (data) {
     data.history.forEach((msgHistory) => {
+      // console.log(msgHistory);
       // if (msgHistory.labelsRemoved) { history.push(msgHistory.labelsRemoved[0]); }
       if (msgHistory) { history.push(msgHistory.messagesAdded); }
       if (msgHistory.labelsAdded) {

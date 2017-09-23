@@ -6,7 +6,6 @@ import SignupForm from './SignupForm';
 import Summary from './Summary';
 import oauthForm from './oauthForm';
 import SettingsTemp from './SettingsTemp';
-import Image from './Image';
 
 class App extends React.Component {
   state = {};
@@ -20,7 +19,6 @@ class App extends React.Component {
             <Route exact path="/" component={LoginForm} />
             <Route path="/signup" component={SignupForm} />
             <Route path="/summary" component={Summary} />
-            <Route path="/summary/image" component={Image} />
             <Route exact path="/oauth" component={oauthForm} />
             <Route path="/settings" component={SettingsTemp} />
             <br />
