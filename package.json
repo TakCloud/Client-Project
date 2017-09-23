@@ -54,5 +54,8 @@
     "redux": "^3.7.2",
     "sequelize": "^4.8.3",
     "serve-favicon": "^2.4.4"
+  },
+  "engines": {
+    "node": "8.2.1"
   }
 }

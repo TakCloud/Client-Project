@@ -5,11 +5,8 @@ const accessToken = require('../access_token.json');
 // const oauth2Client = require('./oauthCreator');
 
 const OAuth2 = google.auth.OAuth2;
-const gmailOauthClient = new OAuth2(
-  clientSecret.client_id,
-  clientSecret.client_secret,
-  clientSecret.redirect_uris,
-);
+const gmailOauthClient =
+new OAuth2(clientSecret.client_id, clientSecret.client_secret, clientSecret.redirect_uris);
 google.options({
   auth: gmailOauthClient,
 });
