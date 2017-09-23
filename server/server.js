@@ -25,7 +25,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-  console.log('The oauthUrl: ', oauthUrl);
   res.sendFile(path.join(__dirname, '../index.html'));
 });
 app.get('/build/bundle.js', (req, res) => {
