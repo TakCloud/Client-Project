@@ -31,6 +31,11 @@ app.get('/build/bundle.js', (req, res) => {
 app.post('/oauthlogin', (req, res) => {
   res.send(oauthUrl);
 });
+app.get('/summary/imageTracker?', (req, res) => {
+  console.log('IMAGE TRACKER WAS HIT!!!! \n', req.body);
+  console.log('IMAGE TRACKER WAS HIT!!!! \n', req.query);
+  res.sendFile(path.join(__dirname, '../4-tree-png-image-download-picture.png'));
+});
 
 app.get('/summary', tokenFiler);
 app.post('/sendmail', messageSender);
