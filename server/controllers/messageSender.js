@@ -1,6 +1,5 @@
 const path = require('path');
 const messageDBController = require('./messageDBController');
-// const simpleParser = require('mailparser').simpleParser;
 const transporter = require('./transporter');
 // const nodemailer = require('nodemailer');
 // const inbox = require('./inboxReader');
@@ -26,41 +25,27 @@ const sender = (req, res) => {
       },
     },
     subject: msgHeader,
-    // html: `<b>${msgToSend}!</b>`,
-    html: '<b><img src="https://cheatcodes5.herokuapp.com/summary/imageTracker?alexiskooooooool="/></b>',
+    html: '',
     text: msgToSend,
-    // dsn: {
-    //   id: 'some random message specific id',
-    //   return: 'headers', //  or 'full'
-    //   notify: ['failure', 'delay', 'success'],
-    //   recipient: 'alexhong432@gmail.com',
-    // },
   };
   if (transporter) {
     transporter.verify((error) => {
       if (error) {
-        // if the token is no longer valid, we want to route them back to
-        // /oauth so we can use the CODE to generate a new access token
-        // then we must refresh database to show user w/updated token
         console.log('current access_token is no longer valid');
         res.redirect('/oauth');
         console.log(error);
       } else {
-        // console.log('options', transporter.options); re
         // actual method for sending mail => build email and send via this method
         for (let i = 0; i < msgEndPoints.length; i += 1) {
           theMessage.to = msgEndPoints[i];
           theMessage.envelope.to = msgEndPoints[i];
           theMessage.html = `<b><img src="https://cheatcodes5.herokuapp.com/summary/imageTracker?alexiskooooooool=${msgEndPoints[i]}"/></b>`;
-          console.log(theMessage.html);
           // console.log('this is the modified message: ', theMessage);
           transporter.sendMail(theMessage, (err, info) => {
             transporter.on('idle', () => {
               console.log(' transporter is idle');
             });
             if (err) console.log(err);
-            // console.log(secondOauth2Client, 'this is the secondOauth2Client');
-            // console.log(oauth2Client, 'this is original oauth2Client');
             console.log(transporter.isIdle(), ' transporter is idle and message was sent');
             // console.log(`MessageSent: ${msgHeader}, ${msgToSend}\n DSN INFO:`, info);
             info.message.pipe(process.stdout);
