@@ -1,5 +1,6 @@
-const path = require('path');
 import React from 'react';
+
+const path = require('path');
 const messageDBController = require('./messageDBController');
 // const simpleParser = require('mailparser').simpleParser;
 const transporter = require('./transporter');
