@@ -14,7 +14,7 @@ const msgEndPoints = ['test.receiver0001@gmail.com', 'alexhong432@gmail.com', 't
 //  the above method can be used if sql queries get expensive to grab accessToken
 
 const sender = (req, res) => {
-  const theMessage = { // look up 'more Advanced fields in nodemailer.com/messages
+  const theMessage = { // look up 'more Advanced fields in nodemailer.com/messages 
     envelope: {//  envelop shows what the recipient will see while the above is sender view
       from: 'alexhong432@gmail.com', // used as MAIL FROM: address for SMTP SENDER
       to: 'babjaklbjalbjka', // used as RCPT TO: arry of address' for SMTP     THIS IS THE SEND ENVOLOP TO NOT SEND MESAGE TO
