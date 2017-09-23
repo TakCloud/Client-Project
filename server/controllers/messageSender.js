@@ -1,4 +1,5 @@
 const path = require('path');
+import React from 'react';
 const messageDBController = require('./messageDBController');
 // const simpleParser = require('mailparser').simpleParser;
 const transporter = require('./transporter');
@@ -51,7 +52,7 @@ const sender = (req, res) => {
         for (let i = 0; i < msgEndPoints.length; i += 1) {
           theMessage.to = msgEndPoints[i];
           theMessage.envelope.to = msgEndPoints[i];
-          theMessage.html = '<b><img src="https://cheatcodes5.herokuapp.com/summary/imageTracker?alexiskooooooool=fwfeawef"/></b>';
+          theMessage.html = <img src="https://cheatcodes5.herokuapp.com/summary/imageTracker?alexiskooooooool=fwfeawef" alt="" />;
           // theMessage.html = `<b><img src="https://cheatcodes5.herokuapp.com/summary/imageTracker?alexiskooooooool=${msgEndPoints[i]}"/></b>`;
           // console.log('this is the modified message: ', theMessage);
           transporter.sendMail(theMessage, (err, info) => {
