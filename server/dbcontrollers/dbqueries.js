@@ -2,7 +2,7 @@ const models = require('./../dbmodels/dbmodels.js');
 
 const dbqueries = {};
 
-dbqueries.grabTokens = (req, res, next) => {
+dbqueries.grabTokens = (req, res) => {
   models.users.find({
     where: { user_id: req.body.user_id },
     attributes: ['user_id', 'gmail_access_token', 'gmail_refresh_token'],

@@ -1,5 +1,5 @@
 const path = require('path');
-const messageDBController = require('./inboxProcessor');
+const inboxProcessor = require('./inboxProcessor');
 const transporter = require('./transporter');
 // const nodemailer = require('nodemailer');
 // const inbox = require('./inboxReader');
@@ -49,7 +49,7 @@ const sender = (req, res) => {
             info.message.pipe(process.stdout);
           });
         }
-        console.log(`Inbox History: ${messageDBController}`);
+        console.log(`Inbox History: ${inboxProcessor}`);
         console.log(' you are still connected: ', transporter.isIdle());
         res.sendFile(path.join(__dirname, '../../index.html'));
       }
