@@ -9,24 +9,9 @@ const CampaignSteps = sequelize.define('campaign_steps', {
     autoIncrement: true,
     allowNull: false,
   },
-  campaign_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'campaigns',
-      key: 'campaign_id',
-    },
-  },
   step_number: {
     type: Sequelize.INTEGER,
     allowNull: false,
-  },
-  template_id: {
-    type: Sequelize.INTEGER,
-    references: {
-      model: 'templates',
-      key: 'template_id',
-    },
   },
   time_interval: {
     type: Sequelize.INTEGER,
@@ -37,26 +22,10 @@ const CampaignSteps = sequelize.define('campaign_steps', {
     allowNull: false,
     defaultValue: Date.now(),
   },
-  created_at_user_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'users',
-      key: 'user_id',
-    },
-  },
   last_updated: {
     type: Sequelize.DATE,
     allowNull: false,
     defaultValue: Date.now(),
-  },
-  last_updated_user_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'users',
-      key: 'user_id',
-    },
   },
   deleted: {
     type: Sequelize.BOOLEAN,
@@ -65,13 +34,6 @@ const CampaignSteps = sequelize.define('campaign_steps', {
   },
   deleted_at: {
     type: Sequelize.DATE,
-  },
-  deleted_by_user_id: {
-    type: Sequelize.INTEGER,
-    references: {
-      model: 'users',
-      key: 'user_id',
-    },
   },
 }, {
   freezeTableName: true,

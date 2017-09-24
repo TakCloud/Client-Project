@@ -67,6 +67,7 @@ const Templates = sequelize.define('templates', {
   freezeTableName: true,
   tableName: 'templates',
   timestamps: false,
+  underscored: true,
 });
 
 

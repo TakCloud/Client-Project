@@ -17,33 +17,9 @@ const Emails = sequelize.define('emails', {
       key: 'lead_group_id',
     },
   },
-  campaign_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'campaigns',
-      key: 'campaign_id',
-    },
-  },
   step_number: {
     type: Sequelize.INTEGER,
     allowNull: false,
-  },
-  lead_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'leads',
-      key: 'lead_id',
-    },
-  },
-  from_user_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'users',
-      key: 'user_id',
-    },
   },
   gmail_message_id: { type: Sequelize.STRING },
   subject: {
@@ -70,14 +46,6 @@ const Emails = sequelize.define('emails', {
     type: Sequelize.DATE,
     allowNull: false,
     defaultValue: Date.now(),
-  },
-  sent_by_user_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'users',
-      key: 'user_id',
-    },
   },
   sent_time: { type: Sequelize.DATE },
   send_at: {

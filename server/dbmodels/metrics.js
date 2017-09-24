@@ -60,7 +60,7 @@ const Metrics = sequelize.define('metrics', {
   tableName: 'metrics',
   timestamps: false,
   indexes: [{
-    fields: ['organization_id', 'campaign_id', 'user_id', 'step_id', 'template_id'],
+    fields: ['campaign_id', 'user_id', 'step_id', 'template_id'],
   }],
 });
 
