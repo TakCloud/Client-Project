@@ -13,15 +13,7 @@ module.exports = (req, res) => {
   const TOKEN_DIR = `${(process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE)}/Desktop/credentials/`;
   const TOKEN_PATH = `${TOKEN_DIR} gmail.json`;
-
-  //  Store token to disk be used in later program executions.
   const storeToken = (token) => {
-    // change the logic so that we are storing to sql
-    // or updateing token on a user in sql
-    // 
-    // we can also use an alternative method of grabbing token here
-    // then passing it over to front end on resLocals and accessing this token
-    // which now represents the most updated token, where we can write headers onto the transporter
     try {
       fs.mkdirSync(TOKEN_DIR);
     } catch (err) {
