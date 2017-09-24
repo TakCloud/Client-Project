@@ -14,81 +14,57 @@ dbqueries.grabTokens = (req, res, next) => {
 };
 
 dbqueries.grabState = (req, res, next) => {
-
+  models.users.findAll({
+    attributes: ['user_id', 'user_email'],
+    where: { user_id: res.locals.user_id }, // replace with res.locals.user_id
+    include: [{
+      attributes: ['campaign_id', 'campaign_name', 'lead_groups', 'current_step'],
+      model: models.campaigns,
+      include: [{
+        attributes: ['step_id', 'step_number', 'time_interval', 'template_id'],
+        model: models.campaign_steps,
+        include: [models.templates],
+      }],
+    }],
+  })
+    .then((users) => {
+      res.locals.databaseEntry = users.map((user) => {
+        return Object.assign({},
+          {
+            user_id: user.user_id,
+            user_email: user.user_email,
+            campaigns: user.campaigns.map((campaign) => {
+              return Object.assign({},
+                {
+                  campaign_id: campaign.campaign_id,
+                  campaign_name: campaign.campaign_name,
+                  status: campaign.campaign_status,
+                  lead_groups: campaign.lead_groups,
+                  current_step: campaign.current_step,
+                  start_date: campaign.campaign_start_date,
+                  campaign_steps: campaign.campaign_steps.map((step) => {
+                    return Object.assign({}, {
+                      step_id: step.step_id,
+                      step_number: step.step_number,
+                      time_interval: step.time_interval,
+                      template: {
+                        template_id: step.template.template_id,
+                        template_name: step.template.template_name,
+                        subject: step.template.subject,
+                        body: step.template.body,
+                      },
+                    });
+                  }),
+                });
+            }),
+          });
+      });
+      next();
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
 };
 
 module.exports = dbqueries;
-
-/* 
-  {
-    user: {
-      id: 1,
-      email: '1@example.com',
-    },
-    campaigns: [{
-      campaign_id: 1,
-      campaign_name: 'campaign1',
-      status: 'active',
-      lead_groups: [1, 2],
-      campaign_steps: [{
-        step_number: 1,
-        time_interval: timestamp,
-        template: {
-          id: 1,
-          name: 'template1',
-          subject: 'subject here',
-          body: 'body here',
-        }
-      },
-      {
-        step_number: 2,
-        time_interval: timestamp,
-        template: {
-          id: 2,
-          name: 'template2',
-          subject: 'subject here',
-          body: 'body here',
-        }
-      }],
-      start_date: timestamp,
-      campaign_metrics: { ...metrics },
-    },
-    {
-      campaign_id: 2,
-      campaign_name: 'campaign2',
-      status: 'disabled',
-      lead_groups: [3, 4],
-      campaign_steps: [{
-        step_number: 1,
-        time_interval: timestamp,
-        template: {
-          id: 1,
-          name: 'template1',
-          subject: 'subject here',
-          body: 'body here',
-        }
-      },
-      {
-        step_number: 2,
-        time_interval: timestamp,
-        template: {
-          id: 2,
-          name: 'template2',
-          subject: 'subject here',
-          body: 'body here',
-        }
-      }],
-      start_date: timestamp,
-      campaign_metrics: { ...metrics },
-    }],
-    lead_groups: [{
-      lead_group_id: 1,
-      lead_group_name: 'group1',
-    },
-    {
-      lead_group_id: 2,
-      lead_group_name: 'group2',
-    }]
-    total_metrics: { ...metrics },
-  }
-*/
