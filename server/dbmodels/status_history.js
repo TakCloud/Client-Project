@@ -12,8 +12,8 @@ const StatusHistory = sequelize.define('status_history', {
     type: Sequelize.INTEGER,
     allowNull: false,
     references: {
-      model: 'sent_emails',
-      key: 'sent_email_id',
+      model: 'emails',
+      key: 'email_id',
     },
   },
   status: {

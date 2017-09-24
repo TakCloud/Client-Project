@@ -29,20 +29,20 @@ const Emails = sequelize.define('emails', {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  lead_email: {
-    type: Sequelize.STRING,
+  lead_id: {
+    type: Sequelize.INTEGER,
     allowNull: false,
     references: {
       model: 'leads',
-      key: 'lead_email',
+      key: 'lead_id',
     },
   },
-  from_email: {
-    type: Sequelize.STRING,
+  from_user_id: {
+    type: Sequelize.INTEGER,
     allowNull: false,
     references: {
       model: 'users',
-      key: 'send_as_email',
+      key: 'user_id',
     },
   },
   gmail_message_id: { type: Sequelize.STRING },
@@ -80,6 +80,10 @@ const Emails = sequelize.define('emails', {
     },
   },
   sent_time: { type: Sequelize.DATE },
+  send_at: {
+    type: Sequelize.DATE,
+    allowNull: false,
+  },
 }, {
   freezeTableName: true,
   tableName: 'emails',
