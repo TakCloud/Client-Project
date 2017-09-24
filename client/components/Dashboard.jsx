@@ -3,8 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TopNavbar from './TopNavbar';
 import DataViews from './DataViews';
 import BottomButtons from './BottomButtons';
-import ButtonList from '../containers/ButtonList';
-import PieCharts from '../containers/PieCharts';
+import CampaignButtons from '../containers/CampaignButtons';
 
 
 export default class Dashboard extends Component {
@@ -14,7 +13,7 @@ export default class Dashboard extends Component {
         <div>
           <TopNavbar />
           <DataViews />
-          <ButtonList />
+          <CampaignButtons />
           <BottomButtons />
         </div>
       </MuiThemeProvider>

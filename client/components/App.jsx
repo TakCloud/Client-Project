@@ -6,7 +6,7 @@ import Dashboard from './Dashboard';
 import LoginForm from '../containers/LoginForm';
 import SignupForm from '../containers/SignupForm';
 import OrganizationForm from '../containers/OrganizationForm';
-import PieChart from '../containers/PieChart';
+import CreateTemplate from '../containers/CreateTemplate';
 
 class App extends Component {
   validator = (e) => {
@@ -23,23 +23,19 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-<<<<<<< HEAD
           <Switch>
             <MuiThemeProvider>
               <Route path="/dashboard" component={Dashboard} />
             </MuiThemeProvider>
-            <Route path="/dashboard/:id" component={PieChart} />
             <Route path="/signup" component={SignupForm} />
             <Route path="/neworg" component={OrganizationForm} />
             <Route path="/" component={Dashboard} />
           </Switch>
-=======
           <Route exact path="/" component={LoginForm} />
           <Route path="/signup" component={SignupForm} />
           <button id="submit" type="submit" onClick={this.validator}>LOGIN</button>
           <button id="sendmail" type="sendmail" onClick={this.emailSender}>SEND MAIL</button>
           <p>{"Don't have an account?"}</p><Link to="/signup" component={SignupForm}>Sign up</Link>
->>>>>>> 208125f91cdb0f84b7546d97c5f903180f65a4db
         </div>
       </BrowserRouter>
     );

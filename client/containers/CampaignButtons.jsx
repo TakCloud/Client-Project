@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
 import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
-import PieChart from './PieChart';
+import FlatButton from 'material-ui/FlatButton';
 
-class ButtonList extends Component {
+class CampaignButtons extends Component {
   renderList() {
     return this.props.campaignData.map(campaign => (
-      <div>
-        <RaisedButton className="campaignButtons" primary label={campaign.name} containerElement={<Link to={`/dashboard/${campaign.id}`} key={campaign.id} />} />
-      </div>
+      <Toolbar>
+        <ToolbarGroup className="campaignButtonsContainer">
+          <RaisedButton className="campaignButtons" primary label={campaign.name} containerElement={<Link to={`/dashboard/${campaign.id}`} key={campaign.id} />} />
+        </ToolbarGroup>
+        <ToolbarGroup>
+          <ToolbarSeparator />
+          <FlatButton label="Edit" primary />
+        </ToolbarGroup>
+        <ToolbarGroup>
+          <ToolbarSeparator />
+          <FlatButton label="Delete" secondary />
+        </ToolbarGroup>
+      </Toolbar>
     ));
   }
   render() {
@@ -26,7 +37,7 @@ function mapStateToProps(state) {
   return { campaignData: state.data.campaign };
 }
 
-ButtonList.propTypes = {
+CampaignButtons.propTypes = {
   campaignData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -42,4 +53,4 @@ ButtonList.propTypes = {
   ).isRequired,
 };
 
-export default connect(mapStateToProps)(ButtonList);
+export default connect(mapStateToProps)(CampaignButtons);

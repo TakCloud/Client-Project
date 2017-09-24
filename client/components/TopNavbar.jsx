@@ -9,7 +9,7 @@ export default function TopNavbar() {
     <AppBar
       title={<span>First Freight</span>}
       iconElementRight={<FlatButton label="User Settings" />}
-      iconElementLeft={<IconButton><NavigationClose /></IconButton>}
+      showMenuIconButton={false}
     />
   );
 }
