@@ -3,6 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const dbcontroller = require('./dbcontrollers/dbcontroller.js');
 const dbupdates = require('./dbcontrollers/dbupdates.js');
+const dbqueries = require('./dbcontrollers/dbqueries.js');
 const verifyToken = require('./controllers/verifyToken.js');
 const messageSender = require('./controllers/messageSender');
 const LoginSignupController = require('./controllers/LoginSignupController');
@@ -54,8 +55,9 @@ app.post('/summary',
 app.post('/sendmail', messageSender);
 app.post('/login',
   LoginSignupController,
+  dbqueries.grabState,
   (req, res) => {
-    res.json('success'); // need to update
+    res.json(res.locals.databaseEntry);
   });
 // we may be able to handle the /login and /signup logic through react Router
 // leave these routes until react router is implemented

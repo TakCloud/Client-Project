@@ -22,6 +22,7 @@ const UserOrganizations = sequelize.define('user_organizations', {
   freezeTableName: true,
   tableName: 'user_organizations',
   timestamps: false,
+  underscored: true,
 });
 
 
