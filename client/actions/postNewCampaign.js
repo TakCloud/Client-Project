@@ -5,6 +5,7 @@ const xhr = new XMLHttpRequest();
 export const POST_NEWCAMPAIGN = 'POST_NEWCAMPAIGN';
 
 export function postNewCampaign(newCampaign) {
+  console.log('FUCKKK');
   const params = newCampaign;
   xhr.open('POST', '/createcampaign', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
@@ -20,6 +21,4 @@ export function postNewCampaign(newCampaign) {
   };
   xhr.send(JSON.stringify(params));
   // const request = axios.post('/createcampaign', newCampaign);
-
-
 }

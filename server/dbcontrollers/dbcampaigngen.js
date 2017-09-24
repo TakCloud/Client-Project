@@ -1,7 +1,6 @@
 const models = require('./../dbmodels/dbmodels.js');
 
 const generateCampaign = (req, res, next) => {
-  console.log(req.body);
   // inserts one email per lead per campaign into emails table
   const insertEmails = () => {
     req.body.steps.forEach((step) => {
