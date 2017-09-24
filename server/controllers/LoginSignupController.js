@@ -3,7 +3,7 @@ const models = require('./../dbmodels/dbmodels.js');
 
 module.exports = (req, res, next) => {
   models.users.find({
-    attributes: ['user_password'],
+    attributes: ['user_id', 'user_password'],
     where: { user_email: req.body.username },
   })
     .then((entry) => {
@@ -11,8 +11,12 @@ module.exports = (req, res, next) => {
       const savedPass = entry.dataValues.user_password;
       bcrypt.compare(inputPass, savedPass)
         .then((resolution) => {
-          if (resolution) next();
-          else res.status(400).json('Wrong username/password combo');
+          if (resolution) {
+            res.locals.user_id = entry.dataValues.user_id;
+            next();
+          } else {
+            res.status(400).json('Wrong username/password combo');
+          }
         });
     })
     .catch((err) => {

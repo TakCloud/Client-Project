@@ -52,7 +52,7 @@ app.post('/login',
   LoginSignupController,
   dbqueries.grabState,
   (req, res) => {
-    res.json('success'); // need to update
+    res.json(res.locals.databaseEntry);
   });
 // we may be able to handle the /login and /signup logic through react Router
 // leave these routes until react router is implemented
@@ -96,30 +96,6 @@ app.post('/createcampaign',
   dbcontroller.generateCampaign,
   (req, res) => {
     res.json(res.locals);
-  });
-
-
-const models = require('./dbmodels/dbmodels.js');
-app.get('/test',
-  (req, res) => {
-    models.users.findAll({
-      where: { user_id: 1 },
-      include: [{
-        model: models.campaigns,
-        include: [{
-          model: models.campaign_steps,
-          include: [models.templates],
-        }],
-      }],
-    })
-      .then((entry) => {
-        console.log(entry);
-        res.json(entry);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.json(err);
-      });
   });
 
 app.listen(8080, () => {

@@ -14,7 +14,7 @@ const CampaignSteps = sequelize.define('campaign_steps', {
     allowNull: false,
   },
   time_interval: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DATE,
     allowNull: false,
   },
   created_at: {
