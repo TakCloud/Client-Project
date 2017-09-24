@@ -1,6 +1,8 @@
 const models = require('./../dbmodels/dbmodels.js');
 const generateCampaign = require('./dbcampaigngen');
+const bcrypt = require('bcrypt');
 
+const saltRounds = 10;
 const dbcontroller = {};
 
 // ***** WILL WIPE OUT DATABASE IF UNCOMMENTED *****
@@ -56,6 +58,20 @@ dbcontroller.insert = (req, res, next) => {
     .catch((err) => {
       res.status(400).json(`Something went wrong when inserting data: ${err}`);
     });
+};
+
+dbcontroller.createUser = (req, res, next) => {
+  bcrypt.hash(req.body.user_password, saltRounds, (err, hash) => {
+    req.body.user_password = hash;
+    models.users.create(req.body)
+      .then((entry) => {
+        res.locals.databaseEntry = entry.dataValues.user_id;
+        next();
+      })
+      .catch((error) => {
+        res.status(400).json(`Something went wrong when creating user: ${error}`);
+      });
+  });
 };
 
 // bulk insert records into database

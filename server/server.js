@@ -52,7 +52,11 @@ app.post('/summary',
   });
 
 app.post('/sendmail', messageSender);
-app.post('/login', LoginSignupController);
+app.post('/login',
+  LoginSignupController,
+  (req, res) => {
+    res.json('success'); // need to update
+  });
 // we may be able to handle the /login and /signup logic through react Router
 // leave these routes until react router is implemented
 app.post('/signup', (req, res) => {
@@ -68,7 +72,7 @@ app.post('/createorg',
   });
 
 app.post('/createuser',
-  dbcontroller.insert,
+  dbcontroller.createUser,
   (req, res) => {
     res.json(res.locals.databaseEntry);
   });
