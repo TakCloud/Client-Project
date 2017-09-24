@@ -13,13 +13,13 @@ const msgEndPoints = ['test.receiver0001@gmail.com', 'alexhong432@gmail.com', 't
 //  the above method can be used if sql queries get expensive to grab accessToken
 
 const sender = (req, res) => {
-  const theMessage = { // look up 'more Advanced fields in nodemailer.com/messages 
-    envelope: {//  envelop shows what the recipient will see while the above is sender view
-      from: 'alexhong432@gmail.com', // used as MAIL FROM: address for SMTP SENDER
-      to: 'babjaklbjalbjka', // used as RCPT TO: arry of address' for SMTP     THIS IS THE SEND ENVOLOP TO NOT SEND MESAGE TO
+  const theMessage = {
+    envelope: {
+      from: 'alexhong432@gmail.com',
+      to: 'babjaklbjalbjka',
       dsn: {
         id: 'some random message specific id',
-        return: 'headers', //  or 'full'
+        return: 'headers',
         notify: ['failure', 'delay'],
         recipient: 'alexhong432@gmail.com',
       },
@@ -31,27 +31,25 @@ const sender = (req, res) => {
   if (transporter) {
     transporter.verify((error) => {
       if (error) {
-        console.log('current access_token is no longer valid');
+        console.log('current access_token is no longer valid', error);
         res.redirect('/oauth');
-        console.log(error);
       } else {
-        // actual method for sending mail => build email and send via this method
         for (let i = 0; i < msgEndPoints.length; i += 1) {
           theMessage.to = msgEndPoints[i];
           theMessage.envelope.to = msgEndPoints[i];
           theMessage.html = `<b><img src="https://cheatcodes5.herokuapp.com/summary/imageTracker?alexiskooooooool=${msgEndPoints[i]}"/></b>`;
-          // console.log('this is the modified message: ', theMessage);
           transporter.sendMail(theMessage, (err, info) => {
+            // console.log(`this is the modified message: , ${theMessage} \n`);
             transporter.on('idle', () => {
               console.log(' transporter is idle');
             });
             if (err) console.log(err);
-            console.log(transporter.isIdle(), ' transporter is idle and message was sent');
+            console.log('Transporter is idle and message was sent: ', transporter.isIdle());
             // console.log(`MessageSent: ${msgHeader}, ${msgToSend}\n DSN INFO:`, info);
             info.message.pipe(process.stdout);
           });
         }
-        console.log(messageDBController, 'will print out inbox history');
+        console.log(`Inbox History: ${messageDBController}`);
         console.log(' you are still connected: ', transporter.isIdle());
         res.sendFile(path.join(__dirname, '../../index.html'));
       }
