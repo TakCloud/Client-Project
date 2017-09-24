@@ -3,6 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const dbcontroller = require('./dbcontrollers/dbcontroller.js');
 const dbupdates = require('./dbcontrollers/dbupdates.js');
+const dbqueries = require('./dbcontrollers/dbqueries.js');
 const verifyToken = require('./controllers/verifyToken.js');
 const messageSender = require('./controllers/messageSender');
 const LoginSignupController = require('./controllers/LoginSignupController');
@@ -52,7 +53,12 @@ app.post('/summary',
   });
 
 app.post('/sendmail', messageSender);
-app.post('/login', LoginSignupController);
+app.post('/login',
+  LoginSignupController,
+  dbqueries.grabState,
+  (req, res) => {
+    res.json('success'); // need to update
+  });
 // we may be able to handle the /login and /signup logic through react Router
 // leave these routes until react router is implemented
 app.post('/signup', (req, res) => {
@@ -68,7 +74,7 @@ app.post('/createorg',
   });
 
 app.post('/createuser',
-  dbcontroller.insert,
+  dbcontroller.createUser,
   (req, res) => {
     res.json(res.locals.databaseEntry);
   });
@@ -95,6 +101,30 @@ app.post('/createcampaign',
   dbcontroller.generateCampaign,
   (req, res) => {
     res.json(res.locals);
+  });
+
+
+const models = require('./dbmodels/dbmodels.js');
+app.get('/test',
+  (req, res) => {
+    models.users.findAll({
+      where: { user_id: 1 },
+      include: [{
+        model: models.campaigns,
+        include: [{
+          model: models.campaign_steps,
+          include: [models.templates],
+        }],
+      }],
+    })
+      .then((entry) => {
+        console.log(entry);
+        res.json(entry);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.json(err);
+      });
   });
 
 app.listen(8080, () => {

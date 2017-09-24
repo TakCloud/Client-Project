@@ -9,14 +9,6 @@ const Users = sequelize.define('users', {
     autoIncrement: true,
     allowNull: false,
   },
-  user_organization_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'user_organizations',
-      key: 'organization_id',
-    },
-  },
   user_organization_name: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -70,6 +62,7 @@ const Users = sequelize.define('users', {
   freezeTableName: true,
   tableName: 'users',
   timestamps: false,
+  underscored: true,
 });
 
 module.exports = () => Users;

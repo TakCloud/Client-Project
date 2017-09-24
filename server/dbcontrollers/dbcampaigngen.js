@@ -35,7 +35,7 @@ const generateCampaign = (req, res, next) => {
         step_number: step.step_number,
         template_id: 1, // just testing
         time_interval: step.time_interval,
-        created_at_user_id: req.body.user_id,
+        created_by_user_id: req.body.user_id,
         last_updated_user_id: req.body.user_id,
       })
         .then(() => {
@@ -52,7 +52,8 @@ const generateCampaign = (req, res, next) => {
       campaign_name: req.body.campaign_name,
       status: 'active',
       lead_groups: req.body.lead_group,
-      created_at_user_id: req.body.user_id,
+      user_id: req.body.user_id,
+      created_by_user_id: req.body.user_id,
       last_updated_user_id: req.body.user_id,
     })
       .then((entry) => {
