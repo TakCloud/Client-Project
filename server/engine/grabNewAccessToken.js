@@ -13,8 +13,7 @@ module.exports = (email, mailer, message, user, lead) => {
       },
       {
         where: { user_id: user.user_id },
-      },
-      ).then(() => {
+      }).then(() => {
         console.log('this is your new accessToken REFRESHED: ', tokens);
         user.gmail_access_token = tokens;
         sendEmail(email, mailer, message, user, lead);
