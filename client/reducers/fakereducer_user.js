@@ -1,14 +1,3 @@
-// export default function () {
-//   return [
-//     { name: 'HELLO' },
-//     { name: 'GOODBYE' },
-//   ];
-// }
-//
-// // export default function () {
-// //   return [{ name: 'AWESOME' }, { name: 'SWEET' }];
-// // }
-
 export default function () {
   return {
     user: { id: 12345, name: 'Jason' },
