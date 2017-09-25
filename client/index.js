@@ -9,6 +9,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import reducers from './reducers/allReducers';
 import Dashboard from './components/Dashboard';
 import RealPieCharts from './containers/RealPieCharts';
+import LoginPageForm from './containers/LoginPageForm';
 import LoginForm from './containers/LoginForm';
 import NewCampaignFormFirstPage from './containers/NewCampaignFormFirstPage';
 import CreateTemplate from './containers/CreateTemplate';
@@ -31,7 +32,7 @@ render(
           <Route path="/dashboard/:id" component={RealPieCharts} />
           <Route path="/dashboard" component={Dashboard} />
           <MuiThemeProvider>
-            <Route path="/" component={LoginForm} />
+            <Route path="/" component={LoginPageForm} />
           </MuiThemeProvider>
         </Switch>
       </div>
