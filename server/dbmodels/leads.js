@@ -22,14 +22,6 @@ const Leads = sequelize.define('leads', {
     unique: true,
     allowNull: false,
   },
-  lead_group_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'lead_groups',
-      key: 'lead_group_id',
-    },
-  },
   eligible_to_email: {
     type: Sequelize.BOOLEAN,
     defaultValue: true,
@@ -41,26 +33,10 @@ const Leads = sequelize.define('leads', {
     allowNull: false,
     defaultValue: Date.now(),
   },
-  created_at_user_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'users',
-      key: 'user_id',
-    },
-  },
   last_updated: {
     type: Sequelize.DATE,
     allowNull: false,
     defaultValue: Date.now(),
-  },
-  last_updated_user_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'users',
-      key: 'user_id',
-    },
   },
   deleted: {
     type: Sequelize.BOOLEAN,
@@ -69,13 +45,6 @@ const Leads = sequelize.define('leads', {
   },
   deleted_at: {
     type: Sequelize.DATE,
-  },
-  deleted_by_user_id: {
-    type: Sequelize.INTEGER,
-    references: {
-      model: 'users',
-      key: 'user_id',
-    },
   },
 }, {
   freezeTableName: true,

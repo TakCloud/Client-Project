@@ -2,12 +2,11 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const dbcontroller = require('./dbcontrollers/dbcontroller.js');
-// const dbupdates = require('./dbcontrollers/dbupdates.js');
-// const verifyToken = require('./controllers/verifyToken.js');
-const messageSender = require('./controllers/messageSender');
+const dbupdates = require('./dbcontrollers/dbupdates.js');
+const dbqueries = require('./dbcontrollers/dbqueries.js');
+const verifyToken = require('./controllers/verifyToken.js');
 const LoginSignupController = require('./controllers/LoginSignupController');
 // const engine = require('./engine/engine.js');
-const tokenFiler = require('./controllers/tokenFiler');
 
 const oauthUrl = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fmail.google.com%2F&response_type=code&client_id=674930641729-at55ett8pbck27uu5ektiniq91bu8dfd.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fcheatcodes5.herokuapp.com%2Fsummary';
 // use the above url for production, and the below for development
@@ -44,9 +43,16 @@ app.post('/oauthlogin', (req, res) => {
 });
 app.get('/googlec45609043392fa00', (req, res) => res.sendFile(path.join(__dirname, '../../googlec45609043392fa00.html')));
 app.get('/summary/googlec45609043392fa00', (req, res) => res.sendFile(path.join(__dirname, '../../googlec45609043392fa00.html')));
-app.get('/summary', tokenFiler);
-app.post('/sendmail', messageSender);
-app.post('/login', LoginSignupController);
+
+app.post('/login',
+  LoginSignupController,
+  dbqueries.grabState,
+  (req, res) => {
+    res.json(res.locals.databaseEntry);
+  });
+// we may be able to handle the /login and /signup logic through react Router
+// leave these routes until react router is implemented
+
 app.post('/signup', (req, res) => {
   console.log(res, ' this is res on signup');
   res.end();
@@ -60,7 +66,7 @@ app.post('/createorg',
   });
 
 app.post('/createuser',
-  dbcontroller.insert,
+  dbcontroller.createUser,
   (req, res) => {
     res.json(res.locals.databaseEntry);
   });
@@ -89,6 +95,15 @@ app.post('/createcampaign',
     res.json(res.locals);
   });
 
+app.post('/summary',
+  verifyToken,
+  dbupdates.saveToken,
+  (req, res) => {
+    res.send();
+  });
+
 app.listen(port, () => {
   console.log(`now listening on ${port}! \n`);
+  // ** UNCOMMENT TO START ENGINE **  
+  // engine.begin();
 });
