@@ -12,12 +12,3 @@ export function fetchUserData(user, callback) {
       .then(() => callback());
   };
 }
-
-//   const userDataRequest = axios.post('/login', user)
-//     .then(() => callback());
-//
-//   return {
-//     type: FETCH_USERDATA,
-//     payload: userDataRequest,
-//   };
-// }
