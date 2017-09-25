@@ -14,22 +14,32 @@ class NewCampaignFormFirstPage extends Component {
     const { handleSubmit } = this.props;
     return (
       <MuiThemeProvider>
-        <form>
-          <Field
-            name="campaign_name"
-            component={TextField}
-            floatingLabelText="Campaign Name"
+        <div>
+          <AppBar
+            title="NEW CAMPAIGN"
+            showMenuIconButton={false}
+            titleStyle={{ textAlign: 'center' }}
           />
-          <Field name="lead_group" component={RadioButtonGroup}>
-            <RadioButton value={1} label="Codesmith" />
-            <RadioButton value={2} label="VIP" />
-          </Field>
+          <form>
+            <Field
+              name="campaign_name"
+              className="firstPageFields"
+              component={TextField}
+              floatingLabelText="Campaign Name"
+            />
+            <h3 className="firstPageTitle">Select Group</h3>
+            <Field name="lead_group" className="firstPageFields" component={RadioButtonGroup}>
+              <RadioButton value={1} label="Codesmith" />
+              <RadioButton value={2} label="VIP" />
+            </Field>
+          </form>
           <RaisedButton
-            primary
+            className="firstPageButton"
             label="Next"
             containerElement={<Link to={'/summary/newcampaign/steps'} />}
+            primary
           />
-        </form>
+        </div>
       </MuiThemeProvider>
     );
   }

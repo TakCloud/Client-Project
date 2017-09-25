@@ -6,10 +6,14 @@ import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 
+const toolbarStyle = {
+  backgroundColor: 'white',
+};
+
 class CampaignButtons extends Component {
   renderList() {
     return this.props.campaignData.map(campaign => (
-      <Toolbar>
+      <Toolbar style={toolbarStyle}>
         <ToolbarGroup className="campaignButtonsContainer">
           <RaisedButton
             className="campaignButtons"
