@@ -17,7 +17,7 @@ class NewCampaignFormConfirmationPage extends Component {
     });
     valObj.user_id = '1';
     valObj.start_date = valObj.steps[0].time_interval;
-    this.props.postNewCampaign(valObj);
+    this.props.postNewCampaign(valObj, () => this.props.history.push('/dashboard'));
   }
 
   render() {
@@ -26,7 +26,11 @@ class NewCampaignFormConfirmationPage extends Component {
     return (
       <MuiThemeProvider>
         <form onSubmit={handleSubmit(this.onSubmit)}>
-          <RaisedButton type="submit" primary label="Confirm" />
+          <RaisedButton
+            type="submit"
+            label="Confirm"
+            primary
+          />
         </form>
       </MuiThemeProvider>
     );
@@ -36,6 +40,7 @@ class NewCampaignFormConfirmationPage extends Component {
 NewCampaignFormConfirmationPage.propTypes = {
   handleSubmit: PropTypes.func,
   postNewCampaign: PropTypes.func,
+  history: PropTypes.object,
 };
 
 export default reduxForm({

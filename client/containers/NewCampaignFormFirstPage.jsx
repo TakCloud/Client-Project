@@ -7,6 +7,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { TextField, RadioButtonGroup } from 'redux-form-material-ui';
 import { RadioButton } from 'material-ui/RadioButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import AppBar from 'material-ui/AppBar';
 
 class NewCampaignFormFirstPage extends Component {
   render() {
@@ -20,10 +21,14 @@ class NewCampaignFormFirstPage extends Component {
             floatingLabelText="Campaign Name"
           />
           <Field name="lead_group" component={RadioButtonGroup}>
-            <RadioButton value={1} label="Group1" />
-            <RadioButton value={2} label="Group2" />
+            <RadioButton value={1} label="Codesmith" />
+            <RadioButton value={2} label="VIP" />
           </Field>
-          <RaisedButton primary label="Next" containerElement={<Link to={'/dashboard/newcampaign/steps'} />} />
+          <RaisedButton
+            primary
+            label="Next"
+            containerElement={<Link to={'/dashboard/newcampaign/steps'} />}
+          />
         </form>
       </MuiThemeProvider>
     );

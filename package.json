@@ -51,7 +51,6 @@
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-js-pagination": "^2.2.0",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
@@ -60,7 +59,7 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-form": "^7.0.4",
     "redux-form-material-ui": "^4.3.0",
-    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0",
     "sequelize": "^4.8.3",
     "victory": "^0.22.2"
   }

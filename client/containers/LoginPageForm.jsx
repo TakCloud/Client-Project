@@ -10,7 +10,7 @@ import { fetchUserData } from '../actions/fetchUserData';
 
 class LoginPageForm extends Component {
   onSubmit = (values) => {
-    this.props.fetchUserData(values);
+    this.props.fetchUserData(values, () => this.props.history.push('/dashboard'));
   }
 
   render() {
@@ -42,6 +42,7 @@ class LoginPageForm extends Component {
 LoginPageForm.propTypes = {
   handleSubmit: PropTypes.func,
   fetchUserData: PropTypes.func,
+  history: PropTypes.object,
 };
 
 export default reduxForm({

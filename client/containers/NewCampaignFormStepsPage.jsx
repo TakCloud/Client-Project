@@ -15,7 +15,11 @@ const renderSteps = ({ fields }) => (
         <div>
           <Toolbar>
             <ToolbarTitle text={`Step ${index + 1}`} />
-            <RaisedButton secondary label="Remove Step" onClick={() => fields.remove(index)} />
+            <RaisedButton
+              label="Remove Step"
+              onClick={() => fields.remove(index)}
+              secondary
+            />
           </Toolbar>
         </div>
         <Field
@@ -44,9 +48,9 @@ const renderSteps = ({ fields }) => (
       </div>
     ))}
     <RaisedButton
-      primary
       label="Add Step"
       onClick={() => fields.push({})}
+      primary
     /><br />
   </div>
 );
@@ -58,7 +62,11 @@ const NewCampaignStepsForm = (props) => {
     <MuiThemeProvider>
       <form>
         <FieldArray name="steps" component={renderSteps} />
-        <RaisedButton primary label="Confirm" containerElement={<Link to={'/dashboard/newcampaign/confirm'} />} />
+        <RaisedButton
+          label="Confirm"
+          containerElement={<Link to={'/dashboard/newcampaign/confirm'} />}
+          primary
+        />
       </form>
     </MuiThemeProvider>
   );

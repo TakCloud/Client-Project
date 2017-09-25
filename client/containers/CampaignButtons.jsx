@@ -11,7 +11,12 @@ class CampaignButtons extends Component {
     return this.props.campaignData.map(campaign => (
       <Toolbar>
         <ToolbarGroup className="campaignButtonsContainer">
-          <RaisedButton className="campaignButtons" primary label={campaign.name} containerElement={<Link to={`/dashboard/${campaign.id}`} key={campaign.id} />} />
+          <RaisedButton
+            className="campaignButtons"
+            label={campaign.name}
+            containerElement={<Link to={`/dashboard/${campaign.id}`} key={campaign.id} />}
+            primary
+          />
         </ToolbarGroup>
         <ToolbarGroup>
           <ToolbarSeparator />

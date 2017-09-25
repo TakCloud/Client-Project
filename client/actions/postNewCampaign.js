@@ -1,24 +1,14 @@
-// import axios from 'axios';
-const xhr = new XMLHttpRequest();
-
+import axios from 'axios';
 
 export const POST_NEWCAMPAIGN = 'POST_NEWCAMPAIGN';
 
-export function postNewCampaign(newCampaign) {
-  console.log('FUCKKK');
-  const params = newCampaign;
-  xhr.open('POST', '/createcampaign', true);
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      console.log(xhr.responseText);
-      return {
+export function postNewCampaign(newCampaign, callback) {
+  return (dispatch) => {
+    axios.post('/createcampaign', newCampaign)
+      .then(response => dispatch({
         type: POST_NEWCAMPAIGN,
-        payload: xhr.responseText,
-      };
-    }
-    return true;
+        payload: response,
+      }))
+      .then(() => callback());
   };
-  xhr.send(JSON.stringify(params));
-  // const request = axios.post('/createcampaign', newCampaign);
 }
