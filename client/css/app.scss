@@ -1,0 +1,29 @@
+html { font-family: 'Roboto', sans-serif; }
+
+body {
+  margin: 0;
+}
+
+.campaignButtons {
+    width: 100%;
+}
+
+.botDashboardButtons {
+  width: 50%;
+}
+
+.botDashboardButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.campaignDataContainer {
+  background-color: #417C81;
+}
+
+.campaignButtonsContainer {
+  float: none;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
