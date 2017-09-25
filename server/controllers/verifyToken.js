@@ -1,4 +1,4 @@
-const oauth2Client = require('./oauthCreator');
+const oauth2Client = require('./OauthSenderController');
 const refresh = require('../access_token').refresh_token;
 const transporter = require('./transporter');
 const accessToken = require('../access_token.json');
