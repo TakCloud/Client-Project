@@ -1,31 +1,33 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import axios from 'axios';
 
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
-import Summary from './Summary';
-import oauthForm from './oauthForm';
-import SettingsTemp from './SettingsTemp';
 
-class App extends React.Component {
-  state = {};
-  //  this logic needs to be fore 
-  // temporary setting
+class App extends Component {
+  validator = (e) => {
+    e.preventDefault();
+    axios.post('/oauthlogin').then((res) => {
+      window.location = res.data;
+    });
+  };
+  emailSender = (e) => {
+    e.preventDefault();
+    axios.post('/sendmail');
+  };
   render() {
     return (
       <Router>
-        <Switch>
-          <div>
-            <Route exact path="/" component={LoginForm} />
-            <Route path="/signup" component={SignupForm} />
-            <Route path="/summary" component={Summary} />
-            <Route exact path="/oauth" component={oauthForm} />
-            <Route path="/settings" component={SettingsTemp} />
-            <br />
-          </div>
-        </Switch>
+        <div>
+          <Route exact path="/" component={LoginForm} />
+          <Route path="/signup" component={SignupForm} />
+          <button id="submit" type="submit" onClick={this.validator}>OAUTH LOGIN</button>
+          <button id="sendmail" type="sendmail" onClick={this.emailSender}>SEND MAIL</button>
+          <p>{"Don't have an account?"}</p><Link to="/signup" component={SignupForm}>Sign up</Link>
+        </div>
       </Router>
     );
   }
 }
-module.exports = App;
+export default App;

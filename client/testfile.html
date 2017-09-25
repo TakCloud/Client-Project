@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+</head>
+
+<body>
+  <script>
+    const xhr = new XMLHttpRequest();
+    // const url = window.location;
+    const url = window.location;
+    const params = { user_id: 1 };
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText);
+      }
+    }
+    xhr.send(JSON.stringify(params));
+  </script>
+
+</body>
+
+</html>
