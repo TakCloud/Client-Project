@@ -14830,190 +14830,9 @@ function SignupForm() {
 }
 
 /***/ }),
-/* 186 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(106);
-
-var _oauthForm = __webpack_require__(187);
-
-var _oauthForm2 = _interopRequireDefault(_oauthForm);
-
-var _SettingsTemp = __webpack_require__(188);
-
-var _SettingsTemp2 = _interopRequireDefault(_SettingsTemp);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var Summary = function Summary() {
-  console.log('summary was hit');
-  return _react2['default'].createElement(
-    'div',
-    null,
-    _react2['default'].createElement(_reactRouterDom.Route, { to: '/oauth', component: _oauthForm2['default'] }),
-    _react2['default'].createElement(_reactRouterDom.Route, { to: '/settings', component: _SettingsTemp2['default'] })
-  );
-};
-
-exports['default'] = Summary;
-
-/***/ }),
-/* 187 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _axios = __webpack_require__(115);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// import RaisedButton from 'material-ui/RaisedButton';
-// import Summary from './Summary';
-// import { Redirect } from 'react-router-dom';
-
-var TempSettingsPage = function (_Component) {
-  _inherits(TempSettingsPage, _Component);
-
-  function TempSettingsPage() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, TempSettingsPage);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TempSettingsPage.__proto__ || Object.getPrototypeOf(TempSettingsPage)).call.apply(_ref, [this].concat(args))), _this), _this.validator = function (e) {
-      e.preventDefault();
-      _axios2['default'].post('/oauthlogin').then(function (res) {
-        console.log('res after oauth was hit', res.data);
-        window.location = res.data;
-      });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(TempSettingsPage, [{
-    key: 'render',
-    value: function render() {
-      return _react2['default'].createElement(
-        'div',
-        null,
-        _react2['default'].createElement(
-          'button',
-          { id: 'submit', type: 'submit', onClick: this.validator },
-          'LOGIN WITH OAUTH'
-        )
-      );
-    }
-  }]);
-
-  return TempSettingsPage;
-}(_react.Component);
-
-exports['default'] = TempSettingsPage;
-
-/***/ }),
-/* 188 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _axios = __webpack_require__(115);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var TempSettingsPage = function (_Component) {
-  _inherits(TempSettingsPage, _Component);
-
-  function TempSettingsPage() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, TempSettingsPage);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TempSettingsPage.__proto__ || Object.getPrototypeOf(TempSettingsPage)).call.apply(_ref, [this].concat(args))), _this), _this.emailSender = function (e) {
-      e.preventDefault();
-      _axios2['default'].post('/sendmail');
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(TempSettingsPage, [{
-    key: 'render',
-    value: function render() {
-      return _react2['default'].createElement(
-        'div',
-        null,
-        _react2['default'].createElement(
-          'button',
-          { id: 'sendmail', type: 'submit', onClick: this.emailSender },
-          'SEND CAMPAIGN'
-        )
-      );
-    }
-  }]);
-
-  return TempSettingsPage;
-}(_react.Component);
-
-exports['default'] = TempSettingsPage;
-
-/***/ }),
+/* 186 */,
+/* 187 */,
+/* 188 */,
 /* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -33011,6 +32830,10 @@ exports['default'] = new Typography();
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(3);
@@ -33018,6 +32841,10 @@ var _react = __webpack_require__(3);
 var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(106);
+
+var _axios = __webpack_require__(115);
+
+var _axios2 = _interopRequireDefault(_axios);
 
 var _LoginForm = __webpack_require__(399);
 
@@ -33027,18 +32854,6 @@ var _SignupForm = __webpack_require__(185);
 
 var _SignupForm2 = _interopRequireDefault(_SignupForm);
 
-var _Summary = __webpack_require__(186);
-
-var _Summary2 = _interopRequireDefault(_Summary);
-
-var _oauthForm = __webpack_require__(187);
-
-var _oauthForm2 = _interopRequireDefault(_oauthForm);
-
-var _SettingsTemp = __webpack_require__(188);
-
-var _SettingsTemp2 = _interopRequireDefault(_SettingsTemp);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -33047,8 +32862,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var App = function (_React$Component) {
-  _inherits(App, _React$Component);
+var App = function (_Component) {
+  _inherits(App, _Component);
 
   function App() {
     var _ref;
@@ -33061,30 +32876,37 @@ var App = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = {}, _temp), _possibleConstructorReturn(_this, _ret);
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.validator = function (e) {
+      e.preventDefault();
+      _axios2['default'].post('/oauthlogin').then(function (res) {
+        window.location = res.data;
+      });
+    }, _this.emailSender = function (e) {
+      e.preventDefault();
+      _axios2['default'].post('/sendmail');
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(App, [{
     key: 'render',
-
-    //  this logic needs to be fore 
-    // temporary setting
     value: function render() {
       return _react2['default'].createElement(
         _reactRouterDom.BrowserRouter,
         null,
         _react2['default'].createElement(
-          _reactRouterDom.Switch,
+          'div',
           null,
+          _react2['default'].createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _LoginForm2['default'] }),
+          _react2['default'].createElement(_reactRouterDom.Route, { path: '/signup', component: _SignupForm2['default'] }),
           _react2['default'].createElement(
-            'div',
+            'p',
             null,
-            _react2['default'].createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _LoginForm2['default'] }),
-            _react2['default'].createElement(_reactRouterDom.Route, { path: '/signup', component: _SignupForm2['default'] }),
-            _react2['default'].createElement(_reactRouterDom.Route, { path: '/summary', component: _Summary2['default'] }),
-            _react2['default'].createElement(_reactRouterDom.Route, { exact: true, path: '/oauth', component: _oauthForm2['default'] }),
-            _react2['default'].createElement(_reactRouterDom.Route, { path: '/settings', component: _SettingsTemp2['default'] }),
-            _react2['default'].createElement('br', null)
+            "Don't have an account?"
+          ),
+          _react2['default'].createElement(
+            _reactRouterDom.Link,
+            { to: '/signup', component: _SignupForm2['default'] },
+            'Sign up'
           )
         )
       );
@@ -33092,9 +32914,9 @@ var App = function (_React$Component) {
   }]);
 
   return App;
-}(_react2['default'].Component);
+}(_react.Component);
 
-module.exports = App;
+exports['default'] = App;
 
 /***/ }),
 /* 373 */
@@ -36570,7 +36392,10 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports['default'] = LoginForm;
 
 var _react = __webpack_require__(3);
 
@@ -36584,111 +36409,42 @@ var _RaisedButton = __webpack_require__(178);
 
 var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
-var _axios = __webpack_require__(115);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-var _reactRouterDom = __webpack_require__(106);
-
-var _SignupForm = __webpack_require__(185);
-
-var _SignupForm2 = _interopRequireDefault(_SignupForm);
-
-var _Summary = __webpack_require__(186);
-
-var _Summary2 = _interopRequireDefault(_Summary);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var LoginForm = function (_React$Component) {
-  _inherits(LoginForm, _React$Component);
-
-  function LoginForm() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
-    _classCallCheck(this, LoginForm);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LoginForm.__proto__ || Object.getPrototypeOf(LoginForm)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      userName: '',
-      password: '',
-      logged: false
-    }, _this.userNameHandler = function (e) {
-      _this.setState({ userName: e.target.value });
-    }, _this.passwordHandler = function (e) {
-      _this.setState({ password: e.target.value });
-    }, _this.loginClickHandler = function (e) {
-      e.preventDefault();
-      var data = { userName: _this.state.userName, password: _this.state.password };
-      _axios2['default'].post('/login', data).then(function (res) {
-        console.log(res, ' this is the promised response');
-        if (res) {
-          _this.setState({ logged: true });
-        }
-        console.log(_this.state.logged, ' this is this.logged');
-        // window.location = '/summary';
-      });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
-  }
-
-  _createClass(LoginForm, [{
-    key: 'render',
-    value: function render() {
-      if (this.state.logged) {
-        return _react2['default'].createElement(_reactRouterDom.Redirect, { to: '/summary', component: _Summary2['default'] });
-      }
-      return _react2['default'].createElement(
-        _reactRouterDom.BrowserRouter,
-        null,
-        _react2['default'].createElement(
-          'div',
-          null,
-          _react2['default'].createElement(
-            'h1',
-            null,
-            'First Freight'
-          ),
-          _react2['default'].createElement(
-            'form',
-            null,
-            _react2['default'].createElement(_TextField2['default'], { floatingLabelText: 'Username', value: this.state.userName, onChange: this.userNameHandler }),
-            _react2['default'].createElement('br', null),
-            _react2['default'].createElement(_TextField2['default'], { floatingLabelText: 'Password', value: this.state.password, onChange: this.passwordHandler }),
-            _react2['default'].createElement('br', null),
-            _react2['default'].createElement(
-              'p',
-              null,
-              "Don't have an account?"
-            ),
-            _react2['default'].createElement(
-              _reactRouterDom.Link,
-              { to: '/signup', component: _SignupForm2['default'] },
-              'Sign up'
-            ),
-            _react2['default'].createElement('br', null),
-            _react2['default'].createElement(_RaisedButton2['default'], { label: 'Login', onClick: this.loginClickHandler }),
-            _react2['default'].createElement('br', null)
-          )
-        )
-      );
-    }
-  }]);
-
-  return LoginForm;
-}(_react2['default'].Component);
-
-module.exports = LoginForm;
+function LoginForm() {
+  return _react2['default'].createElement(
+    'div',
+    null,
+    _react2['default'].createElement(
+      'h1',
+      null,
+      'First Freight'
+    ),
+    _react2['default'].createElement(
+      'form',
+      null,
+      _react2['default'].createElement(
+        'button',
+        { id: 'submit', type: 'submit', onClick: this.validator },
+        'OAUTH LOGIN'
+      ),
+      _react2['default'].createElement(
+        'button',
+        { id: 'sendmail', type: 'sendmail', onClick: this.emailSender },
+        'SEND MAIL'
+      ),
+      _react2['default'].createElement(_TextField2['default'], {
+        floatingLabelText: 'Username'
+      }),
+      _react2['default'].createElement('br', null),
+      _react2['default'].createElement(_TextField2['default'], {
+        floatingLabelText: 'Password'
+      }),
+      _react2['default'].createElement('br', null),
+      _react2['default'].createElement(_RaisedButton2['default'], { label: 'Login', primary: true })
+    )
+  );
+}
 
 /***/ }),
 /* 400 */

@@ -8,6 +8,8 @@ export default function LoginForm() {
     <div>
       <h1>First Freight</h1>
       <form>
+        <button id="submit" type="submit" onClick={this.validator}>OAUTH LOGIN</button>
+        <button id="sendmail" type="sendmail" onClick={this.emailSender}>SEND MAIL</button>
         <TextField
           floatingLabelText="Username"
         /><br />
