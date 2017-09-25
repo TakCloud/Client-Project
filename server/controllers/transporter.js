@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
   // set the auth.user field when a new refresh_token is introduced
   auth: {
     type: 'OAuth2',
-    // discuss putting input field for clients USEGMAIL accout.
+    // require in the user name
     user: 'cheatcodes001@gmail.com',
     accessToken,
     // accessToken: needs to be query to sql for most updated accesstoken
