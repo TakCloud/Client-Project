@@ -27,7 +27,7 @@ class NewCampaignFormFirstPage extends Component {
           <RaisedButton
             primary
             label="Next"
-            containerElement={<Link to={'/dashboard/newcampaign/steps'} />}
+            containerElement={<Link to={'/summary/newcampaign/steps'} />}
           />
         </form>
       </MuiThemeProvider>

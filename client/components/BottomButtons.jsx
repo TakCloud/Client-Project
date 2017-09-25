@@ -8,7 +8,7 @@ export default function BottomButtons() {
       <RaisedButton
         className="botDashboardButtons"
         label="Create New"
-        containerElement={<Link to={'/dashboard/newcampaign'} />}
+        containerElement={<Link to={'/summary/newcampaign'} />}
         primary
       />
       <RaisedButton

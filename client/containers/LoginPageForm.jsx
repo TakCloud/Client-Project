@@ -10,7 +10,7 @@ import { fetchUserData } from '../actions/fetchUserData';
 
 class LoginPageForm extends Component {
   onSubmit = (values) => {
-    this.props.fetchUserData(values, () => this.props.history.push('/dashboard'));
+    this.props.fetchUserData(values, () => this.props.history.push('/summary'));
   }
 
   render() {

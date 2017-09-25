@@ -64,7 +64,7 @@ const NewCampaignStepsForm = (props) => {
         <FieldArray name="steps" component={renderSteps} />
         <RaisedButton
           label="Confirm"
-          containerElement={<Link to={'/dashboard/newcampaign/confirm'} />}
+          containerElement={<Link to={'/summary/newcampaign/confirm'} />}
           primary
         />
       </form>

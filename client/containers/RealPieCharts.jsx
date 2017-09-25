@@ -19,7 +19,7 @@ class RealPieCharts extends Component {
         <div>
           <AppBar
             title={campaignData.name}
-            iconElementLeft={<IconButton containerElement={<Link to="/dashboard" />}><NavigationClose /></IconButton>}
+            iconElementLeft={<IconButton containerElement={<Link to="/summary" />}><NavigationClose /></IconButton>}
           />
           <div className="campaignDataContainer">
             Total E-mails: { campaignData.total }

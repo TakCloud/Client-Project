@@ -17,7 +17,7 @@ class NewCampaignFormConfirmationPage extends Component {
     });
     valObj.user_id = '1';
     valObj.start_date = valObj.steps[0].time_interval;
-    this.props.postNewCampaign(valObj, () => this.props.history.push('/dashboard'));
+    this.props.postNewCampaign(valObj, () => this.props.history.push('/summary'));
   }
 
   render() {

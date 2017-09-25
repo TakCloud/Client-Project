@@ -14,7 +14,7 @@ class CampaignButtons extends Component {
           <RaisedButton
             className="campaignButtons"
             label={campaign.name}
-            containerElement={<Link to={`/dashboard/${campaign.id}`} key={campaign.id} />}
+            containerElement={<Link to={`/summary/${campaign.id}`} key={campaign.id} />}
             primary
           />
         </ToolbarGroup>

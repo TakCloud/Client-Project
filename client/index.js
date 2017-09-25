@@ -21,11 +21,11 @@ render(
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/dashboard/newcampaign/confirm" component={NewCampaignFormConfirmationPage} />
-          <Route path="/dashboard/newcampaign/steps" component={NewCampaignFormStepsPage} />
-          <Route path="/dashboard/newcampaign" component={NewCampaignFormFirstPage} />
-          <Route path="/dashboard/:id" component={RealPieCharts} />
-          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/summary/newcampaign/confirm" component={NewCampaignFormConfirmationPage} />
+          <Route path="/summary/newcampaign/steps" component={NewCampaignFormStepsPage} />
+          <Route path="/summary/newcampaign" component={NewCampaignFormFirstPage} />
+          <Route path="/summary/:id" component={RealPieCharts} />
+          <Route path="/summary" component={Dashboard} />
           <MuiThemeProvider>
             <Route path="/" component={LoginPageForm} />
           </MuiThemeProvider>
