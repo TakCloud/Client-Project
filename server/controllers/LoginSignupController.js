@@ -21,5 +21,6 @@ module.exports = (req, res, next) => {
     })
     .catch((err) => {
       console.log(`Something went wrong when querying user: ${err}`);
+      res.send();
     });
 };
