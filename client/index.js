@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import reducers from './reducers/allReducers';
+import initialState from './reducers/initialState';
 import Dashboard from './components/Dashboard';
 import RealPieCharts from './containers/RealPieCharts';
 import LoginPageForm from './containers/LoginPageForm';
@@ -17,7 +18,9 @@ import styles from './css/app.scss';
 
 
 render(
-  <Provider store={createStore(reducers, composeWithDevTools(applyMiddleware(thunk)))}>
+  <Provider store={createStore(reducers, initialState,
+    composeWithDevTools(applyMiddleware(thunk)))}
+  >
     <BrowserRouter>
       <div>
         <Switch>

@@ -11,7 +11,7 @@ import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
 
 
-const renderSteps = ({ fields }) => (
+const renderSteps = ({ fields } = PropTypes) => (
   <div>
     {fields.map((steps, index) => (
       <Paper className="stepsContainer" zDepth={2}>
