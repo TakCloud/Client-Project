@@ -6,7 +6,7 @@ const dbupdates = require('./dbcontrollers/dbupdates.js');
 const dbqueries = require('./dbcontrollers/dbqueries.js');
 const verifyToken = require('./controllers/verifyToken.js');
 const LoginSignupController = require('./controllers/LoginSignupController');
-// const engine = require('./engine/engine.js');
+const engine = require('./engine/engine.js');
 
 const oauthUrl = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fmail.google.com%2F&response_type=code&client_id=674930641729-at55ett8pbck27uu5ektiniq91bu8dfd.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fcheatcodes5.herokuapp.com%2Fsummary';
 // use the above url for production, and the below for development
@@ -33,10 +33,13 @@ app.get('/', (req, res) => {
 app.get('/build/bundle.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/bundle.js'));
 });
+
 app.get('/summary/imageTracker?', (req, res) => {
   console.log('Ping*IMAGE TRACKER WAS HIT!!!!*ponG \n', req.query);
   res.sendFile(path.join(__dirname, '../4-tree-png-image-download-picture.png'));
 });
+
+
 app.post('/oauthlogin', (req, res) => {
   console.log('This is the req.query ', req.query);
   res.send(oauthUrl);
@@ -101,6 +104,7 @@ app.post('/summary',
   (req, res) => {
     res.send();
   });
+
 
 app.listen(port, () => {
   console.log(`now listening on ${port}! \n`);
