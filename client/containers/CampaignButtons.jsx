@@ -13,7 +13,7 @@ const toolbarStyle = {
 class CampaignButtons extends Component {
   renderList() {
     return this.props.campaignData.map(campaign => (
-      <Toolbar style={toolbarStyle}>
+      <Toolbar style={toolbarStyle} key={campaign.id}>
         <ToolbarGroup className="campaignButtonsContainer">
           <RaisedButton
             className="campaignButtons"
