@@ -9,6 +9,7 @@ import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-
 import { DatePicker, TextField, RadioButtonGroup, RadioButton } from 'redux-form-material-ui';
 import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
+import TemplatesContainer from './TemplatesContainer';
 
 
 const renderSteps = ({ fields } = PropTypes) => (
@@ -57,6 +58,7 @@ const renderSteps = ({ fields } = PropTypes) => (
         </div>
       </Paper>
     ))}
+    <TemplatesContainer />
     <RaisedButton
       className="addStepsButton"
       label="Add Step"
@@ -100,9 +102,3 @@ export default reduxForm({
   form: 'NewCampaignForm',
   destroyOnUnmount: false,
 })(NewCampaignStepsForm);
-
-// {/* <Field
-//   name={`${steps}.template.name`}
-//   component={TextField}
-//   floatingLabelText="Template Name"
-// /><br /> */}

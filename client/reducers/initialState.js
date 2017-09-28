@@ -6,12 +6,13 @@ const initialState = {
   userCampaigns: {
     campaigns: {},
   },
-  // userTemplates: {
-  //   templates: {},
-  // },
-  // userTotalMetrics: {
-  //   totalMetrics: {},
-  // },
+  userTemplates: {
+    templates: {},
+  },
+  userTotalMetrics: {
+    totalMetrics: {},
+  },
+  leadgroups: [],
 };
 
 export default initialState;

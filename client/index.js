@@ -14,6 +14,7 @@ import LoginPageForm from './containers/LoginPageForm';
 import NewCampaignFormFirstPage from './containers/NewCampaignFormFirstPage';
 import NewCampaignFormStepsPage from './containers/NewCampaignFormStepsPage';
 import NewCampaignFormConfirmationPage from './containers/NewCampaignFormConfirmationPage';
+import NewLeadGroupForm from './containers/NewLeadGroupForm';
 import styles from './css/app.scss';
 
 
@@ -29,6 +30,7 @@ render(
           <Route path="/summary/newcampaign" component={NewCampaignFormFirstPage} />
           <Route path="/summary/:id" component={RealPieCharts} />
           <Route path="/summary" component={Dashboard} />
+          <Route path="/newgroup" component={NewLeadGroupForm} />
           <MuiThemeProvider>
             <Route path="/" component={LoginPageForm} />
           </MuiThemeProvider>
