@@ -56,12 +56,12 @@ const renderSteps = ({ fields } = PropTypes) => (
             />
           </div>
         </div>
+        <TemplatesContainer />
       </Paper>
     ))}
-    <TemplatesContainer />
     <RaisedButton
       className="addStepsButton"
-      label="Add Step"
+      label="Hello"
       onClick={() => fields.push({})}
       secondary
     /><br />

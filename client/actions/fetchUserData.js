@@ -22,8 +22,3 @@ export function fetchUserData(user, callback) {
 export default {
   fetchUserData,
 };
-
-// .then(response => dispatch({
-//   type: FETCH_USERDATA,
-//   payload: response,
-// }))
