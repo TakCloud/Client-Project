@@ -14,7 +14,7 @@ const engine = require('./engine/engine.js');
 const oauthUrl = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fmail.google.com%2F&response_type=code&client_id=674930641729-at55ett8pbck27uu5ektiniq91bu8dfd.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fcheatcodes5.herokuapp.com%2Fsummary';
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 process.env.NODE_ENV = 'production';
 app.use(express.static('./../build'));
 app.use(express.static('./../client'));
