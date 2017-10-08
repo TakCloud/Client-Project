@@ -1,0 +1,78 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.campaignButtons {
+    width: 100%;
+}
+
+.botDashboardButtons {
+  width: 50%;
+}
+
+.botDashboardButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.campaignButtonsContainer {
+  float: none;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.addCampaignStepButton {
+  margin-top: 100px;
+}
+
+.confirmStepsButton {
+  margin-top: 100px;
+  margin-left: 43%;
+}
+
+.firstPageFields {
+  padding-left: 25px;
+}
+
+.firstPageTitle {
+  padding-left: 25px;
+}
+
+.firstPageButton {
+  margin-top: 25px;
+  margin-left: 43%;
+}
+
+.stepsContainer {
+  margin-top: 25px;
+  padding-bottom: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.firstPageFieldContainer {
+  padding-bottom: 30px;
+}
+
+.stepsFieldContainer {
+  padding-left: 25px;
+}
+
+.addStepsButton {
+  margin-top: 25px;
+  margin-left: 42%
+}
+
+.lastPageButton {
+  margin-top: 100px;
+  margin-left: 42%;
+}
+
+.campaignSummaryContainer {
+  background-color: white;
+}
