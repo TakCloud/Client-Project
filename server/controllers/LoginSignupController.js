@@ -12,17 +12,14 @@ module.exports = (req, res, next) => {
       bcrypt.compare(inputPass, savedPass)
         .then((resolution) => {
           if (resolution) {
-            console.log('the passes: ', inputPass, savedPass);
             res.locals.user_id = entry.dataValues.user_id;
             next();
           } else {
-            console.log('the errors: ', inputPass, savedPass);
             res.status(400).json('Wrong username/password combo');
           }
         });
     })
     .catch((err) => {
       console.log(`Something went wrong when querying user: ${err}`);
-      res.send();
     });
 };

@@ -1,15 +1,53 @@
 const models = require('./../dbmodels/dbmodels.js');
+const transporter = require('../controllers/transporter');
+const oauth2Client = require('../controllers/OauthSenderController');
 
 const dbqueries = {};
 
-dbqueries.grabTokens = (req, res) => {
+const newToken = (req, res, next) => {
+  console.log('req.query.cod', req.query.code);
+  if (transporter) {
+    transporter.verify((err, success) => {
+      if (err) {
+        console.log('Error:   Token cannot be used to authenticate!');
+        oauth2Client.getToken(req.query.code, (errr, token) => {
+          if (errr) {
+            console.log('Error while trying to retrieve access token w/current CODE: ', errr);
+            // we need logic here to use the refresh token if access is not valid with access token
+          }
+          if (token) {
+            console.log('this is the token : ', token);
+            oauth2Client.credentials = token;
+            res.locals.token = Object.create(null);
+            res.locals.token.gmail_access_token = token.access_token;
+            if (token.refresh_token) {
+              res.locals.token.gmail_refresh_token = token.refresh_token;
+            }
+            console.log(`Token accessed w/new req.query.code, stored on oaut2Client.credentials: ${JSON.stringify(token)}`);
+            next();
+          }
+        });
+      }
+      if (success) {
+        console.log('transporter still connected with current accessToken \n');
+        next();
+      }
+    });
+  }
+};
+
+dbqueries.grabTokens = (req, res, next) => {
   models.users.find({
     where: { user_id: req.body.user_id },
     attributes: ['user_id', 'gmail_access_token', 'gmail_refresh_token'],
   })
     .then((entry) => {
-      res.locals.currTokens = entry;
-      console.log(res.locals.currTokens);
+      console.log(entry.dataValues, 'this entry');
+      if (entry.dataValues.gmail_access_token === null) newToken(req, res, next);
+      else {
+        res.locals.token = entry.dataValues;
+        next();
+      }
     });
 };
 

@@ -4,11 +4,10 @@ const dbupdates = {};
 
 dbupdates.saveToken = (req, res, next) => {
   models.users.update({
-    gmail_access_token: res.locals.token.access_token,
-    gmail_refresh_token: res.locals.token.refresh_token,
+    gmail_access_token: res.locals.token.gmail_access_token,
+    gmail_refresh_token: res.locals.token.gmail_refresh_token,
   },
-  { where: { user_id: req.body.user_id } },
-  )
+  { where: { user_id: req.body.user_id } })
     .then(() => {
       next();
     })
