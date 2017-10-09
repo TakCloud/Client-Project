@@ -13,7 +13,7 @@ const oauthUrl = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&
 // const oauthUrl = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fmail.google.com%2F&response_type=code&client_id=597535892558-d9oqu99oosrel4fkcuabjv2kf6qpmf2j.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fsummary';
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 process.env.NODE_ENV = 'production';
 app.use(express.static('./../build'));
 app.use(express.static('./../client'));
