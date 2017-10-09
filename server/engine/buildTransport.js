@@ -28,7 +28,7 @@ transporter.refresh = (emailSet) => {
       },
       {
         where: { user_id: emailSet[1].user_id }
-      },
+      }
       )
         .then(() => {
           emailSet[1].gmail_access_token = result.access_token;
