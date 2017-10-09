@@ -46,7 +46,7 @@ app.post('/oauthlogin', (req, res) => {
   console.log('This is the oauthUrl ', oauthUrl);
   res.send(oauthUrl);
 });
-app.get('/googlec45609043392fa00', (req, res) => res.sendFile(path.join(__dirname, '../googlec45609043392fa00.html')));
+app.get('/googlec45609043392fa00.html', (req, res) => res.sendFile(path.join(__dirname, '../googlec45609043392fa00.html')));
 app.get('/summary/googlec45609043392fa00', (req, res) => res.sendFile(path.join(__dirname, '../../googlec45609043392fa00.html')));
 
 app.post('/login',
