@@ -22,7 +22,7 @@ module.exports = (emailSet, mailer, user) => {
             },
           },
           subject: email.subject,
-          html: `<b><img src="https://cheatcodes5.herokuapp.com/summary/imageTracker?thisPersonOpenedEmail=${lead.lead_email}"/></b>`,
+          html: `<b><img src="https://codesmithnodejs.azurewebsites.net/summary/imageTracker?thisPersonOpenedEmail=${lead.lead_email}"/></b>`,
           text: email.body,
         };
         // verify that users access token is valid before sending
