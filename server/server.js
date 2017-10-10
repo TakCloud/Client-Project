@@ -112,7 +112,8 @@ app.post('/createcampaign',
     res.json(res.locals);
   });
 
-app.get('/', (req, res) => {
+app.get('/summary', (req, res) => {
+  if (req.query) console.log('fiawehflaiefjaowf', req.query.code);
   res.sendFile(path.join(__dirname, '../index.html'));
 });
 app.post('/summary',
