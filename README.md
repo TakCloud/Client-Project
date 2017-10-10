@@ -27,4 +27,5 @@ More information on throttling can be found: 1.) https://support.google.com/mail
 If you are having issues with Nodemailer, then the best way to find help would be Stack Overflow or revisit the docs.
 
 We hope you like Musubis as much as we do
-#![](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwiFjNPAyubWAhVBLFAKHbm5ChMQjRwIBw&url=http%3A%2F%2Fwww.hawaiimagazine.com%2Fcontent%2F8-emojis-hawaii-desperately-needs-already&psig=AOvVaw1EaY8ceBGOyuBXMNODM3FC&ust=1507742998083561)
+![](http://s.ravelrumba.com/uploads/2010/02/cookie-header-image1.png)
+![](http://www.hawaiimagazine.com/sites/default/files/sites/default/files/spam-musubi-emoji.jpg)
