@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'testing') {
   sequelURL = 'postgres://rawnwiga:KmvRb_bLjALCFuJ5-rf1QXx_qY0ywtYm@babar.elephantsql.com:5432/rawnwiga';
 }
 // uncomment below for testing! 
-sequelURL = 'postgres://taviagze:xhNoQjlMqnEg86XbeWnAyTN-TEl_Dqyc@stampy.db.elephantsql.com:5432/taviagze';
+// sequelURL = 'postgres://taviagze:xhNoQjlMqnEg86XbeWnAyTN-TEl_Dqyc@stampy.db.elephantsql.com:5432/taviagze';
 console.log(process.env.NODE_ENV);
 console.log(sequelURL);
 module.exports = new Sequelize(sequelURL, {
