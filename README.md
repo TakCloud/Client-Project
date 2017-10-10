@@ -1,40 +1,30 @@
-Nodemailer
-
-Nodemailer
+Musuubis
 
 Send e-mails from Node.js – easy as cake! 🍰✉️
 
-NPM
+See https://firstfreightdemo.azurewebsites.net/ for documentation and terms.
 
-See nodemailer.com for documentation and terms.
-
- Sponsor
 Having an issue?
 
 First review the docs
 
-Documentation for Nodemailer can be found at nodemailer.com
+Documentation for Musuubis can be found at https://firstfreightdemo.azurewebsites.net/
 
-Nodemailer throws a SyntaxError for "..."
+Musuubis throws a SyntaxError for "..."
 
 You are using older Node.js version than v6.0. Upgrade Node.js to get support for the spread operator
 
 I'm having issues with Gmail
 
-Gmail either works well or it does not work at all. It is probably easier to switch to an alternative service instead of fixing issues with Gmail. If Gmail does not work for you then don't use it.
+Gmail periodically revokes refresh tokens, causing campaigns to be halted until the user returns to our site and authenticates with Gmail to regrant us access to that user's accounts.
 
-I get ETIMEDOUT errors
+User's must ensure that the application has a valid refresh token in order for campaigns to be properly/sequentially sent. 
 
-Check your firewall settings. Timeout usually occurs when you try to open a connection to a port that is firewalled either on the server or on your machine
+Also, Gmail periodically changes its throttling rules. As of now, Gmail allows 500 recipients in a single email and no more than 500 emails in a day. Users may experience skips in campaign steps if these Gmail-updated throttle threshholds are hit.
 
-I get TLS errors
-
-If you are running the code in your own machine, then check your antivirus settings. Antiviruses often mess around with email ports usage. Node.js might not recognize the MITM cert your antivirus is using.
-
+More information on throttling can be found:
+ 1.) https://support.google.com/mail/answer/22839?hl=en
+ 2.) https://support.google.com/mail/answer/81126
 I have a different problem
 
 If you are having issues with Nodemailer, then the best way to find help would be Stack Overflow or revisit the docs.
-
-License
-
-Nodemailer is licensed under the MIT license
