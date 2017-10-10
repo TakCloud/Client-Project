@@ -10,7 +10,9 @@ module.exports = (email, message, done) => {
   },
   { where: { email_id: email.email_id } })
     .then((data) => {
-      done();
+      if (done) {
+        done()
+      }
     })
     .catch((err) => {
       console.log(`Something went wrong when updating email record: ${err}`);

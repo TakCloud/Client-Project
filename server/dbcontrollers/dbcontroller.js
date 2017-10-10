@@ -75,7 +75,9 @@ dbcontroller.createUser = (req, res, next) => {
         next();
       })
       .catch((error) => {
-        res.status(400).json(`Something went wrong when creating user: ${error}`);
+        if (res.status) res.status(400).json(`Something went wrong when creating user: ${error}`);
+        console.log(error);
+        next();
       });
   });
 };

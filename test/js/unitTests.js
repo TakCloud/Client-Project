@@ -57,36 +57,37 @@ describe('#initial login', (done) => {
   it('user should be created upon signup', (done) => {
     dbmodels.users.findAll({
     // dbmodels.users.find({
-      where: { user_first_name: 'james' },
+      where: { user_first_name: 'xela' },
       attributes: ['user_email', 'gmail_access_token', 'gmail_refresh_token'],
     })
       .then((entry) => {
-        if (entry) {
+        if (entry[0]) {
           email = entry[0].dataValues.user_email;
           access = entry[0].dataValues.gmail_access_token;
           refresh = entry[0].dataValues.gmail_refresh_token;
           console.log('MATCHED: ', access);
           expect(entry[0].dataValues.gmail_access_token).toBeDefined();
         } else {
-          console.log('jamesbong is not in database so create him');
+          console.log('alexbong is not in database so create him');
           const createUser = {
             route: {
               path: '/createuser',
             },
             body: {
-              user_first_name: 'james',
+              user_first_name: 'xela',
               user_last_name: 'bong',
-              user_organization_name: 'TakCloud',
-              user_email: 'test.receiver0002@gmail.com',
-              user_password: '$2a$10$HDVOlTq3YOeXeAOfruG/z./KgYI1foTG1IjtMYiKts.NREPH2oZR.',
+              user_organization_name: 'alex',
+              user_organization_id: 3,
+              user_email: 'cheatcodes002@gmail.com',
+              user_password: '1234',
               // password is 1234
               role: 'user',
               email_signature: 'sig goes here',
-              send_as_email: 'test.receiver0002@gmail.com',
-              reply_to_email: 'test.receiver0002@gmail.com',
+              send_as_email: 'cheatcodes002@gmail.com',
+              reply_to_email: 'cheatcodes002@gmail.com',
             },
           };
-          dbcontroller.insert(createUser, { locals: {} }, done);
+          dbcontroller.createUser(createUser, { locals: {} }, done);
         }
         done();
       });
@@ -120,7 +121,7 @@ describe('if user\'s gmail_access_token expired then engine should use refreshTo
   });
   it('new accessToken should be different from new one', (done) => {
     dbmodels.users.findAll({
-      where: { user_first_name: 'james' },
+      where: { user_first_name: 'xela' },
       attributes: ['gmail_access_token'],
     })
       .then((entry) => {
@@ -130,7 +131,7 @@ describe('if user\'s gmail_access_token expired then engine should use refreshTo
           expect(entry[0].dataValues.gmail_access_token === access).toEqual(false);
           done();
         } else {
-          console.log('could not find james');
+          console.log('could not find alex');
           // done();
         }
       });
@@ -140,7 +141,7 @@ describe('if user\'s gmail_access_token expired then engine should use refreshTo
 describe('engine should send mails with status \'pending\'', (done) => {
   before((done) => {
     dbmodels.campaigns.findAll({
-      where: { user_id: '22' },
+      where: { user_id: '9' },
       attributes: ['status'],
     })
       .then((campaigns) => {
@@ -155,7 +156,7 @@ describe('engine should send mails with status \'pending\'', (done) => {
     // now insert a lead and see if the campaigns field added a value
     // also check to see that email status was updated to 'pending'
     dbmodels.campaigns.findAll({
-      where: { user_id: '22' },
+      where: { user_id: '9' },
       attributes: ['status'],
     })
       .then((campaigns) => {

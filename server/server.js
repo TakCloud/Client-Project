@@ -37,6 +37,7 @@ app.get('/build/bundle.js', (req, res) => {
 });
 
 app.get('/summary/imageTracker?',
+// app.get('/summary/imageTracker',
   (req, res, next) => {
     console.log('Ping*IMAGE TRACKER WAS HIT!!!!*ponG \n', req.query);
     res.locals = req.query;
@@ -111,10 +112,9 @@ app.post('/createcampaign',
     res.json(res.locals);
   });
 
-app.get('/summary',
-  (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/testFile.html'));
-  });
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../index.html'));
+});
 app.post('/summary',
   verifyToken,
   dbupdates.saveToken,
@@ -125,5 +125,5 @@ app.post('/summary',
 app.listen(port, () => {
   console.log(`now listening on ${port}! \n`);
   // ** UNCOMMENT TO START ENGINE **  
-  // engine.begin();
+  engine.begin();
 });

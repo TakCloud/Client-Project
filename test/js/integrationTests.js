@@ -79,7 +79,7 @@ describe('#oauth2Reader and InboxReader', (done) => {
     const messages = [];
     let user;
     dbmodels.users.find({
-      where: { firstname: 'james' },
+      where: { firstname: 'xela' },
       attributes: ['user_email'],
     })
       .then((entry) => {
@@ -114,7 +114,7 @@ describe('#oauth2Reader and InboxReader', (done) => {
 describe('#oauth2Client', (done) => {
   before((done) => {
     dbmodels.users.findAll({
-      where: { user_first_name: 'james' },
+      where: { user_first_name: 'xela' },
       attributes: ['user_email', 'gmail_access_token', 'gmail_refresh_token'],
     })
       .then((entry) => {
