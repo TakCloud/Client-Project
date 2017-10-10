@@ -1,14 +1,6 @@
 const bcrypt = require('bcrypt');
 const models = require('./../dbmodels/dbmodels.js');
 
-// if (process.env.NODE_ENV === 'test') {
-//   writeLocation = `${__dirname}/games.test.json`;
-//   gamesList = require(writeLocation);
-// } else {
-//   writeLocation = `${__dirname}/games.dev.json`;
-//   gamesList = require(writeLocation);
-// }
-
 module.exports = (req, res, next) => {
   models.users.find({
     attributes: ['user_id', 'user_password'],

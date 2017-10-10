@@ -16,7 +16,7 @@ dbqueries.grabTokens = (req, res) => {
 dbqueries.grabState = (req, res, next) => {
   models.users.findAll({
     attributes: ['user_id', 'user_email'],
-    where: { user_id: res.locals.user_id }, // replace with res.locals.user_id
+    where: { user_id: res.locals.user_id },
     include: [{
       attributes: ['campaign_id', 'campaign_name', 'lead_groups', 'current_step'],
       model: models.campaigns,

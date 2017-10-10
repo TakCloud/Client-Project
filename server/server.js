@@ -38,7 +38,7 @@ app.get('/build/bundle.js', (req, res) => {
 
 app.get('/summary/imageTracker?', (req, res) => {
   console.log('Ping*IMAGE TRACKER WAS HIT!!!!*ponG \n', req.query);
-  res.sendFile(path.join(__dirname, '../4-tree-png-image-download-picture.png'));
+  res.sendFile(path.join(__dirname, '../client/4-tree-png-image-download-picture.png'));
 });
 
 
