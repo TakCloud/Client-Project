@@ -36,11 +36,16 @@ app.get('/build/bundle.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/bundle.js'));
 });
 
-app.get('/summary/imageTracker?', (req, res) => {
-  console.log('Ping*IMAGE TRACKER WAS HIT!!!!*ponG \n', req.query);
-  res.sendFile(path.join(__dirname, '../client/4-tree-png-image-download-picture.png'));
-});
-
+app.get('/summary/imageTracker?',
+  (req, res, next) => {
+    console.log('Ping*IMAGE TRACKER WAS HIT!!!!*ponG \n', req.query);
+    res.locals = req.query;
+    next()
+  },
+  dbupdates.removeCampaign,
+  (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/4-tree-png-image-download-picture.png'));
+  });
 
 app.post('/oauthlogin', (req, res) => {
   console.log('This is the req.query ', req.query);
