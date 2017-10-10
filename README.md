@@ -16,7 +16,7 @@ You are using older Node.js version than v6.0. Upgrade Node.js to get support fo
 
 ### Issues with Gmail
 
-Gmail periodically revokes refresh tokens, causing campaigns to be halted until the user returns to our site and authenticates with Gmail to regrant us access to that user's accounts.
+Gmail periodically revokes access tokens, causing campaigns to be halted until the user returns to our site and authenticates with Gmail to regrant us access to that user's accounts.
 
 User's must ensure that the application has a valid refresh token in order for campaigns to be properly/sequentially sent.
 
