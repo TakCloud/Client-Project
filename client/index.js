@@ -15,6 +15,7 @@ import NewCampaignFormFirstPage from './containers/NewCampaignFormFirstPage';
 import NewCampaignFormStepsPage from './containers/NewCampaignFormStepsPage';
 import NewCampaignFormConfirmationPage from './containers/NewCampaignFormConfirmationPage';
 import NewLeadGroupForm from './containers/NewLeadGroupForm';
+import EditTemplatesForm from './containers/EditTemplatesForm';
 import styles from './css/app.scss';
 
 

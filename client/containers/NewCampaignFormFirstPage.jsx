@@ -70,6 +70,3 @@ export default reduxForm({
   destroyOnUnmount: false,
 })(connect(mapStateToProps)(NewCampaignFormFirstPage));
 
-
-// PostsEdit new form, would cause form from PostsEdit to merge into antoher form
-// Multi-page form will have the same name in reduxForm

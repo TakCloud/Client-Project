@@ -1,11 +1,10 @@
 import React from 'react';
-import { Field, FieldArray, reduxForm, formValueSelector } from 'redux-form';
+import { Field, FieldArray, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
-import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
+import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 import { DatePicker, TextField, RadioButtonGroup, RadioButton } from 'redux-form-material-ui';
 import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
@@ -15,7 +14,7 @@ import TemplatesContainer from './TemplatesContainer';
 const renderSteps = ({ fields } = PropTypes) => (
   <div>
     {fields.map((steps, index) => (
-      <Paper className="stepsContainer" zDepth={2}>
+      <Paper key={index} className="stepsContainer" zDepth={2}>
         <div>
           <div>
             <Toolbar>
@@ -61,7 +60,7 @@ const renderSteps = ({ fields } = PropTypes) => (
     ))}
     <RaisedButton
       className="addStepsButton"
-      label="Hello"
+      label="Add Step"
       onClick={() => fields.push({})}
       secondary
     /><br />
