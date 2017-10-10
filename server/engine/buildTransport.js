@@ -28,7 +28,7 @@ transporter.refresh = (emailSet, done) => {
       },
       {
         // where: { user_id: emailSet[1].user_id },
-        where: { user_id: 22 },
+        where: { user_id: 22 }
       },
       )
         .then(() => {

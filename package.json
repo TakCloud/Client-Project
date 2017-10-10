@@ -7,7 +7,7 @@
     "test": "export NODE_ENV=test && mocha --timeout 15000 test/",
     "webdev": "node_modules/.bin/webpack-dev-server --w",
     "webpack": "./node_modules/.bin/webpack --w",
-    "start": "nodemon ./server/server.js"
+    "start": "node ./server/server.js"
   },
   "author": "",
   "license": "ISC",

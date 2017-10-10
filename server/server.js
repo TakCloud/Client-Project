@@ -60,8 +60,7 @@ app.get('/read',
   (req, res) => {
     console.log('this is res locals', res.locals);
     res.send(res.locals);
-  },
-);
+  });
 // we may be able to handle the /login and /signup logic through react Router
 // leave these routes until react router is implemented
 
