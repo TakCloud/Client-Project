@@ -157,7 +157,7 @@ describe('#oauth2Client', (done) => {
   it('if the oauth2 object was constructed with proper CLIENT ID:', (done) => {
     const clientID = '597535892558-d9oqu99oosrel4fkcuabjv2kf6qpmf2j.apps.googleusercontent.com';
     const secret = 'UXpkjNzz0Pk-RL3GkfRY1sjN';
-    const redirect = 'http://localhost:8080/summary';
+    const redirect = 'http://localhost:3000/summary';
     const OAuth2 = google.auth.OAuth2;
     const gmailOauthClient =
     new OAuth2(clientID, secret, redirect);
@@ -171,7 +171,7 @@ describe('#oauth2Client', (done) => {
   it('if the oauth2 object was constructed with proper SECRET:', (done) => {
     const clientID = '597535892558-d9oqu99oosrel4fkcuabjv2kf6qpmf2j.apps.googleusercontent.com';
     const secret = 'UXpkjNzz0Pk-RL3GkfRY1sjN';
-    const redirect = 'http://localhost:8080/summary';
+    const redirect = 'http://localhost:3000/summary';
     const OAuth2 = google.auth.OAuth2;
     const gmailOauthClient =
     new OAuth2(clientID, secret, redirect);
@@ -184,7 +184,7 @@ describe('#oauth2Client', (done) => {
   it('if the oauth2 object was constructed with proper REDIRECT URI:', (done) => {
     const clientID = '597535892558-d9oqu99oosrel4fkcuabjv2kf6qpmf2j.apps.googleusercontent.com';
     const secret = 'UXpkjNzz0Pk-RL3GkfRY1sjN';
-    const redirect = 'http://localhost:8080/summary';
+    const redirect = 'http://localhost:3000/summary';
     const OAuth2 = google.auth.OAuth2;
     const gmailOauthClient =
     new OAuth2(clientID, secret, redirect);

@@ -127,6 +127,7 @@ describe('if user\'s gmail_access_token expired then engine should use refreshTo
       .then((entry) => {
         if (entry) {
           console.log(entry[0].dataValues.gmail_access_token);
+          console.log(access);
           console.log(refresh);
           expect(entry[0].dataValues.gmail_access_token === access).toEqual(false);
           done();
