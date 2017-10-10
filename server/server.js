@@ -65,7 +65,9 @@ app.post('/signup', (req, res) => {
 
 // begin routes for db interactions
 app.post('/createorg',
-  dbcontroller.insert,
+  dbcontroller.createOrg,
+  dbcontroller.createUser,
+  dbqueries.grabState,
   (req, res) => {
     res.json(res.locals.databaseEntry);
   });
