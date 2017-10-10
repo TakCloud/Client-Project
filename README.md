@@ -23,7 +23,8 @@ User's must ensure that the application has a valid refresh token in order for c
 Also, Gmail periodically changes its throttling rules. As of now, Gmail allows 500 recipients in a single email and no more than 500 emails in a day. Users may experience skips in campaign steps if these Gmail-updated throttle threshholds are hit.
 
 #### More information on throttling can be found: 
-1.) https://support.google.com/mail/answer/22839?hl=en 
+1.) https://support.google.com/mail/answer/22839?hl=en
+
 2.) https://support.google.com/mail/answer/81126 
 
 ### I have a different problem
