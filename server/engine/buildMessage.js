@@ -1,10 +1,14 @@
 const models = require('./../dbmodels/dbmodels.js');
 // const verifyTransporter = require('./verifyTransporter.js');
 const sendMail = require('./sendEmail.js');
+// const tracker = require('../../client/tracker.html');
 
 module.exports = (emailSet, mailer) => {
   // run loop to build each email and send
   emailSet[1].emails.forEach((email) => {
+    function mouseOver() {
+      console.log(`supdawgOVER ${count++} ${email.lead.lead_email}`)
+    }
     const message = {
       envelope: {
         from: emailSet[1].user_email,
@@ -17,7 +21,11 @@ module.exports = (emailSet, mailer) => {
         },
       },
       subject: email.subject,
-      html: `<b><img src="https://codesmithnodejs.azurewebsites.net/summary/imageTracker?thisPersonOpenedEmail=${email.lead.lead_email}"/></b>`,
+      html: `<b>
+      <img src="https://codesmithnodejs.azurewebsites.net/summary/imageTracker?thisPersonOpenedEmail=${email.lead.lead_email}" onmouseover="mouseOver()"/>
+      </b>
+      `,
+      // html: tracker
       text: email.body,
     };
     // send each email after being built
