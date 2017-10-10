@@ -41,7 +41,9 @@ app.get('/summary/tracker', (req, res) => {
   console.log('Ping*IMAGE TRACKER WAS HIT!!!!*ponG \n', req.query);
   res.sendFile(path.join(__dirname, '../client/tracker.html'));
 });
-
+app.get('/fwefa', (req, res) => {
+  res.sendfile(path.join(__dirname, '../noun_96658_cc.png'))
+});
 
 app.post('/oauthlogin', (req, res) => {
   console.log('This is the req.query ', req.query);
