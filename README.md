@@ -26,6 +26,5 @@ More information on throttling can be found: 1.) https://support.google.com/mail
 
 If you are having issues with Nodemailer, then the best way to find help would be Stack Overflow or revisit the docs.
 
-We hope you like Musubis as much as we do
-![](http://s.ravelrumba.com/uploads/2010/02/cookie-header-image1.png)
+We hope you like Musubis as much as we do!!
 ![](http://www.hawaiimagazine.com/sites/default/files/sites/default/files/spam-musubi-emoji.jpg)
