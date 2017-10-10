@@ -29,8 +29,7 @@ transporter.refresh = (emailSet, done) => {
       {
         // where: { user_id: emailSet[1].user_id },
         where: { user_id: 22 }
-      }
-      )
+      })
         .then(() => {
           emailSet[1].gmail_access_token = result.access_token;
           // send back to build with new access token to rebuild mailer object
