@@ -1,14 +1,15 @@
 const models = require('./../dbmodels/dbmodels.js');
 // const verifyTransporter = require('./verifyTransporter.js');
 const sendMail = require('./sendEmail.js');
-// const tracker = require('../../client/tracker.html');
 
-module.exports = (emailSet, mailer) => {
+module.exports = (emailSet, mailer, done) => {
   // run loop to build each email and send
+  console.log('building up the email', emailSet);
+  if (!emailSet[1].emails) {
+    console.log('done');
+    done();
+  }
   emailSet[1].emails.forEach((email) => {
-    function mouseOver() {
-      console.log(`supdawgOVER ${count++} ${email.lead.lead_email}`)
-    }
     const message = {
       envelope: {
         from: emailSet[1].user_email,
@@ -21,15 +22,11 @@ module.exports = (emailSet, mailer) => {
         },
       },
       subject: email.subject,
-      html: `<b>
-      <img src="https://codesmithnodejs.azurewebsites.net/summary/imageTracker?thisPersonOpenedEmail=${email.lead.lead_email}" onmouseover="mouseOver()"/>
-      </b>
-      `,
-      // html: tracker
+      html: `<b><img src="https://cheatcodes5.herokuapp.com/summary/imageTracker?thisPersonOpenedEmail=${email.lead.lead_email}"/></b>`,
       text: email.body,
     };
     // send each email after being built
-    sendMail(email, mailer, message);
+    sendMail(email, mailer, message, done);
   });
 };
 

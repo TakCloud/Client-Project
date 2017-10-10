@@ -9,14 +9,9 @@ const Users = sequelize.define('users', {
     autoIncrement: true,
     allowNull: false,
   },
-  user_organization_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
   user_organization_name: {
     type: Sequelize.STRING,
     allowNull: false,
-    unique: true,
     references: {
       model: 'user_organizations',
       key: 'organization_name',
@@ -45,6 +40,7 @@ const Users = sequelize.define('users', {
   },
   email_signature: {
     type: Sequelize.STRING,
+    allowNull: false,
   },
   send_as_email: {
     type: Sequelize.STRING,
