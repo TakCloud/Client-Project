@@ -54,16 +54,6 @@ class NewCampaignFormFirstPage extends Component {
           className="campaign-form-next-buttons"
           containerElement={<Link to={'/summary/newcampaign/steps'} />}
         />
-        {/* <div className="newcampaign-footer"> */}
-        {/* <Link */}
-        {/* className="newcampaign-footer-btn" */}
-        {/* to="/newgroup" */}
-        {/* >Add New Email Group</Link> */}
-        {/* <Link */}
-        {/* className="newcampaign-footer-btn" */}
-        {/* to="/summary/newcampaign/steps" */}
-        {/* >Next</Link> */}
-        {/* </div> */}
       </div>
     );
   }
