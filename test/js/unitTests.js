@@ -1,4 +1,3 @@
-// Here we will be unit testing the 3 database functions from server/db/games.js
 const fs = require('fs');
 const path = require('path');
 const expect = require('expect');
@@ -57,7 +56,7 @@ describe('#initial login', (done) => {
   it('user should be created upon signup', (done) => {
     dbmodels.users.findAll({
     // dbmodels.users.find({
-      where: { user_first_name: 'xela' },
+      where: { user_first_name: 'alex' },
       attributes: ['user_email', 'gmail_access_token', 'gmail_refresh_token'],
     })
       .then((entry) => {
@@ -74,17 +73,17 @@ describe('#initial login', (done) => {
               path: '/createuser',
             },
             body: {
-              user_first_name: 'xela',
-              user_last_name: 'bong',
-              user_organization_name: 'alex',
-              user_organization_id: 3,
-              user_email: 'cheatcodes002@gmail.com',
+              user_first_name: 'alex',
+              user_last_name: 'hong',
+              user_organization_name: 'hong',
+              user_organization_id: 5,
+              user_email: 'alexhong432@gmail.com',
               user_password: '1234',
               // password is 1234
               role: 'user',
               email_signature: 'sig goes here',
-              send_as_email: 'cheatcodes002@gmail.com',
-              reply_to_email: 'cheatcodes002@gmail.com',
+              send_as_email: 'alexhong432@gmail.com',
+              reply_to_email: 'alexhong432@gmail.com',
             },
           };
           dbcontroller.createUser(createUser, { locals: {} }, done);
@@ -121,7 +120,7 @@ describe('if user\'s gmail_access_token expired then engine should use refreshTo
   });
   it('new accessToken should be different from new one', (done) => {
     dbmodels.users.findAll({
-      where: { user_first_name: 'xela' },
+      where: { user_first_name: 'alex' },
       attributes: ['gmail_access_token'],
     })
       .then((entry) => {
