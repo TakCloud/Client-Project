@@ -7,11 +7,10 @@ const dbqueries = require('./dbcontrollers/dbqueries.js');
 const verifyToken = require('./controllers/verifyToken.js');
 const LoginSignupController = require('./controllers/LoginSignupController');
 const engine = require('./engine/engine.js');
+const sessionController = require('./controllers/sessionController.js');
+const cookieParser = require('cookie-parser');
 
-
-const oauthUrl = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fmail.google.com%2F&response_type=code&client_id=674930641729-at55ett8pbck27uu5ektiniq91bu8dfd.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fcheatcodes5.herokuapp.com%2Fsummary';
-// use the above url for production, and the below for development
-// const oauthUrl = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fmail.google.com%2F&response_type=code&client_id=597535892558-d9oqu99oosrel4fkcuabjv2kf6qpmf2j.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fsummary';
+const oauthUrl = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fmail.google.com%2F&response_type=code&client_id=597535892558-d9oqu99oosrel4fkcuabjv2kf6qpmf2j.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fsummary';
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -28,6 +27,9 @@ app.use((request, response, next) => {
 // industry best practice for using bodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(sessionController.verify);
+
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
@@ -42,15 +44,16 @@ app.get('/summary/imageTracker?', (req, res) => {
 });
 
 
-app.post('/oauthlogin', (req, res) => {
-  console.log('This is the req.query ', req.query);
-  res.send(oauthUrl);
+app.get('/oauthlogin', (req, res) => {
+  res.json(oauthUrl);
 });
+
 app.get('/googlec45609043392fa00', (req, res) => res.sendFile(path.join(__dirname, '../../googlec45609043392fa00.html')));
 app.get('/summary/googlec45609043392fa00', (req, res) => res.sendFile(path.join(__dirname, '../../googlec45609043392fa00.html')));
 
 app.post('/login',
   LoginSignupController,
+  sessionController.set,
   dbqueries.grabState,
   (req, res) => {
     res.json(res.locals.databaseEntry);
@@ -112,6 +115,6 @@ app.post('/summary',
 
 app.listen(port, () => {
   console.log(`now listening on ${port}! \n`);
-  // ** UNCOMMENT TO START ENGINE **
-  // engine.begin();
+  // ** UNCOMMENT TO START ENGINE **  
+  engine.begin();
 });

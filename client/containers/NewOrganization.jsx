@@ -63,6 +63,11 @@ class NewOrganization extends Component {
               primary
             />
           </form>
+          <RaisedButton
+            label="back"
+            primary
+            containerElement={<Link to={'/'} />}
+          />
         </center>
       </MuiThemeProvider>
     );

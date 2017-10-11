@@ -10,29 +10,37 @@ import { fetchUserData } from '../actions/fetchUserData';
 class LoginPageForm extends Component {
   onSubmit = (values) => {
     this.props.fetchUserData(values, () => this.props.history.push('/summary'));
-  }
+  };
 
   render() {
     const { handleSubmit } = this.props;
     return (
       <MuiThemeProvider>
-        <form onSubmit={handleSubmit(this.onSubmit)}>
-          <Field
-            name="username"
-            component={TextField}
-            floatingLabelText="user!"
-          />
-          <Field
-            name="password"
-            component={TextField}
-            floatingLabelText="Password"
-          />
+        <div>
+          <form onSubmit={handleSubmit(this.onSubmit)}>
+            <Field
+              name="username"
+              component={TextField}
+              floatingLabelText="Username"
+            />
+            <Field
+              name="password"
+              component={TextField}
+              floatingLabelText="Password"
+            />
+            <RaisedButton
+              type="submit"
+              label="Submit"
+              primary
+            />
+          </form>
           <RaisedButton
-            type="submit"
-            label="Submit"
+            name="signup"
+            label="Sign Up"
             primary
+            containerElement={<Link to={'/neworganization'} />}
           />
-        </form>
+        </div>
       </MuiThemeProvider>
     );
   }
