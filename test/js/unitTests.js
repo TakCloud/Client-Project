@@ -56,7 +56,7 @@ describe('#initial login', (done) => {
   it('user should be created upon signup', (done) => {
     dbmodels.users.findAll({
     // dbmodels.users.find({
-      where: { user_first_name: 'alex' },
+      where: { user_first_name: 'xela' },
       attributes: ['user_email', 'gmail_access_token', 'gmail_refresh_token'],
     })
       .then((entry) => {
@@ -67,7 +67,7 @@ describe('#initial login', (done) => {
           console.log('MATCHED: ', access);
           expect(entry[0].dataValues.gmail_access_token).toBeDefined();
         } else {
-          console.log('alexbong is not in database so create him');
+          console.log('xelabong is not in database so create him');
           const createUser = {
             route: {
               path: '/createuser',
@@ -75,15 +75,15 @@ describe('#initial login', (done) => {
             body: {
               user_first_name: 'xela',
               user_last_name: 'bong',
-              user_organization_name: 'alex',
+              user_organization_name: 'xela',
               user_organization_id: 3,
-              user_email: 'test.receiver0001@gmail.com',
+              user_email: 'cheatcodes002@gmail.com',
               user_password: '1234',
               // password is 1234
               role: 'user',
               email_signature: 'sig goes here',
-              send_as_email: 'test.receiver0001@gmail.com',
-              reply_to_email: 'test.receiver0001@gmail.com',
+              send_as_email: 'cheatcodes002@gmail.com',
+              reply_to_email: 'cheatcodes002@gmail.com',
             },
           };
           dbcontroller.createUser(createUser, { locals: {} }, done);
@@ -120,7 +120,7 @@ describe('if user\'s gmail_access_token expired then engine should use refreshTo
   });
   it('new accessToken should be different from new one', (done) => {
     dbmodels.users.findAll({
-      where: { user_first_name: 'alex' },
+      where: { user_first_name: 'xela' },
       attributes: ['gmail_access_token'],
     })
       .then((entry) => {
@@ -131,7 +131,7 @@ describe('if user\'s gmail_access_token expired then engine should use refreshTo
           expect(entry[0].dataValues.gmail_access_token === access).toEqual(false);
           done();
         } else {
-          console.log('could not find alex');
+          console.log('could not find xela');
           // done();
         }
       });
