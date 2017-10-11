@@ -18,14 +18,13 @@ class NewCampaignFormFirstPage extends Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
     return (
       <div className="newcampaign-container">
         <AppBar
           title="New Campaign"
           className="first-page-header"
           showMenuIconButton={false}
-          style={{ height: '100px', backgroundColor: '#607D8B' }}
+          style={{ height: '100px', backgroundColor: '#2196F3' }}
         />
         <form className="center-items">
           <Field
@@ -46,14 +45,15 @@ class NewCampaignFormFirstPage extends Component {
           <FlatButton
             label="Add New Email Group"
             primary
+            containerElement={<Link to={'/newgroup'} />}
+          />
+          <RaisedButton
+            label="Next"
+            secondary
+            className="campaign-form-next-buttons"
+            containerElement={<Link to={'/summary/newcampaign/steps'} />}
           />
         </form>
-        <RaisedButton
-          label="Next"
-          primary
-          className="campaign-form-next-buttons"
-          containerElement={<Link to={'/summary/newcampaign/steps'} />}
-        />
       </div>
     );
   }
@@ -64,7 +64,6 @@ function mapStateToProps(state) {
 }
 
 NewCampaignFormFirstPage.propTypes = {
-  handleSubmit: PropTypes.func,
   leadGroups: PropTypes.array,
 };
 
