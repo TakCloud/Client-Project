@@ -120,6 +120,7 @@ app.post('/createcampaign',
 
 app.get('/summary',
   verifyToken,
+  dbupdates.saveToken,
   (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'));
   });
