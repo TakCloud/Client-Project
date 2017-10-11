@@ -22,3 +22,4 @@ export function fetchUserData(user, callback) {
 export default {
   fetchUserData,
 };
+

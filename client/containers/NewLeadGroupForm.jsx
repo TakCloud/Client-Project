@@ -30,7 +30,7 @@ class NewEmailGroupForm extends Component {
           />
           <RaisedButton
             type="submit"
-            lable="Submit"
+            label="Submit"
             primary
           />
         </form>
