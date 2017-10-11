@@ -23,21 +23,21 @@ render(
   <Provider store={createStore(reducers, initialState,
     composeWithDevTools(applyMiddleware(thunk)))}
   >
-    <BrowserRouter>
-      <div>
-        <Switch>
-          <Route path="/summary/newcampaign/confirm" component={NewCampaignFormConfirmationPage} />
-          <Route path="/summary/newcampaign/steps" component={NewCampaignFormStepsPage} />
-          <Route path="/summary/newcampaign" component={NewCampaignFormFirstPage} />
-          <Route path="/summary/:id" component={RealPieCharts} />
-          <Route path="/summary" component={Dashboard} />
-          <Route path="/newgroup" component={NewLeadGroupForm} />
-          <MuiThemeProvider>
+    <MuiThemeProvider>
+      <BrowserRouter>
+        <div className="application-container">
+          <Switch>
+            <Route path="/summary/newcampaign/confirm" component={NewCampaignFormConfirmationPage} />
+            <Route path="/summary/newcampaign/steps" component={NewCampaignFormStepsPage} />
+            <Route path="/summary/newcampaign" component={NewCampaignFormFirstPage} />
+            <Route path="/summary/:id" component={RealPieCharts} />
+            <Route path="/summary" component={Dashboard} />
+            <Route path="/newgroup" component={NewLeadGroupForm} />
             <Route path="/" component={LoginPageForm} />
-          </MuiThemeProvider>
-        </Switch>
-      </div>
-    </BrowserRouter>
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </MuiThemeProvider>
   </Provider>,
   document.getElementById('content'),
 );
