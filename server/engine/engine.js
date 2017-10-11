@@ -68,7 +68,7 @@ const mailEngine = () => {
 // run engine at set interval of time (ex. every 30 mins);
 engine.begin = () => {
   // adjust timeout to desired testing interval
-  setInterval(mailEngine, 3000);
+  setInterval(mailEngine, 10000);
 };
 
 module.exports = engine;

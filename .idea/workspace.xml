@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e0a8a87-dd96-4170-a479-7fc36b870752" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/controllers/sessionController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/containers/CampaignButtons.jsx" afterPath="$PROJECT_DIR$/client/containers/CampaignButtons.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/containers/EditTemplatesTextFields.jsx" afterPath="$PROJECT_DIR$/client/containers/EditTemplatesTextFields.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/containers/LoginPageForm.jsx" afterPath="$PROJECT_DIR$/client/containers/LoginPageForm.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/containers/NewCampaignFormConfirmationPage.jsx" afterPath="$PROJECT_DIR$/client/containers/NewCampaignFormConfirmationPage.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/containers/NewCampaignFormStepsPage.jsx" afterPath="$PROJECT_DIR$/client/containers/NewCampaignFormStepsPage.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/containers/RealPieCharts.jsx" afterPath="$PROJECT_DIR$/client/containers/RealPieCharts.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/containers/NewOrganization.jsx" afterPath="$PROJECT_DIR$/client/containers/NewOrganization.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/index.js" afterPath="$PROJECT_DIR$/client/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/engine/engine.js" afterPath="$PROJECT_DIR$/server/engine/engine.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/server.js" afterPath="$PROJECT_DIR$/server/server.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,7 +39,7 @@
             <entry file="file://$PROJECT_DIR$/client/actions/postNewOrg.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="225">
-                  <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+                  <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
                   <folding />
                 </state>
               </provider>
@@ -47,9 +48,14 @@
           <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="32" column="30" lean-forward="false" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-                  <folding />
+                <state relative-caret-position="225">
+                  <caret line="33" column="30" lean-forward="false" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+                  <folding>
+                    <marker date="1507744246000" expanded="true" signature="1901:1982" ph="&lt;Switch/&gt;" />
+                    <marker date="1507744246000" expanded="true" signature="1901:1997" ph="&lt;div/&gt;" />
+                    <marker date="1507744246000" expanded="true" signature="1901:2020" ph="&lt;BrowserRouter/&gt;" />
+                    <marker date="1507744246000" expanded="true" signature="1901:2044" ph="&lt;MuiThemeProvider/&gt;" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -58,7 +64,7 @@
             <entry file="file://$PROJECT_DIR$/client/actions/postNewCampaign.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
-                  <caret line="0" column="26" lean-forward="true" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+                  <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
                   <folding />
                 </state>
               </provider>
@@ -68,7 +74,7 @@
             <entry file="file://$PROJECT_DIR$/client/actions/postNewLeadGroup.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="180">
-                  <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+                  <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -78,7 +84,7 @@
             <entry file="file://$PROJECT_DIR$/client/css/app.scss">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="1391">
-                  <caret line="111" column="19" lean-forward="true" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
+                  <caret line="111" column="19" lean-forward="false" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
                   <folding />
                 </state>
               </provider>
@@ -88,17 +94,17 @@
             <entry file="file://$PROJECT_DIR$/client/containers/NewCampaignFormConfirmationPage.jsx">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="288">
-                  <caret line="39" column="12" lean-forward="true" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+                  <caret line="39" column="12" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="NewLeadGroupForm.jsx" pinned="false" current-in-tab="true">
+          <file leaf-file-name="NewLeadGroupForm.jsx" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/containers/NewLeadGroupForm.jsx">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="480">
-                  <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+                  <caret line="32" column="26" lean-forward="false" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -110,7 +116,7 @@
             <entry file="file://$PROJECT_DIR$/client/containers/NewCampaignFormFirstPage.jsx">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="574">
-                  <caret line="45" column="39" lean-forward="true" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+                  <caret line="45" column="39" lean-forward="false" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -118,11 +124,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="LoginPageForm.jsx" pinned="false" current-in-tab="false">
+          <file leaf-file-name="LoginPageForm.jsx" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/containers/LoginPageForm.jsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+                <state relative-caret-position="507">
+                  <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -138,7 +144,7 @@
             <entry file="file://$PROJECT_DIR$/client/containers/NewCampaignFormStepsPage.jsx">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-165">
-                  <caret line="48" column="18" lean-forward="true" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
+                  <caret line="48" column="18" lean-forward="false" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -150,7 +156,7 @@
             <entry file="file://$PROJECT_DIR$/client/containers/EditTemplatesTextFields.jsx">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="255">
-                  <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+                  <caret line="22" column="2" lean-forward="false" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
                   <folding />
                 </state>
               </provider>
@@ -160,7 +166,7 @@
             <entry file="file://$PROJECT_DIR$/client/containers/EditTemplatesForm.jsx">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
-                  <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+                  <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -172,7 +178,7 @@
             <entry file="file://$PROJECT_DIR$/client/containers/TemplatesContainer.jsx">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="375">
-                  <caret line="29" column="21" lean-forward="true" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+                  <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -185,6 +191,10 @@
                   <caret line="25" column="3" lean-forward="false" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
+                    <marker date="1507744246000" expanded="true" signature="471:2456" ph="{...}" />
+                    <marker date="1507744246000" expanded="true" signature="976:2454" ph="{...}" />
+                    <marker date="1507744246000" expanded="true" signature="1038:2443" ph="&lt;MuiThemeProvider/&gt;" />
+                    <marker date="1507744246000" expanded="true" signature="1065:2417" ph="&lt;center/&gt;" />
                   </folding>
                 </state>
               </provider>
@@ -204,7 +214,7 @@
             <entry file="file://$PROJECT_DIR$/client/containers/RealPieCharts.jsx">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="279">
-                  <caret line="28" column="47" lean-forward="true" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+                  <caret line="28" column="47" lean-forward="false" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -226,7 +236,7 @@
             <entry file="file://$PROJECT_DIR$/client/actions/fetchUserData.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="375">
-                  <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+                  <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -255,11 +265,11 @@
         <option value="$PROJECT_DIR$/client/containers/NewCampaignFormFirstPage.jsx" />
         <option value="$PROJECT_DIR$/client/containers/NewCampaignFormStepsPage.jsx" />
         <option value="$PROJECT_DIR$/client/containers/EditTemplatesTextFields.jsx" />
-        <option value="$PROJECT_DIR$/client/containers/LoginPageForm.jsx" />
         <option value="$PROJECT_DIR$/client/containers/NewCampaignFormConfirmationPage.jsx" />
         <option value="$PROJECT_DIR$/client/containers/CampaignButtons.jsx" />
         <option value="$PROJECT_DIR$/client/containers/RealPieCharts.jsx" />
         <option value="$PROJECT_DIR$/client/actions/fetchUserData.js" />
+        <option value="$PROJECT_DIR$/client/containers/LoginPageForm.jsx" />
       </list>
     </option>
   </component>
@@ -439,12 +449,12 @@
       <workItem from="1507510292922" duration="68000" />
       <workItem from="1507510430381" duration="24117000" />
       <workItem from="1507662905941" duration="45000" />
-      <workItem from="1507663017917" duration="31122000" />
+      <workItem from="1507663017917" duration="31219000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55352000" />
+    <option name="totallyTimeSpent" value="55449000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1915" y="-157" width="1906" height="973" extended-state="0" />
@@ -733,16 +743,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="32" column="30" lean-forward="false" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="225">
+          <caret line="33" column="30" lean-forward="false" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+          <folding>
+            <marker date="1507744246000" expanded="true" signature="1901:1982" ph="&lt;Switch/&gt;" />
+            <marker date="1507744246000" expanded="true" signature="1901:1997" ph="&lt;div/&gt;" />
+            <marker date="1507744246000" expanded="true" signature="1901:2020" ph="&lt;BrowserRouter/&gt;" />
+            <marker date="1507744246000" expanded="true" signature="1901:2044" ph="&lt;MuiThemeProvider/&gt;" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/css/app.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1391">
-          <caret line="111" column="19" lean-forward="true" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
+          <caret line="111" column="19" lean-forward="false" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -758,43 +773,25 @@
     <entry file="file://$PROJECT_DIR$/client/containers/EditTemplatesTextFields.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+          <caret line="22" column="2" lean-forward="false" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/containers/LoginPageForm.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/containers/NewCampaignFormFirstPage.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="574">
-          <caret line="45" column="39" lean-forward="true" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+          <caret line="45" column="39" lean-forward="false" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/containers/NewCampaignFormConfirmationPage.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="39" column="12" lean-forward="true" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/actions/postNewCampaign.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="26" lean-forward="true" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -802,7 +799,7 @@
     <entry file="file://$PROJECT_DIR$/client/actions/postNewLeadGroup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -810,7 +807,7 @@
     <entry file="file://$PROJECT_DIR$/client/actions/postNewOrg.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -818,7 +815,7 @@
     <entry file="file://$PROJECT_DIR$/client/containers/EditTemplatesForm.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -836,7 +833,7 @@
     <entry file="file://$PROJECT_DIR$/client/containers/RealPieCharts.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
-          <caret line="28" column="47" lean-forward="true" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+          <caret line="28" column="47" lean-forward="false" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -846,7 +843,7 @@
     <entry file="file://$PROJECT_DIR$/client/containers/TemplatesContainer.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="29" column="21" lean-forward="true" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -865,6 +862,10 @@
           <caret line="25" column="3" lean-forward="false" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="24" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+            <marker date="1507744246000" expanded="true" signature="471:2456" ph="{...}" />
+            <marker date="1507744246000" expanded="true" signature="976:2454" ph="{...}" />
+            <marker date="1507744246000" expanded="true" signature="1038:2443" ph="&lt;MuiThemeProvider/&gt;" />
+            <marker date="1507744246000" expanded="true" signature="1065:2417" ph="&lt;center/&gt;" />
           </folding>
         </state>
       </provider>
@@ -872,19 +873,9 @@
     <entry file="file://$PROJECT_DIR$/client/containers/NewCampaignFormStepsPage.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-165">
-          <caret line="48" column="18" lean-forward="true" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
+          <caret line="48" column="18" lean-forward="false" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/containers/NewLeadGroupForm.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -892,8 +883,36 @@
     <entry file="file://$PROJECT_DIR$/client/actions/fetchUserData.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/containers/NewLeadGroupForm.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="26" lean-forward="false" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/containers/NewCampaignFormConfirmationPage.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="39" column="12" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/containers/LoginPageForm.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
