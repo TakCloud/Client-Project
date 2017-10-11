@@ -23,23 +23,21 @@ class NewCampaignFormConfirmationPage extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <MuiThemeProvider>
-        <div>
-          <AppBar
-            title="CAMPAIGN SUMMARY"
-            showMenuIconButton={false}
-            titleStyle={{ textAlign: 'center' }}
+      <div>
+        <AppBar
+          title="CAMPAIGN SUMMARY"
+          showMenuIconButton={false}
+          titleStyle={{ textAlign: 'center' }}
+        />
+        <form onSubmit={handleSubmit(this.onSubmit)}>
+          <RaisedButton
+            className="lastPageButton"
+            type="submit"
+            label="Confirm"
+            primary
           />
-          <form onSubmit={handleSubmit(this.onSubmit)}>
-            <RaisedButton
-              className="lastPageButton"
-              type="submit"
-              label="Confirm"
-              primary
-            />
-          </form>
-        </div>
-      </MuiThemeProvider>
+        </form>
+      </div>
     );
   }
 }

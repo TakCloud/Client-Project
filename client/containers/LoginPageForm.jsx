@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { TextField } from 'redux-form-material-ui';
 import RaisedButton from 'material-ui/RaisedButton';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { fetchUserData } from '../actions/fetchUserData';
 
 class LoginPageForm extends Component {
@@ -15,25 +14,23 @@ class LoginPageForm extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <MuiThemeProvider>
-        <form onSubmit={handleSubmit(this.onSubmit)}>
-          <Field
-            name="username"
-            component={TextField}
-            floatingLabelText="user!"
-          />
-          <Field
-            name="password"
-            component={TextField}
-            floatingLabelText="Password"
-          />
-          <RaisedButton
-            type="submit"
-            label="Submit"
-            primary
-          />
-        </form>
-      </MuiThemeProvider>
+      <form onSubmit={handleSubmit(this.onSubmit)}>
+        <Field
+          name="username"
+          component={TextField}
+          floatingLabelText="Username"
+        /><br />
+        <Field
+          name="password"
+          component={TextField}
+          floatingLabelText="Password"
+        />
+        <RaisedButton
+          type="submit"
+          label="Submit"
+          primary
+        />
+      </form>
     );
   }
 }
