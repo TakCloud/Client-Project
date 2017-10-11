@@ -40,7 +40,6 @@ const Users = sequelize.define('users', {
   },
   email_signature: {
     type: Sequelize.STRING,
-    allowNull: false,
   },
   send_as_email: {
     type: Sequelize.STRING,

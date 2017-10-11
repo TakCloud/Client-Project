@@ -65,22 +65,41 @@ dbcontroller.insert = (req, res, next) => {
       }
     });
 };
+dbcontroller.createOrg = (req, res, next) => {
+  models.user_organizations.create({
+    organization_name: req.body.organization_name,
+    primary_contact_email: req.body.primary_contact_email,
+  })
+    .then((organization) => {
+      res.locals.organization_id = organization.dataValues.organization_id;
+      next();
+    });
+};
 
 dbcontroller.createUser = (req, res, next) => {
   bcrypt.hash(req.body.user_password, saltRounds, (err, hash) => {
     req.body.user_password = hash;
-    models.users.create(req.body)
-      .then((entry) => {
-        res.locals.databaseEntry = entry.dataValues.user_id;
+    models.users.create({
+      user_organization_name: req.body.organization_name,
+      user_organization_id: res.locals.organization_id,
+      user_first_name: req.body.first_name,
+      user_last_name: req.body.last_name,
+      user_email: req.body.primary_contact_email,
+      user_password: req.body.user_password,
+      role: 'user', // TODO: replace with dynamic value
+      send_as_email: req.body.primary_contact_email,
+      reply_to_email: req.body.primary_contact_email,
+    })
+      .then((user) => {
+        res.locals.user_id = user.dataValues.user_id;
         next();
       })
       .catch((error) => {
-        if (res.status) res.status(400).json(`Something went wrong when creating user: ${error}`);
-        console.log(error);
-        next();
+        res.status(400).json(`Something went wrong when creating user: ${error}`);
       });
   });
 };
+
 // bulk insert records into database
 dbcontroller.bulkInsert = (req, res, next) => {
   const table = getTableName(req.route.path);
