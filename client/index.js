@@ -17,12 +17,13 @@ import NewCampaignFormConfirmationPage from './containers/NewCampaignFormConfirm
 import NewLeadGroupForm from './containers/NewLeadGroupForm';
 import EditTemplatesForm from './containers/EditTemplatesForm';
 import styles from './css/app.scss';
-
+import NewOrganization from './containers/NewOrganization';
 
 render(
   <Provider store={createStore(reducers, initialState,
     composeWithDevTools(applyMiddleware(thunk)))}
   >
+
     <MuiThemeProvider>
       <BrowserRouter>
         <div className="application-container">
@@ -33,6 +34,7 @@ render(
             <Route path="/summary/:id" component={RealPieCharts} />
             <Route path="/summary" component={Dashboard} />
             <Route path="/newgroup" component={NewLeadGroupForm} />
+            <Route path="/neworganization" component={NewOrganization} />
             <Route path="/" component={LoginPageForm} />
           </Switch>
         </div>
