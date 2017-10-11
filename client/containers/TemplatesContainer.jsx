@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Dialog from 'material-ui/Dialog';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+import EditTemplatesForm from '../containers/EditTemplatesForm';
+
 
 class TemplatesContainer extends Component {
   state = {
@@ -12,27 +13,25 @@ class TemplatesContainer extends Component {
   handleOpen = () => {
     this.setState({ open: true });
   }
-  render() {
-    const actions = [
-      <Dialog
-        title="Choose Template"
-        modal
-        open={this.state.open}
-      >
-        HELLO
-      </Dialog>,
-    ];
 
+  handleClose = () => {
+    this.setState({ open: false });
+  }
+
+  render() {
     return (
       <div>
-        <RaisedButton label="Choose Template" onClick={this.handleOpen} />
+        <RaisedButton label="Edit Templates" onClick={this.handleOpen} />
         <Dialog
-          title="Choose Template"
-          modal
+          title="Templates"
           open={this.state.open}
-          actions={actions}
         >
-          HELLO
+          <EditTemplatesForm />
+          <FlatButton
+            label="Save"
+            primary
+            onClick={this.handleClose}
+          />
         </Dialog>
       </div>
     );

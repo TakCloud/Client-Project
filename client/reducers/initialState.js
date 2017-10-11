@@ -7,7 +7,7 @@ const initialState = {
     campaigns: {},
   },
   userTemplates: {
-    templates: {},
+    templates: [],
   },
   userTotalMetrics: {
     totalMetrics: {},

@@ -15,6 +15,7 @@ import NewCampaignFormFirstPage from './containers/NewCampaignFormFirstPage';
 import NewCampaignFormStepsPage from './containers/NewCampaignFormStepsPage';
 import NewCampaignFormConfirmationPage from './containers/NewCampaignFormConfirmationPage';
 import NewLeadGroupForm from './containers/NewLeadGroupForm';
+import EditTemplatesForm from './containers/EditTemplatesForm';
 import styles from './css/app.scss';
 import NewOrganization from './containers/NewOrganization';
 
@@ -22,22 +23,23 @@ render(
   <Provider store={createStore(reducers, initialState,
     composeWithDevTools(applyMiddleware(thunk)))}
   >
-    <BrowserRouter>
-      <div>
-        <Switch>
-          <Route path="/summary/newcampaign/confirm" component={NewCampaignFormConfirmationPage} />
-          <Route path="/summary/newcampaign/steps" component={NewCampaignFormStepsPage} />
-          <Route path="/summary/newcampaign" component={NewCampaignFormFirstPage} />
-          <Route path="/summary/:id" component={RealPieCharts} />
-          <Route path="/summary" component={Dashboard} />
-          <Route path="/newgroup" component={NewLeadGroupForm} />
-          <Route path="/neworganization" component={NewOrganization} />
-          <MuiThemeProvider>
+
+    <MuiThemeProvider>
+      <BrowserRouter>
+        <div className="application-container">
+          <Switch>
+            <Route path="/summary/newcampaign/confirm" component={NewCampaignFormConfirmationPage} />
+            <Route path="/summary/newcampaign/steps" component={NewCampaignFormStepsPage} />
+            <Route path="/summary/newcampaign" component={NewCampaignFormFirstPage} />
+            <Route path="/summary/:id" component={RealPieCharts} />
+            <Route path="/summary" component={Dashboard} />
+            <Route path="/newgroup" component={NewLeadGroupForm} />
+            <Route path="/neworganization" component={NewOrganization} />
             <Route path="/" component={LoginPageForm} />
-          </MuiThemeProvider>
-        </Switch>
-      </div>
-    </BrowserRouter>
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </MuiThemeProvider>
   </Provider>,
   document.getElementById('content'),
 );
