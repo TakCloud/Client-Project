@@ -7,11 +7,11 @@ body {
 }
 
 
-.dark-primary-color    { background: #455A64; }
-.default-primary-color { background: #607D8B; }
-.light-primary-color   { background: #CFD8DC; }
+.dark-primary-color    { background: #1976D2; }
+.default-primary-color { background: #2196F3; }
+.light-primary-color   { background: #BBDEFB; }
 .text-primary-color    { color: #FFFFFF; }
-.accent-color          { background: #448AFF; }
+.accent-color          { background: #607D8B; }
 .primary-text-color    { color: #212121; }
 .secondary-text-color  { color: #757575; }
 .divider-color         { border-color: #BDBDBD; }
@@ -20,6 +20,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .application-container {
@@ -51,15 +52,14 @@ body {
 }
 
 .campaign-form-next-buttons {
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
+  justify-content: flex-end;
+  display: flex;
 }
 
 .first-page-title {
   font-size: 28px;
-  background-color: #eee;
-  padding: 24px 56px 24px 56px;
+  background-color: #BDBDBD;
+  padding: 15px 56px 15px 56px;
   text-align: center;
   width: 80%;
   border-radius: 20px;
@@ -79,7 +79,6 @@ body {
 
 .first-page-select-group-radio-buttons {
   margin: 25px;
-  padding: 10px;
   border-style: solid;
   text-align: left;
   background-color: #CFD8DC;
@@ -87,6 +86,17 @@ body {
   border-radius: 20px;
   width: auto;
   font-size: 18px;
+}
+
+.steps-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.second-page-add-steps-button {
+  margin-top: 20px;
 }
 
 @media only screen
