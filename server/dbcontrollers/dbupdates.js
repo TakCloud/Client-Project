@@ -26,7 +26,7 @@ dbupdates.removeCampaign = (req, res, next) => {
     })
       .then((users) => {
         console.log('remove campaign in dbupdates was hit', users);
-        models.email.update({
+        models.emails.update({
           status: 'stopped',
           // email status
           // all emails where lead id = proper lead id and 
