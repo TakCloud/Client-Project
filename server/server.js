@@ -123,7 +123,7 @@ app.get('/summary',
   (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'));
   });
-  
+
 app.post('/summary',
   verifyToken,
   dbupdates.saveToken,
