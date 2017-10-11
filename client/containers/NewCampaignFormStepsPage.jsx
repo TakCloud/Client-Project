@@ -3,7 +3,6 @@ import { Field, FieldArray, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from 'react-router-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 import { DatePicker, TextField, RadioButtonGroup, RadioButton } from 'redux-form-material-ui';
 import AppBar from 'material-ui/AppBar';
@@ -12,9 +11,9 @@ import TemplatesContainer from './TemplatesContainer';
 
 
 const renderSteps = ({ fields } = PropTypes) => (
-  <div>
+  <div className="steps-container">
     {fields.map((steps, index) => (
-      <Paper key={index} className="stepsContainer" zDepth={2}>
+      <Paper key={index} zDepth={2} style={{ width: '800px', padding: '20px' }}>
         <div>
           <div>
             <Toolbar>
@@ -29,7 +28,7 @@ const renderSteps = ({ fields } = PropTypes) => (
               </ToolbarGroup>
             </Toolbar>
           </div>
-          <div className="stepsFieldContainer">
+          <div>
             <Field
               name={`${steps}.time_interval`}
               component={DatePicker}
@@ -59,7 +58,7 @@ const renderSteps = ({ fields } = PropTypes) => (
       </Paper>
     ))}
     <RaisedButton
-      className="addStepsButton"
+      className="second-page-add-steps-button"
       label="Add Step"
       onClick={() => fields.push({})}
       secondary
@@ -71,24 +70,24 @@ const renderSteps = ({ fields } = PropTypes) => (
 const NewCampaignStepsForm = (props) => {
   const { handleSubmit } = props;
   return (
-    <MuiThemeProvider>
-      <div>
-        <AppBar
-          title="CAMPAIGN STEPS"
-          showMenuIconButton={false}
-          titleStyle={{ textAlign: 'center' }}
+    <div className="newcampaign-container">
+      <AppBar
+        title="Campaign Steps"
+        className="first-page-header"
+        showMenuIconButton={false}
+        titleStyle={{ textAlign: 'center' }}
+        style={{ height: '100px', backgroundColor: '#2196F3' }}
+      />
+      <form className="center-items">
+        <FieldArray name="steps" component={renderSteps} />
+        <RaisedButton
+          className="confirmStepsButton"
+          label="Next"
+          containerElement={<Link to={'/summary/newcampaign/confirm'} />}
+          primary
         />
-        <form>
-          <FieldArray name="steps" component={renderSteps} />
-          <RaisedButton
-            className="confirmStepsButton"
-            label="Next"
-            containerElement={<Link to={'/summary/newcampaign/confirm'} />}
-            primary
-          />
-        </form>
-      </div>
-    </MuiThemeProvider>
+      </form>
+    </div>
   );
 };
 

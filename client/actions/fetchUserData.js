@@ -7,7 +7,7 @@ export const FETCH_USERTOTALMETRICS = 'FETCH_USERTOTALMETRICS';
 
 export function fetchUserData(user, callback) {
   return (dispatch) => {
-    axios.post('http://localhost:8080/login', user)
+    axios.post('/login', user)
       .then((response) => {
         const userDetails = {};
         userDetails.user_id = response.data[0].user_id;
