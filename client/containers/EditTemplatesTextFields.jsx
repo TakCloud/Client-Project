@@ -9,17 +9,10 @@ class EditTemplatesTextFields extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <MuiThemeProvider>
-        <div>
-          <Field name="subject" component={TextField} hintText="Subject" />
-          <Field name="body" component={TextField} hintText="Body" />
-          <RaisedButton
-            type="submit"
-            label="Save"
-            primary
-          />
-        </div>
-      </MuiThemeProvider>
+      <div>
+        <Field name="subject" component={TextField} hintText="Subject" />
+        <Field name="body" component={TextField} hintText="Body" />
+      </div>
     );
   }
 }

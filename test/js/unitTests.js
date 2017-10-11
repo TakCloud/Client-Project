@@ -73,17 +73,17 @@ describe('#initial login', (done) => {
               path: '/createuser',
             },
             body: {
-              user_first_name: 'james',
-              user_last_name: 'bond',
-              user_organization_name: 'spam',
-              user_organization_id: 6,
-              user_email: 'musubis001@gmail.com',
+              user_first_name: 'xela',
+              user_last_name: 'bong',
+              user_organization_name: 'alex',
+              user_organization_id: 3,
+              user_email: 'test.receiver0001@gmail.com',
               user_password: '1234',
               // password is 1234
               role: 'user',
               email_signature: 'sig goes here',
-              send_as_email: 'musubis001@gmail.com',
-              reply_to_email: 'musubis001@gmail.com',
+              send_as_email: 'test.receiver0001@gmail.com',
+              reply_to_email: 'test.receiver0001@gmail.com',
             },
           };
           dbcontroller.createUser(createUser, { locals: {} }, done);
