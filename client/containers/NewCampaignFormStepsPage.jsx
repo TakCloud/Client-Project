@@ -13,7 +13,7 @@ import TemplatesContainer from './TemplatesContainer';
 const renderSteps = ({ fields } = PropTypes) => (
   <div className="steps-container">
     {fields.map((steps, index) => (
-      <Paper key={index} zDepth={2} style={{ width: '800px', padding: '20px' }}>
+      <Paper key={index} zDepth={2} style={{ width: '800px', padding: '20px', marginTop: '20px' }}>
         <div>
           <div>
             <Toolbar>
