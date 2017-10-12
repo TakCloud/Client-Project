@@ -4,6 +4,7 @@ const dbupdates = {};
 
 dbupdates.saveToken = (req, res, next) => {
   if (res.locals.token) {
+    console.log('TOOOOOKEN: ', res.locals.token);
     models.users.update({
       gmail_access_token: res.locals.token.access_token,
       gmail_refresh_token: res.locals.token.refresh_token,
