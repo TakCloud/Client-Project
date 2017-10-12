@@ -13,7 +13,8 @@ const cookieParser = require('cookie-parser');
 
 // use the above url for production, and the below for development
 // const oauthUrl = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fmail.google.com%2F&response_type=code&client_id=338372619030-uctj64mhdeipgf3301tjnvvrb6o1es70.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fsummary';
-const oauthUrl = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fmail.google.com%2F&response_type=code&client_id=674930641729-at55ett8pbck27uu5ektiniq91bu8dfd.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fcodesmithnodejs.azurewebsites.net%2Fsummary';
+const oauthUrl = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fmail.google.com%2F&response_type=code&client_id=674930641729-at55ett8pbck27uu5ektiniq91bu8dfd.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Fcodesmithnodejs.azurewebsites.net%2Fsummary';
+// const oauthUrl = 'https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fmail.google.com%2F&response_type=code&client_id=674930641729-at55ett8pbck27uu5ektiniq91bu8dfd.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Ffirstfreightdemo.azurewebsites.net%2Fsummary';
 
 const app = express();
 const port = process.env.PORT || 3000;
