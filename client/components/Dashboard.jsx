@@ -8,14 +8,11 @@ import CampaignButtons from '../containers/CampaignButtons';
 export default class Dashboard extends Component {
   render() {
     return (
-      <MuiThemeProvider>
-        <div>
-          <TopNavbar />
-          <DataViews />
-          <CampaignButtons />
-          <BottomButtons />
-        </div>
-      </MuiThemeProvider>
+      <div>
+        <TopNavbar />
+        <CampaignButtons />
+        <BottomButtons />
+      </div>
     );
   }
 }

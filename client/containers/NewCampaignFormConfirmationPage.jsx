@@ -32,7 +32,6 @@ class NewCampaignFormConfirmationPage extends Component {
         />
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <RaisedButton
-            className="lastPageButton"
             type="submit"
             label="Confirm"
             primary
