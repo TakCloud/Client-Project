@@ -28,16 +28,14 @@ class NewOrganization extends Component {
           <h1>New Organization</h1>
           <form onSubmit={handleSubmit(this.onSubmit)}>
             <Field
-              name="username"
-              component="input"
-              type="text"
-              placeholder="Username"
+              name="organization_name"
+              component={TextField}
+              floatingLabelText="Organization Name"
             /><br />
             <Field
               name="primary_contact_email"
-              component="input"
-              type="text"
-              placeholder="Primary E-mail"
+              component={TextField}
+              floatingLabelText="Primary Email Address"
             /><br />
             <Field
               name="first_name"
