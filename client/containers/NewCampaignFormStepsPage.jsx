@@ -38,8 +38,8 @@ const renderSteps = ({ fields } = PropTypes) => (
               format={null}
             />
             <Field name={`${steps}.template.name`} component={RadioButtonGroup}>
-              <RadioButton value="Best Template" label="Template 1" />
-              <RadioButton value="Worst Template" label="Template 2" />
+              <RadioButton value="Best Template" label="New Leads Template" />
+              <RadioButton value="Worst Template" label="Current Customers Template" />
             </Field>
             <Field
               name={`${steps}.template.subject`}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
+import { reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -22,11 +22,13 @@ class NewCampaignFormConfirmationPage extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <div>
+      <div className="newcampaign-container">
         <AppBar
-          title="CAMPAIGN SUMMARY"
+          title="Campaign Summary"
+          className="first-page-header"
           showMenuIconButton={false}
           titleStyle={{ textAlign: 'center' }}
+          style={{ height: '100px', backgroundColor: '#2196F3' }}
         />
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <RaisedButton
