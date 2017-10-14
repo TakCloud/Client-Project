@@ -11,9 +11,19 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 
 class NewCampaignFormFirstPage extends Component {
+  handleRadioButtonChange = (event, newVal) => {
+    event.preventDefault();
+    console.log('HELLO');
+  }
   renderLeadRadioButtons() {
-    return this.props.leadGroups.map(lead => (
-      <RadioButton className="first-page-select-group-radio-buttons" value={lead.leadgroup_id} label={lead.leadgroup_name} />
+    return this.props.leadGroups.map((lead, index) => (
+      <RadioButton
+        className="first-page-select-group-radio-buttons"
+        value={lead.leadgroup_id}
+        label={lead.leadgroup_name}
+        onChange={this.handleRadioButtonChange}
+        key={index}
+      />
     ));
   }
 
@@ -38,7 +48,12 @@ class NewCampaignFormFirstPage extends Component {
           />
           <div className="first-page-radiobuttons-container">
             <h3 className="first-page-title">Select Group</h3>
-            <Field name="lead_group" className="first-page-radiobuttons" component={RadioButtonGroup}>
+            <Field
+              name="lead_group"
+              className="first-page-radiobuttons"
+              component={RadioButtonGroup}
+              onChange={this.handleRadioButtonChange}
+            >
               {this.renderLeadRadioButtons()}
             </Field>
           </div>
