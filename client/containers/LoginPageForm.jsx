@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { TextField } from 'redux-form-material-ui';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -11,6 +11,7 @@ class LoginPageForm extends Component {
   onSubmit = (values) => {
     this.props.fetchUserData(values, () => this.props.history.push('/summary'));
   };
+
   render() {
     const { handleSubmit } = this.props;
     return (

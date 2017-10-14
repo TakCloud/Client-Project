@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
 import TopNavbar from './TopNavbar';
 import DataViews from './DataViews';
 import BottomButtons from './BottomButtons';
