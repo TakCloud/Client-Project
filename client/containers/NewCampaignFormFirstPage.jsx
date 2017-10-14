@@ -11,9 +11,17 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 
 class NewCampaignFormFirstPage extends Component {
+  handleRadioButtonChange = (event, newVal) => {
+    event.preventDefault();
+  }
   renderLeadRadioButtons() {
     return this.props.leadGroups.map(lead => (
-      <RadioButton className="first-page-select-group-radio-buttons" value={lead.leadgroup_id} label={lead.leadgroup_name} />
+      <RadioButton
+        className="first-page-select-group-radio-buttons"
+        value={lead.leadgroup_id}
+        label={lead.leadgroup_name}
+        onChange={this.handleRadioButtonChange}
+      />
     ));
   }
 
@@ -38,7 +46,12 @@ class NewCampaignFormFirstPage extends Component {
           />
           <div className="first-page-radiobuttons-container">
             <h3 className="first-page-title">Select Group</h3>
-            <Field name="lead_group" className="first-page-radiobuttons" component={RadioButtonGroup}>
+            <Field
+              name="lead_group"
+              className="first-page-radiobuttons"
+              component={RadioButtonGroup}
+              onChange={this.handleRadioButtonChange}
+            >
               {this.renderLeadRadioButtons()}
             </Field>
           </div>
@@ -71,4 +84,3 @@ export default reduxForm({
   form: 'NewCampaignForm',
   destroyOnUnmount: false,
 })(connect(mapStateToProps)(NewCampaignFormFirstPage));
-
