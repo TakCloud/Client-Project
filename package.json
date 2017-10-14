@@ -26,17 +26,12 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.3.0",
-    "expect": "^21.2.1",
     "mailparser": "^2.0.5",
-    "mocha": "^4.0.1",
     "node-sass": "^4.5.3",
     "nodemon": "^1.12.0",
     "sass-loader": "^6.0.6",
-    "sinon": "^4.0.1",
     "style-loader": "^0.18.2",
-    "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1",
-    "zombie": "^5.0.7"
+    "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -57,6 +52,7 @@
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-hot-loader": "^3.0.0-beta.7",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
@@ -67,6 +63,7 @@
     "redux-form-material-ui": "^4.3.0",
     "redux-thunk": "^2.2.0",
     "sequelize": "^4.8.3",
-    "victory": "^0.22.2"
+    "victory": "^0.22.2",
+    "webpack": "^3.6.0"
   }
 }
