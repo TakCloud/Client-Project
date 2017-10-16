@@ -67,15 +67,13 @@ const renderSteps = ({ fields } = PropTypes) => (
 );
 
 
-const NewCampaignStepsForm = (props) => {
-  const { handleSubmit } = props;
+const NewCampaignStepsForm = () => {
   return (
     <div className="newcampaign-container">
       <AppBar
-        title="Campaign Steps"
+        title="Create Email Content"
         className="first-page-header"
         showMenuIconButton={false}
-        titleStyle={{ textAlign: 'center' }}
         style={{ height: '100px', backgroundColor: '#2196F3' }}
       />
       <form className="center-items">
@@ -91,10 +89,6 @@ const NewCampaignStepsForm = (props) => {
   );
 };
 
-
-NewCampaignStepsForm.propTypes = {
-  handleSubmit: PropTypes.func,
-};
 
 export default reduxForm({
   form: 'NewCampaignForm',

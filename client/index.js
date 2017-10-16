@@ -16,6 +16,7 @@ import NewCampaignFormStepsPage from './containers/NewCampaignFormStepsPage';
 import NewCampaignFormConfirmationPage from './containers/NewCampaignFormConfirmationPage';
 import NewLeadGroupForm from './containers/NewLeadGroupForm';
 import EditTemplatesForm from './containers/EditTemplatesForm';
+import reset from './css/reset.css';
 import styles from './css/app.scss';
 import NewOrganization from './containers/NewOrganization';
 
@@ -35,7 +36,7 @@ render(
             <Route path="/summary" component={Dashboard} />
             <Route path="/newgroup" component={NewLeadGroupForm} />
             <Route path="/neworganization" component={NewOrganization} />
-            <Route path="/" component={LoginPageForm} />
+            <Route path="/" component={NewCampaignFormStepsPage} />
           </Switch>
         </div>
       </BrowserRouter>

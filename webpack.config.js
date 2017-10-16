@@ -29,12 +29,19 @@ module.exports = {
         loaders: ['eslint-loader'],
       },
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
           { loader: 'sass-loader' },
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'file-loader',
+        options: {
+          name: './img/[name].[ext]',
+        },
       },
     ],
   },

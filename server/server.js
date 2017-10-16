@@ -18,6 +18,7 @@ process.env.NODE_ENV = 'production';
 
 app.use(express.static('./../build'));
 app.use(express.static('./../client'));
+app.use(express.static(path.join(__dirname, './../build')));
 app.use((request, response, next) => {
   response.header('Access-Control-Allow-Origin', '*');
   response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -115,6 +116,6 @@ app.post('/summary',
 
 app.listen(port, () => {
   console.log(`now listening on ${port}! \n`);
-  // ** UNCOMMENT TO START ENGINE **  
+  // ** UNCOMMENT TO START ENGINE **
   engine.begin();
 });

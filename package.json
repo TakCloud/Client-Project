@@ -26,6 +26,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.3.0",
+    "file-loader": "^1.1.5",
     "mailparser": "^2.0.5",
     "node-sass": "^4.5.3",
     "nodemon": "^1.12.0",
