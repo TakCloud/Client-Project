@@ -36,18 +36,15 @@ class NewCampaignFormFirstPage extends Component {
           showMenuIconButton={false}
           style={{ height: '100px', backgroundColor: '#2196F3' }}
         />
-        <form className="center-items">
+        <form className="newcampaign-form">
           <Field
             name="campaign_name"
             className="campaign-field"
             component={TextField}
             hintText="Campaign Name"
-            style={{ fontSize: '30px', width: '350px' }}
-            inputStyle={{ textAlign: 'center', fontSize: '20px' }}
-            hintStyle={{ textAlign: 'center', paddingLeft: '70px', marginTop: '40px' }}
           />
           <div className="first-page-radiobuttons-container">
-            <h3 className="first-page-title">Select Group</h3>
+            <h3 className="first-page-title">Select Recipient Group: </h3>
             <Field
               name="lead_group"
               className="first-page-radiobuttons"
@@ -57,9 +54,10 @@ class NewCampaignFormFirstPage extends Component {
               {this.renderLeadRadioButtons()}
             </Field>
           </div>
-          <FlatButton
+          <RaisedButton
             label="Add New Email Group"
             primary
+            className="add-new-email"
             containerElement={<Link to={'/newgroup'} />}
           />
           <RaisedButton
