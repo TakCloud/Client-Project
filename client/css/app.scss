@@ -124,3 +124,30 @@ input[name="campaign_name"] {
 .second-page-add-steps-button {
   margin-top: 20px;
 }
+
+// Campaign Step Fields Section
+
+.campaign-steps-email-body-container * {
+  vertical-align: middle;
+}
+
+.campaign-steps-email-body-title {
+  font-size: 1.0rem;
+  align-items: left;
+}
+
+.campaign-steps-email-body {
+  min-width: 300px;
+  height: 20%;
+}
+
+// Campaign Summary
+.campaign-summary-toolbar {
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+.campaign-summary-toolbar-title {
+  font-size: 20px;
+}
