@@ -2,7 +2,7 @@ export default function () {
   return [
     {
       leadgroup_id: 1,
-      leadgroup_name: 'VIP Clients',
+      leadgroup_name: 'USA Freight',
       leadgroup_emails: ['something@gmail.com', 'hello@codesmith.io'],
     },
     {

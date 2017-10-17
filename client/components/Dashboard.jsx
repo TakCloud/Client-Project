@@ -14,16 +14,5 @@ const Dashboard = () => {
   );
 };
 
-// export default class Dashboard extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <TopNavbar />
-//         <CampaignButtons />
-//         <BottomButtons />
-//       </div>
-//     );
-//   }
-// }
 
 export default Dashboard;
