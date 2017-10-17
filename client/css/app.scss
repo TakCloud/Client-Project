@@ -1,70 +1,50 @@
+@import './_variables.scss';
+@import './_mixins.scss';
+
+/*************************
+Universal Style
+*************************/
 html {
-  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+  font-family: $primary-font;
+  font-size: 1.6rem;
+  color: $primary-font-color;
 }
 
-
-.dark-primary-color    { background: #1976D2; }
-.default-primary-color { background: #2196F3; }
-.light-primary-color   { background: #BBDEFB; }
-.text-primary-color    { color: #FFFFFF; }
-.accent-color          { background: #607D8B; }
-.primary-text-color    { color: #212121; }
-.secondary-text-color  { color: #757575; }
-.divider-color         { border-color: #BDBDBD; }
-
-.center-items {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-between;
+body, #content, .application-container {
+  width: 100%;
+  height: 100%;
 }
 
+/*************************
+Background Style
+*************************/
 .application-container {
-  display: flex;
-  justify-content: center;
-  background-color: #EEEEEE;
-  align-items: center;
+  background-image: url("../assets/bg.png");
+  background-size: 100% 100%;
 }
 
+#content, .application-container {
+  position: relative;
+}
+
+/*************************
+Campaign Form Style
+*************************/
 .newcampaign-container {
-  width: 98%;
-  margin-top: 12px;
-  background-color: #FFF;
+  display: inline-block;
+  width: 33%;
+  height: auto;
+  @include center-v-h();
+  padding-bottom: 4%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
 }
 
-.first-page-radiobuttons-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 90%;
-}
-
-.first-page-radiobuttons {
-  padding-right: 120px;
-}
-
-.campaign-field {
-  padding-top: 60px;
-}
-
-.campaign-form-next-buttons {
-  justify-content: flex-end;
-  display: flex;
-}
-
-.first-page-title {
-  font-size: 28px;
-  background-color: #BDBDBD;
-  padding: 15px 56px 15px 56px;
-  text-align: center;
-  width: 80%;
-  border-radius: 20px;
-}
-
+// Header Section
 .first-page-header {
   display: flex;
   justify-content: center;
@@ -72,20 +52,66 @@ body {
 }
 
 .first-page-header h1 {
-  font-size: 50px !important;
   text-align: center;
   vertical-align: middle;
 }
 
+// Create New Campaign Field Section
+.newcampaign-form {
+  width: 100%;
+  padding: 0 5%;
+  box-sizing: border-box;
+}
+
+.campaign-field {
+  @include center-h();
+  width: 95% !important;
+  height: 70px !important;
+  margin-top: 10%;
+}
+
+.campaign-field div:first-child {
+  @include center-h();
+  width: fit-content !important;
+  padding: 4% 0;
+  font-weight: 700;
+  font-size: 2.6rem;
+}
+input[name="campaign_name"] {
+  padding-bottom: 4% !important;
+  text-align: center;
+  font-weight: 700 !important;
+  font-size: 2.6rem !important;
+  color: #636363 !important;
+}
+
+// Select Group Section
+.first-page-radiobuttons-container {
+  max-height: 40%;
+  margin: 10% 0;
+  padding: 0 7%;
+  overflow: scroll;
+}
 .first-page-select-group-radio-buttons {
-  margin: 25px;
-  border-style: solid;
-  text-align: left;
-  background-color: #CFD8DC;
-  padding: 24px 56px 24px 56px;
-  border-radius: 20px;
-  width: auto;
-  font-size: 18px;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.first-page-title {
+  margin-bottom: 3%;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.first-page-select-group-radio-buttons {
+  font-size: 1.0rem;
+  margin-bottom: 1.5% !important;
+}
+
+// Action Button Section
+.add-new-email {
+  margin-left: 7% !important;
+}
+.campaign-form-next-buttons {
+  margin-left: 7% !important;
 }
 
 .steps-container {
@@ -99,57 +125,29 @@ body {
   margin-top: 20px;
 }
 
-@media only screen
-and (min-device-width: 414px )
-and (max-device-width: 736px ) {
-  .newcampaign-container {
-    width: 98%;
-    margin-top: 12px;
-    background-color: #FFF;
-    font-size: 44px;
-  }
-  .application-container {
-    height: 1700px;
-  }
-   .campaign-radio-buttons {
-     margin: 24px;
-     font-size: 40px;
-   }
-  .first-page-title, .first-page-select-group-radio-buttons {
-    background-color: #eee;
-    padding: 24px 56px 24px 56px;
-    text-align: center;
-    width: 80%;
-    border-radius: 20px;
-  }
-  .campaign-form, .first-page-radiobuttons {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 450px;
-  }
-  .newcampaign-footer {
-    display: flex;
-    justify-content: center;
-  }
+// Campaign Step Fields Section
 
-  //.newcampaign-header {
-  //  font-size: 56px;
-  //  display: flex;
-  //  justify-content: center;
-  //  align-items: center;
-  //  height: 100px;
-  //  background-color: #eee;
-  //}
-  .newcampaign-footer-btn {
-    font-size: 36px;
-    text-decoration: none;
-    background-color: #eee;
-    padding: 20px 36px 20px 36px;
-    color: #222;
-    flex: 1;
-    text-align: center;
-    border: 1px solid #fff
-  }
+.campaign-steps-email-body-container * {
+  vertical-align: middle;
+}
 
+.campaign-steps-email-body-title {
+  font-size: 1.0rem;
+  align-items: left;
+}
+
+.campaign-steps-email-body {
+  min-width: 300px;
+  height: 20%;
+}
+
+// Campaign Summary
+.campaign-summary-toolbar {
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+.campaign-summary-toolbar-title {
+  font-size: 20px;
 }

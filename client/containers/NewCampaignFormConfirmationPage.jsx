@@ -6,6 +6,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
 import { postNewCampaign } from '../actions/postNewCampaign';
 
+const selector = formValueSelector('NewCampaignForm');
+
+
 class NewCampaignFormConfirmationPage extends Component {
   onSubmit = (values) => {
     const valObj = values;
@@ -19,8 +22,19 @@ class NewCampaignFormConfirmationPage extends Component {
     this.props.postNewCampaign(valObj, () => this.props.history.push('/summary'));
   }
 
+  renderCampaignStepsPreview = () => {
+    return this.props.campaignSteps.map((step, index) => (
+      <div key={index}>
+        {`STEP ${index + 1}`}
+        {step.template.subject}
+        {step.template.body}
+        {step.template.subject}
+        {String(step.time_interval)}
+      </div>
+    ));
+  }
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, campaignName, campaignEmailGroup } = this.props;
     return (
       <div className="newcampaign-container">
         <AppBar
@@ -32,24 +46,43 @@ class NewCampaignFormConfirmationPage extends Component {
         />
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <RaisedButton
-            className="lastPageButton"
             type="submit"
             label="Confirm"
             primary
           />
         </form>
+        <div>
+          Campaign Name: {campaignName}
+          Group Selected: {campaignEmailGroup}
+          {this.renderCampaignStepsPreview()}
+        </div>
       </div>
     );
   }
+}
+
+function mapStateToProps(state) {
+  const campaignName = selector(state, 'campaign_name');
+  const campaignSteps = selector(state, 'steps');
+  const campaignEmailGroup = selector(state, 'lead_group_id');
+  return {
+    campaignName,
+    campaignSteps,
+    campaignEmailGroup,
+    userTemplates: state.userFakeTemplates,
+  };
 }
 
 NewCampaignFormConfirmationPage.propTypes = {
   handleSubmit: PropTypes.func,
   postNewCampaign: PropTypes.func,
   history: PropTypes.object,
+  campaignName: PropTypes.string,
+  campaignSteps: PropTypes.array,
+  campaignEmailGroup: PropTypes.string,
 };
 
 export default reduxForm({
   form: 'NewCampaignForm',
   destroyOnUnmount: false,
-})(connect(null, { postNewCampaign })(NewCampaignFormConfirmationPage));
+})(connect(mapStateToProps, { postNewCampaign })(NewCampaignFormConfirmationPage));

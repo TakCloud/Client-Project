@@ -16,8 +16,11 @@ import NewCampaignFormStepsPage from './containers/NewCampaignFormStepsPage';
 import NewCampaignFormConfirmationPage from './containers/NewCampaignFormConfirmationPage';
 import NewLeadGroupForm from './containers/NewLeadGroupForm';
 import EditTemplatesForm from './containers/EditTemplatesForm';
+import NewCampaignFormSummaryPage from './containers/NewCampaignFormSummaryPage';
+import reset from './css/reset.css';
 import styles from './css/app.scss';
 import NewOrganization from './containers/NewOrganization';
+import NewCampaignStepsFormPageTwo from './containers/NewCampaignFormStepsPageTwo';
 
 render(
   <Provider store={createStore(reducers, initialState,
@@ -28,14 +31,14 @@ render(
       <BrowserRouter>
         <div className="application-container">
           <Switch>
-            <Route path="/summary/newcampaign/confirm" component={NewCampaignFormConfirmationPage} />
+            <Route path="/summary/newcampaign/confirm" component={NewCampaignFormSummaryPage} />
             <Route path="/summary/newcampaign/steps" component={NewCampaignFormStepsPage} />
             <Route path="/summary/newcampaign" component={NewCampaignFormFirstPage} />
             <Route path="/summary/:id" component={RealPieCharts} />
             <Route path="/summary" component={Dashboard} />
             <Route path="/newgroup" component={NewLeadGroupForm} />
             <Route path="/neworganization" component={NewOrganization} />
-            <Route path="/" component={LoginPageForm} />
+            <Route path="/" component={NewCampaignFormFirstPage} />
           </Switch>
         </div>
       </BrowserRouter>
