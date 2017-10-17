@@ -7,7 +7,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/client/',
+    // publicPath: '/client/',
     filename: 'bundle.js',
   },
   resolve: {
@@ -29,12 +29,19 @@ module.exports = {
         loaders: ['eslint-loader'],
       },
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
           { loader: 'sass-loader' },
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'file-loader',
+        options: {
+          name: './img/[name].[ext]',
+        },
       },
     ],
   },
@@ -43,6 +50,6 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './',
+    contentBase: path.join(__dirname, '/build'),
   },
 };
