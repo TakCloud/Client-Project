@@ -59,7 +59,7 @@ const renderSteps = ({ fields } = PropTypes) => (
     ))}
     <RaisedButton
       className="second-page-add-steps-button"
-      label="Add Step"
+      label="Create Campaign Content"
       onClick={() => fields.push({})}
       secondary
     /><br />
