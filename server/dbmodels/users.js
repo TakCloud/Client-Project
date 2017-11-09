@@ -9,13 +9,6 @@ const Users = sequelize.define('users', {
     autoIncrement: true,
     allowNull: false,
   },
-<<<<<<< HEAD
-=======
-  user_organization_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
->>>>>>> 4e95e85c0936e61d08072cbe1aea77cb0d79b2e4
   user_organization_name: {
     type: Sequelize.STRING,
     allowNull: false,

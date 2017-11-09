@@ -44,8 +44,4 @@ db.emails.belongsTo(db.leads, { foreignKey: 'lead_id' });
 db.emails.belongsTo(db.users, { foreignKey: 'from_user_id' });
 db.emails.belongsTo(db.users, { foreignKey: 'sent_by_user_id' });
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4e95e85c0936e61d08072cbe1aea77cb0d79b2e4
 module.exports = db;
