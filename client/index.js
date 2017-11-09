@@ -21,6 +21,11 @@ import reset from './css/reset.css';
 import styles from './css/app.scss';
 import NewOrganization from './containers/NewOrganization';
 import NewCampaignStepsFormPageTwo from './containers/NewCampaignFormStepsPageTwo';
+<<<<<<< HEAD
+import Practice from './containers/practiceSwipeable';
+
+=======
+>>>>>>> 4e95e85c0936e61d08072cbe1aea77cb0d79b2e4
 
 render(
   <Provider store={createStore(reducers, initialState,
@@ -38,7 +43,12 @@ render(
             <Route path="/summary" component={Dashboard} />
             <Route path="/newgroup" component={NewLeadGroupForm} />
             <Route path="/neworganization" component={NewOrganization} />
+<<<<<<< HEAD
+            {<Route path="/" component={LoginPageForm} />}
+            {/* {<Route path="/" component={Practice} />} */}
+=======
             <Route path="/" component={NewCampaignFormFirstPage} />
+>>>>>>> 4e95e85c0936e61d08072cbe1aea77cb0d79b2e4
           </Switch>
         </div>
       </BrowserRouter>

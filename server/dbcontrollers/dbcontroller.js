@@ -53,13 +53,18 @@ dbcontroller.insert = (req, res, next) => {
         return acc;
       }, {});
       res.locals.databaseEntry = entryArr;
+      console.log('aleeeeex', res.locals.databaseEntry); // leave this here for testing purposes
       next();
     })
     .catch((err) => {
-      res.status(400).json(`Something went wrong when inserting data: ${err}`);
+      if (res.status) {
+        res.status(400).json(`Something went wrong when inserting data: ${err}`);
+      } else {
+        console.log('TESTING ERROR!!! CANT INSERT RECORD');
+        next();
+      }
     });
 };
-
 dbcontroller.createOrg = (req, res, next) => {
   models.user_organizations.create({
     organization_name: req.body.organization_name,

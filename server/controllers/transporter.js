@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer');
 const accessToken = require('../access_token').access_token;
 const refreshToken = require('../access_token').refresh_token;
+
 const transporter = nodemailer.createTransport({
   streamTransport: true,
   newline: 'windows',

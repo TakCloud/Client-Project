@@ -4,7 +4,7 @@ const threads = [];
 const messages = [];
 const history = [];
 
-gmail.users.messages.list({ userId: 'cheatcodes001@gmail.com', includeSpamTrash: true }, (err, results) => {
+gmail.users.messages.list({ userId: 'cheatcodes0001@gmail.com', includeSpamTrash: true }, (err, results) => {
   if (err) console.log('there was an error');
   if (results) {
     for (let i = 0; i < results.messages.length; i += 1) {
@@ -19,7 +19,7 @@ gmail.users.threads.list({ userId: 'cheatcodes001@gmail.com', includeSpamTrash: 
   if (response) {
     response.threads.forEach((THREAD) => {
       threads.push(THREAD);
-      // console.log(`THREAD HEADER, ${THREAD.snippet}: \n threadID: ${THREAD.id}`);
+      console.log(`THREAD HEADER, ${THREAD.snippet}: \n threadID: ${THREAD.id}`);
     });
     // console.log('MY THREADSLENGTH: ', threads.length);
     // if response.threads[i].snippet.match(/[Address was not found]+/gi)

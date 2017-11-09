@@ -1,6 +1,6 @@
 const updateEmailRecord = require('./updateEmailRecord.js');
 
-module.exports = (email, mailer, message) => {
+module.exports = (email, mailer, message, done) => {
   // console.log('look at this: ', message);
   mailer.sendMail(message)
     .then(() => {

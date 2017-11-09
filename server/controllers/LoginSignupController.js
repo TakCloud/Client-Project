@@ -9,6 +9,8 @@ module.exports = (req, res, next) => {
     .then((entry) => {
       const inputPass = req.body.password;
       const savedPass = entry.dataValues.user_password;
+      // USERNAME: cheatcodes002@gmail.com
+      // THE PASSWORD IS 1234
       bcrypt.compare(inputPass, savedPass)
         .then((resolution) => {
           if (resolution) {

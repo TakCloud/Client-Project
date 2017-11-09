@@ -1,11 +1,11 @@
 {
   "name": "clientproject",
   "version": "1.0.0",
-  "description": "",
+  "description": "mailer service",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "webdev": "node_modules/.bin/webpack-dev-server --hot --inline --w",
+    "test": "export NODE_ENV=test && mocha --timeout 15000 test/",
+    "webdev": "node_modules/.bin/webpack-dev-server --w",
     "webpack": "./node_modules/.bin/webpack --w",
     "start": "nodemon ./server/server.js"
   },
@@ -26,13 +26,16 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.3.0",
+    "expect": "^21.2.1",
     "file-loader": "^1.1.5",
-    "mailparser": "^2.0.5",
+    "mocha": "^4.0.1",
     "node-sass": "^4.5.3",
     "nodemon": "^1.12.0",
     "sass-loader": "^6.0.6",
+    "sinon": "^4.1.2",
     "style-loader": "^0.18.2",
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-server": "^2.7.1",
+    "zombie": "^5.0.7"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -46,6 +49,7 @@
     "googleapis": "^21.3.0",
     "jsonwebtoken": "^8.1.0",
     "lodash": "^4.17.4",
+    "mailparser": "^2.0.5",
     "material-ui": "^0.19.1",
     "nodemailer": "^4.1.0",
     "pg": "^7.3.0",
