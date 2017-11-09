@@ -5,6 +5,7 @@ export const FETCH_USERDETAILS = 'FETCH_USERDETAILS';
 export const FETCH_USERTEMPLATES = 'FETCH_USERTEMPLATES';
 export const FETCH_USERTOTALMETRICS = 'FETCH_USERTOTALMETRICS';
 
+
 export function fetchUserData(user, callback) {
   return (dispatch) => {
     axios.post('/login', user)
