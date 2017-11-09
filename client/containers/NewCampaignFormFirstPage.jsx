@@ -41,11 +41,8 @@ class NewCampaignFormFirstPage extends Component {
               className="campaign-field"
               component={TextField}
               hintText="Campaign Name"
-<<<<<<< HEAD
               hintStyle={{ fontSize: '25px' }}
               style={{ fontSize: '5px' }}
-=======
->>>>>>> 4e95e85c0936e61d08072cbe1aea77cb0d79b2e4
             />
             <div className="first-page-radiobuttons-container">
               <h3 className="first-page-title">Select Recipient Group: </h3>
@@ -89,7 +86,3 @@ export default reduxForm({
   form: 'NewCampaignForm',
   destroyOnUnmount: false,
 })(connect(mapStateToProps)(NewCampaignFormFirstPage));
-<<<<<<< HEAD
-=======
-
->>>>>>> 4e95e85c0936e61d08072cbe1aea77cb0d79b2e4
