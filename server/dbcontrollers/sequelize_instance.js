@@ -15,3 +15,5 @@ console.log(sequelURL);
 module.exports = new Sequelize(sequelURL, {
   dialect: 'postgres',
 });
+// INNER JOIN: select * from users join emails on users.user_id = emails.sent_by_user_id
+// OUTTER LEFT JOIN: select * from users left outer join emails on users.user_id = emails.sent_by_user_id
