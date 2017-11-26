@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { TextField } from 'redux-form-material-ui';
@@ -11,7 +12,12 @@ import { postNewLeadGroup } from '../actions/postNewLeadGroup';
 class NewEmailGroupForm extends Component {
   onSubmit = (values) => {
     console.log(values);
-  }
+    axios.post('/createleadgroup', values)
+      .then(() => {
+        console.log('hi');
+        this.props.history.push('/summary');
+      });
+  };
 
   render() {
     const { handleSubmit } = this.props;
@@ -19,7 +25,7 @@ class NewEmailGroupForm extends Component {
       <MuiThemeProvider>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <Field
-            name="leadgroup_name"
+            name="lead_group_name"
             component={TextField}
             floatingLabelText="Email Group Name"
           />
@@ -41,6 +47,7 @@ class NewEmailGroupForm extends Component {
 
 NewEmailGroupForm.propTypes = {
   handleSubmit: PropTypes.func,
+  history: PropTypes.object,
 };
 
 export default reduxForm({

@@ -99,6 +99,7 @@ app.post('/createuser',
 app.post('/createleadgroup',
   dbcontroller.insert,
   (req, res) => {
+    console.log('res.locals.databaseEntry', res.locals.databaseEntry)
     res.json(res.locals.databaseEntry);
   });
 

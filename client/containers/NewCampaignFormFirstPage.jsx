@@ -28,7 +28,7 @@ class NewCampaignFormFirstPage extends Component {
 
     render() {
       return (
-        <div className="newcampaign-container">
+        <div className="newcampaign-container" style={{ top: '400px' }}>
           <AppBar
             title="New Campaign"
             className="first-page-header"
